@@ -1,0 +1,66 @@
+body {
+  width: 92%;
+  padding: 0 4% 0 4%;
+  margin: 0 auto auto auto;
+  max-width: 800px;
+  overflow-y: scroll;
+
+  background-color: rgb(245, 245, 245);
+  font-size: 12pt;
+  font-weight: 300;
+  text-align: left;
+  font-family: 'Roboto Slab', serif;
+  line-height: 18pt;
+}
+
+/* Top Bar */
+.topBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 5;
+  height: 28pt;
+  width: 92%;
+  max-width: 800px;
+  position: fixed;
+  padding: 0 20pt;
+}
+
+.topBar::before{
+  content: "";
+  height: 28pt;
+  width: 100%;
+  left: 0;
+  top: 0;
+  position: fixed;
+  z-index: -1;
+  background-color: white;
+  border-bottom: 1px solid rgb(0, 0, 0, 0.20);
+  box-shadow: 0 0 10px 1px rgb(0, 0, 0, 0.05);
+}
+
+
+.mainTitle {
+  color: rgb(0, 0, 0, 1);
+  font-weight: 400;
+  font-family: monospace;
+  font-size: 10pt;
+
+}
+
+.mainSubtle {
+  color: rgb(0, 0, 0, 0.5);
+  font-weight: 300;
+}
+
+.mainBody {
+  padding: 32pt 20pt 500pt 20pt;
+  border-left: 1px solid rgb(0, 0, 0, 0.15);
+  border-right: 1px solid rgb(0, 0, 0, 0.15);
+  background-color: rgb(252, 252, 252);
+}
+
+.h1 {
+  color: rgb(40, 100, 110);
+  font-weight: 200;
+}
