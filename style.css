@@ -120,3 +120,40 @@ ul {
 .sectionBody {
   margin:0 0 10pt 0;
 }
+
+
+
+@media only screen and (max-width: 601px) {
+  .desktopOnly {
+    display: none;
+  }
+
+  .iconCon {
+    display: flex;
+    justify-content: center;
+  }
+
+  .contactCard {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto 10pt auto;
+  }
+
+  .leftCol, .rightCol {
+    width: 100%;
+    border: none;
+    padding: 0 0 10pt 0;
+    text-align: center;
+    margin: 0;
+    display: block;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .contactImg {
+    margin: 0 auto;
+    padding: 0;
+  }
+
+}
