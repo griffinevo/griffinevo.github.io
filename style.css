@@ -62,6 +62,7 @@ body {
 .contactImg {
   border-radius: 50%;
   border: 1px solid rgb(0,0,0,0.2);
+  max-width: 140px;
 }
 
 .contactTopline, .sectionHead {
@@ -70,8 +71,7 @@ body {
 }
 
 .leftCol {
-  width: 25%;
-  max-width: 140px;
+  width: 140px;
   padding: 8pt 16pt 8pt 0;
   display: flex;
   align-items: center;
