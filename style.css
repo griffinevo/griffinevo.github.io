@@ -12,7 +12,7 @@ body {
   font-family: 'Roboto Slab', serif;
   line-height: 18pt;
 
-  color: rgb(40,60,65);
+  color: rgb(40,50,55);
 
 }
 
@@ -47,7 +47,7 @@ body {
 }
 
 .mainTitle {
-  color: red;
+  color: #c2db00;
   font-weight: 400;
   font-size: 12pt;
 }
@@ -97,7 +97,7 @@ a {
 }
 
 a:hover {
-  color: red;
+  color: #c2db00;
   transition: 0.2s;
 }
 
