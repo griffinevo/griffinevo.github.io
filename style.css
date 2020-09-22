@@ -11,6 +11,9 @@ body {
   text-align: left;
   font-family: 'Roboto Slab', serif;
   line-height: 18pt;
+
+  color: rgb(40,60,65);
+
 }
 
 /* Top Bar */
@@ -23,7 +26,7 @@ body {
   width: 92%;
   max-width: 800px;
   position: fixed;
-  padding: 0 20pt;
+  padding: 0 0;
 }
 
 .topBar::before{
@@ -34,33 +37,86 @@ body {
   top: 0;
   position: fixed;
   z-index: -1;
-  background-color: white;
+  background-color: #2c4a3f;
   border-bottom: 1px solid rgb(0, 0, 0, 0.20);
   box-shadow: 0 0 10px 1px rgb(0, 0, 0, 0.05);
 }
 
+.mainBody {
+  padding: 40pt 0 0 0;
+}
 
 .mainTitle {
-  color: rgb(0, 0, 0, 1);
+  color: red;
   font-weight: 400;
-  font-family: monospace;
-  font-size: 10pt;
-
+  font-size: 12pt;
 }
 
-.mainSubtle {
-  color: rgb(0, 0, 0, 0.5);
-  font-weight: 300;
+.contactCard {
+  display: flex;
+  justify-content: flex-start;
+  border-bottom: 1px solid rgb(0,0,0,0.08);
+  margin: 0 0 10pt 0;
 }
 
-.mainBody {
-  padding: 32pt 20pt 500pt 20pt;
-  border-left: 1px solid rgb(0, 0, 0, 0.15);
-  border-right: 1px solid rgb(0, 0, 0, 0.15);
-  background-color: rgb(252, 252, 252);
+.contactImg {
+  border-radius: 50%;
+  border: 1px solid rgb(0,0,0,0.2);
 }
 
-.h1 {
-  color: rgb(40, 100, 110);
-  font-weight: 200;
+.contactTopline, .sectionHead {
+  font-weight: 400;
+  color: #2c4a3f;
+}
+
+.leftCol {
+  width: 25%;
+  max-width: 140px;
+  padding: 8pt 16pt 8pt 0;
+  display: flex;
+  align-items: center;
+}
+
+.rightCol {
+ border-left: 1px solid rgb(0,0,0,0.08);
+ padding: 8pt 0 8pt 16pt;
+ display: flex;
+ align-items: center;
+ overflow-x: auto;
+}
+
+.icon {
+  margin: 0;
+  padding: 0 5pt 0 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: 0.2s;
+}
+
+a:hover {
+  color: red;
+  transition: 0.2s;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sectionHead {
+  padding: 0 0 4pt 0;
+}
+
+.sectionCon {
+  margin: 0 0 10pt 0;
+  padding: 0 0 0 0;
+  border-bottom: 1px solid rgb(0,0,0,0.08);
+}
+
+.sectionBody {
+  margin:0 0 10pt 0;
 }
