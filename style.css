@@ -162,6 +162,11 @@ pre {
   font-family: 'Inconsolata', monospace;
 }
 
+.source, .output {
+  max-width: 100%;
+  width: inherit;
+}
+
 .source, .output, .warning, .error, .message {
   padding: 2pt 0 2pt 6pt;
 }
