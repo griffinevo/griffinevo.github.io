@@ -138,6 +138,8 @@ ul {
 .jobDate {
   padding: 0 0 6pt 0;
 }
+
+
 @media only screen and (max-width: 601px) {
   .desktopOnly {
     display: none;
