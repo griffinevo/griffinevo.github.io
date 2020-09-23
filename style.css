@@ -94,13 +94,20 @@ body {
   padding: 0 5pt 0 0;
 }
 
+
 a {
   text-decoration: none;
   color: inherit;
   transition: 0.2s;
 }
 
-a:hover {
+
+.fa-plus-circle {
+  color: rgb(0, 60, 75, 0.2);
+  transition: 0.2s;
+}
+
+a:hover, a:hover i {
   color: #c2db00;
   transition: 0.2s;
 }
