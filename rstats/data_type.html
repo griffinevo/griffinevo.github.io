@@ -1,5 +1,67 @@
 <!DOCTYPE html>
 <head>
+<style type="text/css">
+.inline {
+  background-color: #f7f7f7;
+  border:solid 1px #B0B0B0;
+}
+.error {
+	font-weight: bold;
+	color: #FF0000;
+}
+.warning {
+	font-weight: bold;
+}
+.message {
+	font-style: italic;
+}
+.source, .output, .warning, .error, .message {
+	padding: 0 1em;
+  border:solid 1px #F7F7F7;
+}
+.source {
+  background-color: #f5f5f5;
+}
+.left {
+  text-align: left;
+}
+.right {
+  text-align: right;
+}
+.center {
+  text-align: center;
+}
+.hl.num {
+  color: #AF0F91;
+}
+.hl.str {
+  color: #317ECC;
+}
+.hl.com {
+  color: #AD95AF;
+  font-style: italic;
+}
+.hl.opt {
+  color: #000000;
+}
+.hl.std {
+  color: #585858;
+}
+.hl.kwa {
+  color: #295F94;
+  font-weight: bold;
+}
+.hl.kwb {
+  color: #B05A65;
+}
+.hl.kwc {
+  color: #55aa55;
+}
+.hl.kwd {
+  color: #BC5A65;
+  font-weight: bold;
+}
+</style>
   <meta charset='utf-8'/>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
   <title>RStats</title>
@@ -46,10 +108,13 @@
       - use them where possible to maximise efficiency.
     </div>
 
-<!--begin.rcode results='hold'
-c(TRUE, FALSE)
-typeof(c(TRUE, FALSE))
-end.rcode-->
+<div class="chunk" id="unnamed-chunk-1"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">TRUE</span><span class="hl std">,</span> <span class="hl num">FALSE</span><span class="hl std">)</span>
+<span class="hl kwd">typeof</span><span class="hl std">(</span><span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">TRUE</span><span class="hl std">,</span> <span class="hl num">FALSE</span><span class="hl std">))</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1]  TRUE FALSE
+## [1] &quot;logical&quot;
+</pre></div>
+</div></div>
 
 
     <div class = 'sectionHead'>Integer</div>
@@ -60,13 +125,16 @@ end.rcode-->
       by providing whole numbers suffixed with <span class='inline'>L</span>.
     </div>
 
-<!--begin.rcode results='hold'
-# Three integer type data values
-c(1L, 2L, 3L)
+<div class="chunk" id="unnamed-chunk-2"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># Three integer type data values</span>
+<span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">1L</span><span class="hl std">,</span> <span class="hl num">2L</span><span class="hl std">,</span> <span class="hl num">3L</span><span class="hl std">)</span>
 
-# Return the type
-typeof(c(1L, 2L, 3L))
-end.rcode-->
+<span class="hl com"># Return the type</span>
+<span class="hl kwd">typeof</span><span class="hl std">(</span><span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">1L</span><span class="hl std">,</span> <span class="hl num">2L</span><span class="hl std">,</span> <span class="hl num">3L</span><span class="hl std">))</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] 1 2 3
+## [1] &quot;integer&quot;
+</pre></div>
+</div></div>
 
     <div class = 'sectionBody'>
       Integer type data values can be any where between roughly -2.15B and 2.15B, 
@@ -77,10 +145,12 @@ end.rcode-->
       of functions is used.
     </div>
     
-<!--begin.rcode results='hold'
-# Global population (roughly 7.8B) 
-is.integer(7800000000L)
-end.rcode-->
+<div class="chunk" id="unnamed-chunk-3"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># Global population (roughly 7.8B) </span>
+<span class="hl kwd">is.integer</span><span class="hl std">(</span><span class="hl num">7800000000L</span><span class="hl std">)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] FALSE
+</pre></div>
+</div></div>
 
 
     <div class = 'sectionHead'>Double</div>
@@ -89,22 +159,27 @@ end.rcode-->
       Double double double.
     </div>
 
-<!--begin.rcode results='hold'
-# Three double type data values
-c(11.6, 13.4, 15.5)
+<div class="chunk" id="unnamed-chunk-4"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># Three double type data values</span>
+<span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">11.6</span><span class="hl std">,</span> <span class="hl num">13.4</span><span class="hl std">,</span> <span class="hl num">15.5</span><span class="hl std">)</span>
 
-# Return the type
-typeof(c(11.6, 13.4, 15.5))
-end.rcode-->
+<span class="hl com"># Return the type</span>
+<span class="hl kwd">typeof</span><span class="hl std">(</span><span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">11.6</span><span class="hl std">,</span> <span class="hl num">13.4</span><span class="hl std">,</span> <span class="hl num">15.5</span><span class="hl std">))</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] 11.6 13.4 15.5
+## [1] &quot;double&quot;
+</pre></div>
+</div></div>
 
     <div class = 'sectionBody'>
       Double double double.
     </div>
     
-<!--begin.rcode results='hold'
-# Whole numbers will be double type if the L is omitted
-typeof(c(1, 2, 3))
-end.rcode-->
+<div class="chunk" id="unnamed-chunk-5"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># Whole numbers will be double type if the L is omitted</span>
+<span class="hl kwd">typeof</span><span class="hl std">(</span><span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">1</span><span class="hl std">,</span> <span class="hl num">2</span><span class="hl std">,</span> <span class="hl num">3</span><span class="hl std">))</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] &quot;double&quot;
+</pre></div>
+</div></div>
 
 
     <div class = 'sectionHead'>Character</div>
@@ -113,25 +188,31 @@ end.rcode-->
       Character character character.
     </div>
 
-<!--begin.rcode results='hold'
-# Four character type data values
-c('The', 'quick', 'brown', 'fox')
+<div class="chunk" id="unnamed-chunk-6"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># Four character type data values</span>
+<span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">'The'</span><span class="hl std">,</span> <span class="hl str">'quick'</span><span class="hl std">,</span> <span class="hl str">'brown'</span><span class="hl std">,</span> <span class="hl str">'fox'</span><span class="hl std">)</span>
 
-# Return the type
-typeof(c('The', 'quick', 'brown', 'fox'))
-end.rcode-->
+<span class="hl com"># Return the type</span>
+<span class="hl kwd">typeof</span><span class="hl std">(</span><span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">'The'</span><span class="hl std">,</span> <span class="hl str">'quick'</span><span class="hl std">,</span> <span class="hl str">'brown'</span><span class="hl std">,</span> <span class="hl str">'fox'</span><span class="hl std">))</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] &quot;The&quot;   &quot;quick&quot; &quot;brown&quot; &quot;fox&quot;  
+## [1] &quot;character&quot;
+</pre></div>
+</div></div>
 
     <div class = 'sectionBody'>
       Character character character.
     </div>
     
-<!--begin.rcode results='hold'
-# Either type of qoutes can be used
-c("The", "quick", "brown", "fox")
+<div class="chunk" id="unnamed-chunk-7"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># Either type of qoutes can be used</span>
+<span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;The&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;quick&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;brown&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;fox&quot;</span><span class="hl std">)</span>
 
-# This allows strings to contain quotes
-c("Don't use the wrong quotes here!")
-end.rcode-->
+<span class="hl com"># This allows strings to contain quotes</span>
+<span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;Don't use the wrong quotes here!&quot;</span><span class="hl std">)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] &quot;The&quot;   &quot;quick&quot; &quot;brown&quot; &quot;fox&quot;  
+## [1] &quot;Don't use the wrong quotes here!&quot;
+</pre></div>
+</div></div>
 
 
     <div class = 'sectionHead'>Summary</div>
