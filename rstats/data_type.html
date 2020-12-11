@@ -108,7 +108,10 @@
       - use them where possible to maximise efficiency.
     </div>
 
-<div class="chunk" id="unnamed-chunk-1"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">TRUE</span><span class="hl std">,</span> <span class="hl num">FALSE</span><span class="hl std">)</span>
+<div class="chunk" id="unnamed-chunk-1"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># Two logical type data values</span>
+<span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">TRUE</span><span class="hl std">,</span> <span class="hl num">FALSE</span><span class="hl std">)</span>
+
+<span class="hl com"># Return the type of data</span>
 <span class="hl kwd">typeof</span><span class="hl std">(</span><span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">TRUE</span><span class="hl std">,</span> <span class="hl num">FALSE</span><span class="hl std">))</span>
 </pre></div>
 <div class="output"><pre class="knitr r">## [1]  TRUE FALSE
@@ -185,14 +188,14 @@
     <div class = 'sectionHead'>Character</div>
 
     <div class = 'sectionBody'>
-      Character character character.
+      Character character character. - Both can be used by "" is preferred.
     </div>
 
 <div class="chunk" id="unnamed-chunk-6"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># Four character type data values</span>
-<span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">'The'</span><span class="hl std">,</span> <span class="hl str">'quick'</span><span class="hl std">,</span> <span class="hl str">'brown'</span><span class="hl std">,</span> <span class="hl str">'fox'</span><span class="hl std">)</span>
+<span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;The&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;quick&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;brown&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;fox&quot;</span><span class="hl std">)</span>
 
 <span class="hl com"># Return the type</span>
-<span class="hl kwd">typeof</span><span class="hl std">(</span><span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">'The'</span><span class="hl std">,</span> <span class="hl str">'quick'</span><span class="hl std">,</span> <span class="hl str">'brown'</span><span class="hl std">,</span> <span class="hl str">'fox'</span><span class="hl std">))</span>
+<span class="hl kwd">typeof</span><span class="hl std">(</span><span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;The&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;quick&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;brown&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;fox&quot;</span><span class="hl std">))</span>
 </pre></div>
 <div class="output"><pre class="knitr r">## [1] &quot;The&quot;   &quot;quick&quot; &quot;brown&quot; &quot;fox&quot;  
 ## [1] &quot;character&quot;
@@ -204,12 +207,16 @@
     </div>
     
 <div class="chunk" id="unnamed-chunk-7"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># Either type of qoutes can be used</span>
-<span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;The&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;quick&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;brown&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;fox&quot;</span><span class="hl std">)</span>
+<span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">'The'</span><span class="hl std">,</span> <span class="hl str">'quick'</span><span class="hl std">,</span> <span class="hl str">'brown'</span><span class="hl std">,</span> <span class="hl str">'fox'</span><span class="hl std">)</span>
+
+<span class="hl com"># But a character string is contained in a matching pair</span>
+<span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;The', 'quick', 'brown', 'fox&quot;</span><span class="hl std">)</span>
 
 <span class="hl com"># This allows strings to contain quotes</span>
 <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;Don't use the wrong quotes here!&quot;</span><span class="hl std">)</span>
 </pre></div>
 <div class="output"><pre class="knitr r">## [1] &quot;The&quot;   &quot;quick&quot; &quot;brown&quot; &quot;fox&quot;  
+## [1] &quot;The', 'quick', 'brown', 'fox&quot;
 ## [1] &quot;Don't use the wrong quotes here!&quot;
 </pre></div>
 </div></div>
