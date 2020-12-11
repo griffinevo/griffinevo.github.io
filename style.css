@@ -195,6 +195,9 @@ pre {
 .source, .output {
   max-width: 100%;
   width: inherit;
+  -moz-box-shadow:    inset 0 0 5px rgb(0,0,0,0.2);
+  -webkit-box-shadow: inset 0 0 5px rgb(0,0,0,0.2);
+  box-shadow:         inset 0 0 5px rgb(0,0,0,0.2);
 }
 
 .source, .output, .warning, .error, .message {
