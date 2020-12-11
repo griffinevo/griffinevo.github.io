@@ -47,7 +47,10 @@
     </div>
 
 <!--begin.rcode results='hold'
+# Two logical type data values
 c(TRUE, FALSE)
+
+# Return the type of data
 typeof(c(TRUE, FALSE))
 end.rcode-->
 
@@ -110,15 +113,15 @@ end.rcode-->
     <div class = 'sectionHead'>Character</div>
 
     <div class = 'sectionBody'>
-      Character character character.
+      Character character character. - Both can be used by "" is preferred.
     </div>
 
 <!--begin.rcode results='hold'
 # Four character type data values
-c('The', 'quick', 'brown', 'fox')
+c("The", "quick", "brown", "fox")
 
 # Return the type
-typeof(c('The', 'quick', 'brown', 'fox'))
+typeof(c("The", "quick", "brown", "fox"))
 end.rcode-->
 
     <div class = 'sectionBody'>
@@ -127,7 +130,10 @@ end.rcode-->
     
 <!--begin.rcode results='hold'
 # Either type of qoutes can be used
-c("The", "quick", "brown", "fox")
+c('The', 'quick', 'brown', 'fox')
+
+# But a character string is contained in a matching pair
+c("The', 'quick', 'brown', 'fox")
 
 # This allows strings to contain quotes
 c("Don't use the wrong quotes here!")
