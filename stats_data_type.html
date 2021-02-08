@@ -148,11 +148,11 @@
 </pre></div>
 </div></div>
         
-        <p>It can be very useful to remember that R will convert logical values of <span class="ri">TRUE</span> and <span class="ri">FALSE</span> to integer values of <span class="ri">1</span> and <span class="ri">0</span> respectively when it makes sense to do so. This can make script much more elegant. The below example shows two methods for finding the frequency of the value <span class = "ri">TRUE</span>, the first is how most would write it, but the other takes advantage of the fact that R will coerce the data to integer values when a function expecting numeric values is used.</p>
+        <p>It can be very useful to remember that R will convert logical values of <span class="ri">TRUE</span> and <span class="ri">FALSE</span> to integer values of <span class="ri">1</span> and <span class="ri">0</span> respectively when it makes more sense to do so. This can make script much more elegant. The below example shows two methods for finding the frequency of the value <span class = "ri">TRUE</span>, the first is how most would write it, but the other takes advantage of the fact that R will coerce the data to integer values when a function expecting numeric values is used.</p>
         
 <div class="chunk" id="unnamed-chunk-3"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># Method 1 uses the length function and logical (==) and mathematical (/) operators</span>
 <span class="hl kwd">length</span><span class="hl std">(v_log[v_log</span> <span class="hl opt">==</span> <span class="hl num">TRUE</span><span class="hl std">])</span> <span class="hl opt">/</span> <span class="hl kwd">length</span><span class="hl std">(v_log)</span>
-<span class="hl com"># Method 2 utilises the mean function</span>
+<span class="hl com"># Method 2 utilises the mean() function</span>
 <span class="hl kwd">mean</span><span class="hl std">(v_log)</span>
 </pre></div>
 <div class="output"><pre class="knitr r">## [1] 0.5
@@ -160,6 +160,17 @@
 </pre></div>
 </div></div>
         
+        <br/>
+        
+        <div class = "contactTopline">Integer</div>
+        <br/>
+        <div class = "contactTopline">Double</div>
+        <br/>
+        <div class = "contactTopline">Character</div>
+        <br/>
+        <div class = "contactTopline">Data Type Summary</div>
+
+
         
         </div>
         </body>
