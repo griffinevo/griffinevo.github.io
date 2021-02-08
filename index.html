@@ -1,16 +1,78 @@
 <!DOCTYPE html>
 <head>
+<style type="text/css">
+.inline {
+  background-color: #f7f7f7;
+  border:solid 1px #B0B0B0;
+}
+.error {
+	font-weight: bold;
+	color: #FF0000;
+}
+.warning {
+	font-weight: bold;
+}
+.message {
+	font-style: italic;
+}
+.source, .output, .warning, .error, .message {
+	padding: 0 1em;
+  border:solid 1px #F7F7F7;
+}
+.source {
+  background-color: #f5f5f5;
+}
+.left {
+  text-align: left;
+}
+.right {
+  text-align: right;
+}
+.center {
+  text-align: center;
+}
+.hl.num {
+  color: #AF0F91;
+}
+.hl.str {
+  color: #317ECC;
+}
+.hl.com {
+  color: #AD95AF;
+  font-style: italic;
+}
+.hl.opt {
+  color: #000000;
+}
+.hl.std {
+  color: #585858;
+}
+.hl.kwa {
+  color: #295F94;
+  font-weight: bold;
+}
+.hl.kwb {
+  color: #B05A65;
+}
+.hl.kwc {
+  color: #55aa55;
+}
+.hl.kwd {
+  color: #BC5A65;
+  font-weight: bold;
+}
+</style>
   <meta charset='utf-8'/>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
-  <title>Profile</title>
+  <title>GriffinEvo</title>
   <link rel='stylesheet' 
-        href='style.css'/>
+        href='style3.css'/>
   <link rel='stylesheet' 
         href='https://use.fontawesome.com/releases/v5.8.1/css/all.css'
         integrity='sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf'
         crossorigin='anonymous'/>
   <link rel='stylesheet' 
-        href='https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;300;400&display=swap'/>
+        href='https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;300;400;600&display=swap'/>
   <link rel='stylesheet' 
         href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'/>
 </head>
@@ -18,10 +80,31 @@
 <body>
 
   <div class = 'topBar'>
-    <div class = 'mainTitle'>Profile</div>
+    <div class = 'topTitle'>GriffinEvo</div>
+    <div class = "openNav" onclick="openNav()">&#9776;</div>
+
+    <div id="sideNav" class="sidenav">
+      <a href="javascript:void(0)" class="closeNav" onclick="closeNav()">&times;</a>
+      <a href="#">Home</a>
+      <a class="accordion">R Notes</a>
+      <div class="panel">
+        <a href="#">01. Introduction</a>
+        <a href="#">02. Data</a>
+        <a href="#">03. Coming Soon</a>
+      </div>
+      <div class = 'navIconCon'>
+        <a href = 'https://twitter.com/griffinevo' target = '_blank'><i class = 'navIcon fa fa-twitter'></i></a>
+        <a href = 'https://www.linkedin.com/in/robgriffin247' target = '_blank'><i class = 'navIcon fab fa-linkedin-square'></i></a>
+        <a href = 'mailto:robgriffin247@hotmail.com' target = '_blank'><i class = 'navIcon fas fa-envelope'></i></a>
+      </div>
+    </div>
   </div>
+  
+  
+  
 
   <div class = 'mainBody'>
+          
           
     <div class = 'contactCard'>
       <div class = 'leftCol'>
@@ -33,86 +116,50 @@
           <li>Statistical Programmer</li>
           <li>AstraZeneca, Gothenburg</li>
           <div class = 'iconCon'>
-            <li><a href = 'https://twitter.com/griffinevo' target = '_blank'><i class = 'icon fa fa-twitter'></i><span class = 'desktopOnly'>@GriffinEvo</span></a></li>
-            <li><a href = 'https://www.linkedin.com/in/robgriffin247' target = '_blank'><i class = 'icon fab fa-linkedin-square'></i><span class = 'desktopOnly'>/robgriffin247</span></a></li>
-            <li><a href = 'mailto:robgriffin247@hotmail.com' target = '_blank'><i class = 'icon fas fa-envelope'></i><span class = 'desktopOnly'>robgriffin247[at]hotmail.com</span></a></li>
+            <li>
+              <a href = 'https://twitter.com/griffinevo' target = '_blank'>
+                <i class = 'icon fa fa-twitter'></i>
+                <span class = 'desktopOnly'>@GriffinEvo</span>
+              </a>
+            </li>
+            <li>
+              <a href = 'https://www.linkedin.com/in/robgriffin247' target = '_blank'>
+                <i class = 'icon fab fa-linkedin-square'></i>
+                <span class = 'desktopOnly'>/robgriffin247</span>
+              </a>
+            </li>
+            <li>
+              <a href = 'mailto:robgriffin247@hotmail.com' target = '_blank'>
+                <i class = 'icon fas fa-envelope'></i>
+                <span class = 'desktopOnly'>robgriffin247[at]hotmail.com</span>
+              </a>
+            </li>
           </div>
         </ul>
       </div>
     </div>
+    
           
-    <div class = 'sectionCon'>
-      <div class = sectionHead>Employment<span class = 'desktopOnly'> History</span></div>
-      <div class = 'sectionBody'>
-        <ul>
-          <li class = 'jobTitle'>Statistical Programmer</li>
-          <li class = 'jobDetail'>AstraZeneca</li>
-          <li class = 'jobDetail jobDate'>Sept. 2020 to Present</li>
-          
-          <li class = 'jobTitle'>Postdoctoral Research Fellow</li>
-          <li class = 'jobDetail'>Uppsala University</li>
-          <li class = 'jobDetail jobDate'>Sept. 2018 to Sept. 2020</li>
-          
-          <li class = 'jobTitle'>Visiting Academic</li>
-          <li class = 'jobDetail'>University of Queensland</li>
-          <li class = 'jobDetail jobDate'>Jan. 2019 to Sept. 2020</li>
-          
-          <li class = 'jobTitle'>Postdoctoral Researcher</li>
-          <li class = 'jobDetail'>University of Turku</li>
-          <li class = 'jobDetail jobDate'>Feb. 2016 to Sept. 2018</li>
-          
-          <li class = 'jobTitle'>PhD Candidate</li>
-          <li class = 'jobDetail'>Uppsala University</li>
-          <li class = 'jobDetail jobDate'>Sept. 2011 to Sept. 2015</li>
-          
-          <li class = 'jobTitle'>Assistant Manager</li>
-          <li class = 'jobDetail'>Falmouth Townhouse Hotel &amp; Bar</li>
-          <li class = 'jobDetail jobDate'>Jan. 2011 to Aug. 2011</li>
-          
-          <li class = 'jobTitle'>Supervisor</li>
-          <li class = 'jobDetail'>The Harbour View Restaurant</li>
-          <li class = 'jobDetail'>May 2008 to Sept. 2010</li>
-          
-        </ul>
-      </div>
-          
-      <div class = 'sectionCon'>
-        <div class = 'sectionHead'>Education</div>
-          <div class = 'sectionBody'>
-            <ul>
-            <li class = 'jobTitle'>Evolutionary Genetics, PhD</li>
-            <li class = 'jobDetail'>Uppsala University</li>
-            <li class = 'jobDetail jobDate'>Sept. 2011 to Sept. 2015</li>
-          
-            <li class = 'jobTitle'>Evolutionary &amp; Behavioural Ecology, MSc</li>
-            <li class = 'jobDetail'>University of Exeter</li>
-            <li class = 'jobDetail jobDate'>Oct. 2010 to July 2011</li>
-          
-            <li class = 'jobTitle'>Conservation Biology &amp; Ecology, BSc</li>
-            <li class = 'jobDetail'>University of Exeter</li>
-            <li class = 'jobDetail'>Sept. 2007 to July 2010</li>
-          </ul>
-        </div>
-      </div>
-    </div>
+    <p><span class = "contactTopline">Profile:</span> I am a programmer working on late-phase studies in respiratory and immunology diseases, father of two (soon three) and keen cyclist and runner. I became interested in evolutionary biology and research during my studies (BSc in Conservation Biology and Ecology, University of Exeter, 2010) and decided to pursue an academic career.</p>
+    <p><span class = "contactTopline">Research:</span> I completed a masters (MSc Evolutionary and Behvioural Ecology, University of Exeter, 2011) and PhD (Biology with specialisation in Evolutionary Genetics, Uppsala University 2015), followed by postdoctoral postitions at the University of Turku, Uppsala University and the University of Queensland. My research focused on using quantitative/statistical genetic approaches to understand the evolution of sex differences. Males and females share many of the same genes which should make sex differences slow to evolve, but sex differences are rife in nature. Statistical approaches allow us to estimate the genetic vairance within traits, covariance among traits and between the sexes, populate genetic variance-covariance matrices, and assess the resulting evolutionary potential in a multivariate context using matrix comparison tools. More can be found in my <a href = "https://uu.diva-portal.org/smash/get/diva2:842941/FULLTEXT01.pdf" target = "_blank">PhD thesis</a> and <a href = "https://scholar.google.com/citations?user=w0uVTwIAAAAJ&hl=en" target = "_blank">papers</a>.</p>
   </div>
 </body>
 
-<footer>
-</footer>
+
+
+
+
+
 
 <script>
-  function openNav() {
-    document.getElementById('mySidenav').style.width = '80%';
-    document.getElementById('mySidenav').style.boxShadow = '0 0 100000px 100000px rgb(255,255,255,0.3)';
-  }
-        
-  function closeNav() {
-    document.getElementById('mySidenav').style.width = '0';
-    document.getElementById('mySidenav').style.boxShadow = '0 0 0 0 rgb(0,0,0,0)';
-  }
-</script>
-          
+function openNav() {
+  document.getElementById("sideNav").style.width = "450px";
+}
+
+function closeNav() {
+  document.getElementById("sideNav").style.width = "0";
+}
+</script> 
 <script>
   var acc = document.getElementsByClassName('accordion');
   var i;
