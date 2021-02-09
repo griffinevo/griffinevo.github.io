@@ -155,7 +155,7 @@ a:hover {
   -moz-box-shadow:    inset 0 0 5px #00000012;
   -webkit-box-shadow: inset 0 0 5px #00000012;
   box-shadow:         inset 0 0 5px #00000012;
-  margin: 4pt 0;
+  margin: 8pt 0;
 }
 
 .source {
@@ -187,6 +187,7 @@ a:hover {
   padding: 16pt;
   background-color: #c2db00;
   color: black;
+  margin-bottom: 10pt;
 }
 
 
