@@ -62,50 +62,45 @@
   font-weight: bold;
 }
 </style>
-  <meta charset='utf-8'/>
+    <meta charset='utf-8'/>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-      <title>Introduction</title>
-      <link rel='stylesheet' 
-      href='style.css'/>
-        <link rel='stylesheet' 
-      href='https://use.fontawesome.com/releases/v5.8.1/css/all.css'
-      integrity='sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf'
-      crossorigin='anonymous'/>
-        <link rel='stylesheet' 
-      href='https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;300;400;600&display=swap'/>
-        <link rel='stylesheet' 
-      href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'/>
-        </head>
+    <title>Introduction</title>
+    <link rel='stylesheet' href='style.css'/>
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.8.1/css/all.css' integrity='sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf' crossorigin='anonymous'/>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;300;400;600&display=swap'/>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'/>
+  </head>
         
-        <body>
-        
-        <div class = 'topBar'>
-        <div class = 'topTitle'>GriffinEvo: <span class = "topPage">Introduction to R</span></div>
-        <div class = "openNav" onclick="openNav()">&#9776;</div>
-        
-        <div id="sideNav" class="sidenav">
+  <body>
+  
+    <!-- Top Bar -------------------------------------------------------------->
+    <div class = 'topBar'>
+      <div class = 'topTitle'>GriffinEvo: <span class = "topPage">Introduction to R</span></div>
+      <div class = "openNav" onclick="openNav()">&#9776;</div>
+      <div id="sideNav" class="sidenav">
         <a href="javascript:void(0)" class="closeNav" onclick="closeNav()">&times;</a>
         <a href="index.html">Home</a>
         <a class="accordion">R Notes</a>
         <div class="panel">
-        <a href="stats_r_intro.html">Introduction</a>
-        <a href="stats_data_type.html">Data Type</a>
-        <a href="stats_data_table.html">Data.table</a>
+          <a href="stats_r_intro.html">Introduction</a>
+          <a href="stats_data_type.html">Data Type</a>
+          <a href="stats_data_table.html">Data.table</a>
         </div>
         <div class = 'navIconCon'>
-        <a href = 'https://twitter.com/griffinevo' target = '_blank'><i class = 'navIcon fa fa-twitter'></i></a>
-        <a href = 'https://www.linkedin.com/in/robgriffin247' target = '_blank'><i class = 'navIcon fab fa-linkedin-square'></i></a>
-        <a href = 'mailto:robgriffin247@hotmail.com' target = '_blank'><i class = 'navIcon fas fa-envelope'></i></a>
+          <a href = 'https://twitter.com/griffinevo' target = '_blank'><i class = 'navIcon fa fa-twitter'></i></a>
+          <a href = 'https://www.linkedin.com/in/robgriffin247' target = '_blank'><i class = 'navIcon fab fa-linkedin-square'></i></a>
+          <a href = 'mailto:robgriffin247@hotmail.com' target = '_blank'><i class = 'navIcon fas fa-envelope'></i></a>
         </div>
-        </div>
-        </div>
+      </div>
+    </div>
         
         
         
+    <!-- Main section -->
+    <div class = 'mainBody'>
         
-        <div class = 'mainBody'>
         
-        <div class = "contactTopline">Introducing R for Statistical Programming</div>
+        <div class = "h1">Introducing R for Statistical Programming</div>
         
         <p>Topics covered:</p>
         <ul>
@@ -146,29 +141,26 @@
            <li>ggplot</li>
           </ul>
           <li>Outputting tables in LaTeX</li>
+          <li>Writing Functions</li>
         </ul>
 
         
         </div>
-        </body>
+  </body>
+     
         
-        
-        
-        
-        
-        
-        
-        <script>
-        function openNav() {
-          document.getElementById("sideNav").style.width = "450px";
-        }
+  <script>
+    function openNav() {
+      document.getElementById("sideNav").style.width = "450px";
+    }
       
-      function closeNav() {
-        document.getElementById("sideNav").style.width = "0";
-      }
-      </script> 
-        <script>
-        var acc = document.getElementsByClassName('accordion');
+    function closeNav() {
+      document.getElementById("sideNav").style.width = "0";
+    }
+  </script> 
+  
+  <script>
+      var acc = document.getElementsByClassName('accordion');
       var i;
       
       for (i = 0; i < acc.length; i++) {
@@ -182,4 +174,4 @@
           }
         });
       }
-      </script>
+  </script>
