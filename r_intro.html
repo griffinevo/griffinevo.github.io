@@ -124,7 +124,7 @@
       
 <div class="chunk" id="unnamed-chunk-2"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl kwd">print</span><span class="hl std">(</span><span class="hl kwc">x</span> <span class="hl std">=</span> <span class="hl str">&quot;hello, world!&quot;</span><span class="hl std">)</span>
 </pre></div>
-<div class="output"><pre class="knitr r">## [1] &quot;hello, world!&quot;
+<div class="output"><pre class="knitr r">[1] &quot;hello, world!&quot;
 </pre></div>
 </div></div>
       
@@ -133,7 +133,7 @@
 <div class="chunk" id="unnamed-chunk-3"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># Coin-toss experiment, with eight sampling events</span>
 <span class="hl kwd">sample</span><span class="hl std">(</span><span class="hl kwc">x</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;Heads&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Tails&quot;</span><span class="hl std">),</span> <span class="hl kwc">size</span> <span class="hl std">=</span> <span class="hl num">8</span><span class="hl std">,</span> <span class="hl kwc">replace</span> <span class="hl std">=</span> <span class="hl num">TRUE</span><span class="hl std">)</span>
 </pre></div>
-<div class="output"><pre class="knitr r">## [1] &quot;Heads&quot; &quot;Heads&quot; &quot;Heads&quot; &quot;Tails&quot; &quot;Tails&quot; &quot;Heads&quot; &quot;Tails&quot; &quot;Heads&quot;
+<div class="output"><pre class="knitr r">[1] &quot;Heads&quot; &quot;Heads&quot; &quot;Heads&quot; &quot;Tails&quot; &quot;Tails&quot; &quot;Heads&quot; &quot;Tails&quot; &quot;Heads&quot;
 </pre></div>
 </div></div>
    
@@ -143,7 +143,7 @@
       
       <div class="h1 break">Objects, assignment and the workspace</div>            
       
-      <p>The coin-toss program above is a very simple program. What it produces is data, being a vector of eight character values of either <span class="ri">Heads</span> or <span class="ri">Tails</span>. We might want to keep that data for later use, for example, to see what proportion of tosses resulted in heads. Fortunately, everything in R is an object, including functions and data. The R session includes many functions and some datasets on startup, but users can also create and store objects in the <strong>workspace</strong>. This storage is done by <strong>assigning</strong> code (for funcitons) or data to a named object using <strong>assignment operators</strong>. The two most commonly used are <span class="ri"><-</span> and <span class="ri">=</span> which both assign the value(s) on the right-hand side to a variable of the name given on the left-hand side. It is <a href="https://stackoverflow.com/questions/1741820/what-are-the-differences-between-and-assignment-operators-in-r" target="_blank">better practice to use <span class="ri"><-</span></a>. In RStudio the assignment operator is given by the keyboard shortcut <em>Alt</em> + <em>-</em>, in case typing <span class="ri"><-</span> is too much work. The following assigns the data produced by the coin-toss experiment to a vector called <span class="ri">coin8</span>, allowing those values to be repeatedly used.</p>
+      <p>The coin-toss program above is a very simple program. What it produces is data, being a vector of eight character values of either <span class="ri">Heads</span> or <span class="ri">Tails</span>. We might want to keep that data for later use, for example, to see what proportion of tosses resulted in heads. Fortunately, everything in R is an object, including functions and data. The R session includes many functions and some datasets on startup, but users can also create and store objects in the <strong>workspace</strong>. This storage is done by <strong>assigning</strong> code (for funcitons) or data to a named object using <strong>assignment operators</strong>. The two most commonly used are <span class="ri"><-</span> and <span class="ri">=</span> which both assign the value(s) on the right-hand side to a variable of the name given on the left-hand side. It is <a href="https://stackoverflow.com/questions/1741820/what-are-the-differences-between-and-assignment-operators-in-r" target="_blank">better practice to use <span class="ri"><-</span></a>. The following assigns the data produced by the coin-toss experiment to a vector called <span class="ri">coin8</span>, allowing those values to be repeatedly used.</p>
       
 <div class="chunk" id="unnamed-chunk-4"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># Coin-toss experiment, with eight sampling events</span>
 <span class="hl std">coin8</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">sample</span><span class="hl std">(</span><span class="hl kwc">x</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;Heads&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Tails&quot;</span><span class="hl std">),</span> <span class="hl kwc">size</span> <span class="hl std">=</span> <span class="hl num">8</span><span class="hl std">,</span> <span class="hl kwc">replace</span> <span class="hl std">=</span> <span class="hl num">TRUE</span><span class="hl std">)</span>
@@ -157,11 +157,11 @@
 <span class="hl com"># How many times did heads and tails each occur?</span>
 <span class="hl kwd">table</span><span class="hl std">(</span><span class="hl kwc">x</span> <span class="hl std">= coin8)</span>
 </pre></div>
-<div class="output"><pre class="knitr r">## [1] &quot;Heads&quot; &quot;Heads&quot; &quot;Tails&quot; &quot;Heads&quot; &quot;Tails&quot; &quot;Tails&quot; &quot;Heads&quot; &quot;Tails&quot;
-## [1] 8
-## x
-## Heads Tails 
-##     4     4
+<div class="output"><pre class="knitr r">[1] &quot;Heads&quot; &quot;Heads&quot; &quot;Tails&quot; &quot;Heads&quot; &quot;Tails&quot; &quot;Tails&quot; &quot;Heads&quot; &quot;Tails&quot;
+[1] 8
+x
+Heads Tails 
+    4     4 
 </pre></div>
 </div></div>
       
@@ -182,15 +182,62 @@
 <span class="hl std">coin_1000</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">coin_toss</span><span class="hl std">(</span><span class="hl kwc">n</span> <span class="hl std">=</span> <span class="hl num">1000</span><span class="hl std">)</span>
 <span class="hl kwd">table</span><span class="hl std">(</span><span class="hl kwc">x</span> <span class="hl std">= coin_1000)</span>
 </pre></div>
-<div class="output"><pre class="knitr r">## [1] &quot;Tails&quot; &quot;Heads&quot; &quot;Heads&quot; &quot;Heads&quot; &quot;Tails&quot; &quot;Heads&quot; &quot;Tails&quot; &quot;Heads&quot;
-## [1] &quot;Heads&quot; &quot;Heads&quot; &quot;Heads&quot; &quot;Tails&quot; &quot;Heads&quot; &quot;Tails&quot; &quot;Heads&quot; &quot;Heads&quot;
-## x
-## Heads Tails 
-##     2     6
+<div class="output"><pre class="knitr r">[1] &quot;Tails&quot; &quot;Heads&quot; &quot;Heads&quot; &quot;Heads&quot; &quot;Tails&quot; &quot;Heads&quot; &quot;Tails&quot; &quot;Heads&quot;
+[1] &quot;Heads&quot; &quot;Heads&quot; &quot;Heads&quot; &quot;Tails&quot; &quot;Heads&quot; &quot;Tails&quot; &quot;Heads&quot; &quot;Heads&quot;
+x
+Heads Tails 
+    2     6 
 </pre></div>
 </div></div>
 
      <p>The contents of the workspace defined by the user - those assigned during the session - is returned to the console by the <span class="ri">ls()</span> function. Specific objects can be deleted from the workspace using the <span class="ri">rm()</span> function while the workspace can be cleared using <span class="ri">rm(list = ls())</span>. Note that the workspace only holds the user-defined objects, functions and data in loaded packages (see below) will not be affected by these actions.</p>
+     
+     <div class = "box">
+       <div class = "h1">Exercises</div>
+       <ol>
+         <li>Use the <span class="ri">print()</span> function to print <span class="ri">hello, &lt;<em>your name</em>&gt;!"</span>, replacing your name, executing this to the console.</li>
+         <li>Create a function simulating a dice roll <span class="ri">n</span> times, sampling the intgers 1 to 6 (<span class="ri">c(1L:6L)</span>).</li>
+         <li>Store the output of your dice roll function for 1,000 rolls in a vector called <span class="ri">rolls_1k</span> then use the <span class="ri">mean()</span> and <span class="ri">sum()</span> functions to get the mean and sum of that vector.</li>
+         <li>Execute the name of the mean() function and your dice roll function, without braces, and consider what is returned in the console. Is this what you expected?</li>
+       </ol>
+       
+       <p class="accordion h1">Solutions</p>
+       <div class="boxPanel">
+       
+<div class="chunk" id="unnamed-chunk-6"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># 1. Print my name</span>
+<span class="hl kwd">print</span><span class="hl std">(</span><span class="hl str">&quot;Hello, Rob!&quot;</span><span class="hl std">)</span>
+
+<span class="hl com"># 2. Create a dice roll function</span>
+<span class="hl std">dice_roll</span> <span class="hl kwb">&lt;-</span> <span class="hl kwa">function</span><span class="hl std">(</span><span class="hl kwc">n</span><span class="hl std">){</span>
+  <span class="hl kwd">sample</span><span class="hl std">(</span><span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">1L</span><span class="hl opt">:</span><span class="hl num">6L</span><span class="hl std">),</span> <span class="hl kwc">size</span> <span class="hl std">= n,</span> <span class="hl kwc">replace</span> <span class="hl std">=</span> <span class="hl num">TRUE</span><span class="hl std">)</span>
+<span class="hl std">}</span>
+
+<span class="hl com"># 3. Execute and use dice_roll()</span>
+<span class="hl std">roll_1k</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">dice_roll</span><span class="hl std">(</span><span class="hl kwc">n</span> <span class="hl std">=</span> <span class="hl num">1000</span><span class="hl std">)</span>
+<span class="hl kwd">mean</span><span class="hl std">(roll_1k)</span>
+<span class="hl kwd">sum</span><span class="hl std">(roll_1k)</span>
+
+<span class="hl com"># 4. Execute the names of functions mean and dice_roll</span>
+<span class="hl std">mean</span>
+<span class="hl std">dice_roll</span>
+<span class="hl com"># - it shows the underlying code and the expected input arguments</span>
+<span class="hl com"># - this is useful when using a function and you need a reminder of the input arguments</span>
+</pre></div>
+<div class="output"><pre class="knitr r">[1] &quot;Hello, Rob!&quot;
+[1] 3.55
+[1] 3550
+function (x, ...) 
+UseMethod(&quot;mean&quot;)
+&lt;bytecode: 0x00000000151d5be8&gt;
+&lt;environment: namespace:base&gt;
+function(n){
+  sample(c(1L:6L), size = n, replace = TRUE)
+}
+</pre></div>
+</div></div>
+       
+       </div>
+     </div>
    
 
       
@@ -234,4 +281,3 @@
         });
       }
   </script>
- 
