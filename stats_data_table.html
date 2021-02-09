@@ -62,56 +62,54 @@
   font-weight: bold;
 }
 </style>
-  <meta charset='utf-8'/>
+    <meta charset='utf-8'/>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-      <title>Data.table</title>
-      <link rel='stylesheet' 
-      href='style.css'/>
-        <link rel='stylesheet' 
-      href='https://use.fontawesome.com/releases/v5.8.1/css/all.css'
-      integrity='sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf'
-      crossorigin='anonymous'/>
-        <link rel='stylesheet' 
-      href='https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;300;400;600&display=swap'/>
-        <link rel='stylesheet' 
-      href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'/>
-        </head>
+    <title>Data.table</title>
+    <link rel='stylesheet' href='style.css'/>
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.8.1/css/all.css' integrity='sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf' crossorigin='anonymous'/>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;300;400;600&display=swap'/>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'/>
+  </head>
         
-        <body>
-        
-        <div class = 'topBar'>
-        <div class = 'topTitle'>GriffinEvo: <span class = "topPage">Data.table</span></div>
-        <div class = "openNav" onclick="openNav()">&#9776;</div>
-        
-        <div id="sideNav" class="sidenav">
+  <body>
+  
+    <!-- Top Bar -------------------------------------------------------------->
+    <div class = 'topBar'>
+      <div class = 'topTitle'>GriffinEvo: <span class = "topPage">Data.table</span></div>
+      <div class = "openNav" onclick="openNav()">&#9776;</div>
+      <div id="sideNav" class="sidenav">
         <a href="javascript:void(0)" class="closeNav" onclick="closeNav()">&times;</a>
         <a href="index.html">Home</a>
         <a class="accordion">R Notes</a>
         <div class="panel">
-        <a href="stats_r_intro.html">Introduction</a>
-        <a href="stats_data_type.html">Data Type</a>
-        <a href="stats_data_table.html">Data.table</a>
+          <a href="stats_r_intro.html">Introduction</a>
+          <a href="stats_data_type.html">Data Type</a>
+          <a href="stats_data_table.html">Data.table</a>
         </div>
         <div class = 'navIconCon'>
-        <a href = 'https://twitter.com/griffinevo' target = '_blank'><i class = 'navIcon fa fa-twitter'></i></a>
-        <a href = 'https://www.linkedin.com/in/robgriffin247' target = '_blank'><i class = 'navIcon fab fa-linkedin-square'></i></a>
-        <a href = 'mailto:robgriffin247@hotmail.com' target = '_blank'><i class = 'navIcon fas fa-envelope'></i></a>
+          <a href = 'https://twitter.com/griffinevo' target = '_blank'><i class = 'navIcon fa fa-twitter'></i></a>
+          <a href = 'https://www.linkedin.com/in/robgriffin247' target = '_blank'><i class = 'navIcon fab fa-linkedin-square'></i></a>
+          <a href = 'mailto:robgriffin247@hotmail.com' target = '_blank'><i class = 'navIcon fas fa-envelope'></i></a>
         </div>
-        </div>
-        </div>
+      </div>
+    </div>
         
         
         
+    <!-- Main section -->
+    <div class = 'mainBody'>
         
-        <div class = 'mainBody'>
         
-        <div class = "contactTopline">The data.table package</div>
         
-        <p>Introduce the package, gives the data.table plus loads of useful functions such as fread(), uniqueN().</p>
+      <div class = "h1">The data.table package</div>
+      
+      <p>Introduce the package, gives the data.table plus loads of useful functions such as fread(), uniqueN().</p>
         
-        <div class = "contactTopline">The data.table structure</div>
         
-        <p>The main attraction of the data.table package is <strong>the data.table data structure</strong> which offers better functionality and both computational and syntax efficiency. The data.table is, in essence just a data.frame on steroids. Like a data.frame, it is a tabular structure with data stored in rows and columns, but we can interact with them very differently. I tend to think of data.tables as a self-contained version of a the workspace, a microenvironment within the main working environment. That is because, when we put data into a data.table, we can handle them just like vectors in the main working environment. As an example, take the vectors <span class = "ri">x1</span> and <span class = "ri">x2</span> stored in the R workspace, then stored as variables in a data.frame and a data.table and see how we go about adding them together:</p>
+      
+      <div class = "h1">The data.table structure</div>
+      
+      <p>The main attraction of the data.table package is <strong>the data.table data structure</strong> which offers better functionality and both computational and syntax efficiency. The data.table is, in essence just a data.frame on steroids. Like a data.frame, it is a tabular structure with data stored in rows and columns, but we can interact with them very differently. I tend to think of data.tables as a self-contained version of a the workspace, a microenvironment within the main working environment. That is because, when we put data into a data.table, we can handle them just like vectors in the main working environment. As an example, take the vectors <span class = "ri">x1</span> and <span class = "ri">x2</span> stored in the R workspace, then stored as variables in a data.frame and a data.table and see how we go about adding them together:</p>
         
 <div class="chunk" id="unnamed-chunk-1"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">x1</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">1L</span><span class="hl opt">:</span><span class="hl num">4L</span><span class="hl std">)</span>
 <span class="hl std">x2</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">5L</span><span class="hl opt">:</span><span class="hl num">8L</span><span class="hl std">)</span>
@@ -137,15 +135,15 @@
 </pre></div>
 </div></div>
         
-<p>The code within the data.table is exactly the same as when the vectors were stored in the workspace as individual variables, <span class = "ri">x1 + x2</span>, whereas the data.frame must have each vector extracted from the data.frame using the <span class = "ri">$</span>.</p>
+      <p>The code within the data.table is exactly the same as when the vectors were stored in the workspace as individual variables, <span class = "ri">x1 + x2</span>, whereas the data.frame must have each vector extracted from the data.frame using the <span class = "ri">$</span>.</p>
 
 
-        <div class = "contactTopline">The syntax</div>
 
-<p>Using data.tables is reliant on their syntax. The basic form is <span class = "ri">dt[i, j, by]</span> where <span class = "ri">i</span> speifies the filtering and ordering of observations (rows), <span class = "ri">j</span> selects and processes variables and <span class = "ri">by</span> specifies grouping terms for those processes. For example, using data.table we can easily get the average horsepower of cars that weight more than two tonnes, and get averages per cylinder-class. This is done with the built-in <span class = "ri">mtcars</span> dataset after converting it to a data.table (<span class = "ri">dtcars <- data.table(mtcars, keep.rownames = TRUE)</span>).</p>
+      <div class = "h1">The syntax</div>
+
+      <p>Using data.tables is reliant on their syntax. The basic form is <span class = "ri">dt[i, j, by]</span> where <span class = "ri">i</span> speifies the filtering and ordering of observations (rows), <span class = "ri">j</span> selects and processes variables and <span class = "ri">by</span> specifies grouping terms for those processes. For example, using data.table we can easily get the average horsepower of cars that weight more than two tonnes, and get averages per cylinder-class. This is done with the built-in <span class = "ri">mtcars</span> dataset after converting it to a data.table (<span class = "ri">dtcars <- data.table(mtcars, keep.rownames = TRUE)</span>).</p>
 
 
-        
         
 <div class="chunk" id="unnamed-chunk-3"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># The data.table way</span>
 <span class="hl std">dtcars[wt</span> <span class="hl opt">&gt;</span> <span class="hl num">2</span><span class="hl std">,</span> <span class="hl kwd">mean</span><span class="hl std">(hp),</span> <span class="hl kwc">keyby</span> <span class="hl std">= cyl]</span>
@@ -157,7 +155,7 @@
 </pre></div>
 </div></div>
 
-<p>To illustrate the syntax efficiency gains, this is how that same data would be retrieved with a base R approach:</p>
+      <p>To illustrate the syntax efficiency gains, this is how that same data would be retrieved with a base R approach:</p>
 
 <div class="chunk" id="unnamed-chunk-4"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># The base R way</span>
 <span class="hl kwd">aggregate</span><span class="hl std">(mtcars</span><span class="hl opt">$</span><span class="hl std">hp[mtcars</span><span class="hl opt">$</span><span class="hl std">wt</span> <span class="hl opt">&gt;</span> <span class="hl num">2</span><span class="hl std">],</span>
@@ -172,28 +170,22 @@
 </div></div>
 
         
-
+    </div>
+  </body>
+     
         
-        </div>
-        </body>
-        
-        
-        
-        
-        
-        
-        
-        <script>
-        function openNav() {
-          document.getElementById("sideNav").style.width = "450px";
-        }
+  <script>
+    function openNav() {
+      document.getElementById("sideNav").style.width = "450px";
+    }
       
-      function closeNav() {
-        document.getElementById("sideNav").style.width = "0";
-      }
-      </script> 
-        <script>
-        var acc = document.getElementsByClassName('accordion');
+    function closeNav() {
+      document.getElementById("sideNav").style.width = "0";
+    }
+  </script> 
+  
+  <script>
+      var acc = document.getElementsByClassName('accordion');
       var i;
       
       for (i = 0; i < acc.length; i++) {
@@ -207,5 +199,4 @@
           }
         });
       }
-      </script>
- 
+  </script>
