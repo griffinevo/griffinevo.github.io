@@ -140,12 +140,12 @@ a:hover {
   
   max-width: 100%;
   width: inherit;
-  max-height: 150pt;
+  max-height: 350pt;
   
   font-size: 10pt;
-  -moz-box-shadow:    inset 0 0 5px #00000020;
-  -webkit-box-shadow: inset 0 0 5px #00000020;
-  box-shadow:         inset 0 0 5px #00000020;
+  -moz-box-shadow:    inset 0 0 5px #00000012;
+  -webkit-box-shadow: inset 0 0 5px #00000012;
+  box-shadow:         inset 0 0 5px #00000012;
 }
 
 .source {
@@ -162,8 +162,15 @@ a:hover {
 
 
 
+.h1, .sectionHead, .pageHead {
+  font-weight: 400;
+  color: #2c4a3f;
+}
 
-
+.break {
+  padding: 24pt 0 0 0;
+  border-top: 1px solid #d1d1d1;
+}
 
 
 
@@ -186,10 +193,6 @@ a:hover {
   max-width: 140px;
 }
 
-.contactTopline, .sectionHead, .pageHead {
-  font-weight: 400;
-  color: #2c4a3f;
-}
 
 .leftCol {
   width: 140px;
