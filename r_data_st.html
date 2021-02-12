@@ -1,67 +1,5 @@
 <!DOCTYPE html>
 <head>
-<style type="text/css">
-.inline {
-  background-color: #f7f7f7;
-  border:solid 1px #B0B0B0;
-}
-.error {
-	font-weight: bold;
-	color: #FF0000;
-}
-.warning {
-	font-weight: bold;
-}
-.message {
-	font-style: italic;
-}
-.source, .output, .warning, .error, .message {
-	padding: 0 1em;
-  border:solid 1px #F7F7F7;
-}
-.source {
-  background-color: #f5f5f5;
-}
-.left {
-  text-align: left;
-}
-.right {
-  text-align: right;
-}
-.center {
-  text-align: center;
-}
-.hl.num {
-  color: #AF0F91;
-}
-.hl.str {
-  color: #317ECC;
-}
-.hl.com {
-  color: #AD95AF;
-  font-style: italic;
-}
-.hl.opt {
-  color: #000000;
-}
-.hl.std {
-  color: #585858;
-}
-.hl.kwa {
-  color: #295F94;
-  font-weight: bold;
-}
-.hl.kwb {
-  color: #B05A65;
-}
-.hl.kwc {
-  color: #55aa55;
-}
-.hl.kwd {
-  color: #BC5A65;
-  font-weight: bold;
-}
-</style>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>R: Data structures</title>
@@ -94,7 +32,11 @@
 </div>
 
 
-
+<!--begin.rcode, echo = FALSE
+rm(list=ls())
+set.seed(132)
+knitr::opts_chunk$set(results="hold", comment="")
+end.rcode-->
 
 <!-- Main section -->
 <div class = "mainBody">
@@ -112,29 +54,23 @@
 
 
 
-<div class="h1 break">Atomic vectors</div>            
+<div class="h1 break">Structure: atomic vectors</div>            
 
 <p>Atomic vectors, or as every knows them, just "<strong>vectors</strong>" are the most important and fundamental data structure in R. Understanding them will take you a long way forward in getting to grips with R. Vectors are created by passing comma-separated data values, or <strong>elements</strong>, to the concatenate function, <span class="ri">c()</span>.</p>
 
-<div class="chunk" id="unnamed-chunk-2"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># This is a vector of three elements, A, B and C</span>
-<span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;A&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;B&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;C&quot;</span><span class="hl std">)</span>
-</pre></div>
-<div class="output"><pre class="knitr r">[1] &quot;A&quot; &quot;B&quot; &quot;C&quot;
-</pre></div>
-</div></div>
+<!--begin.rcode
+# This is a vector of three elements, A, B and C
+c("A", "B", "C")
+end.rcode-->
 
-<p>Vectors have two features of note. Firstly they are one-dimensional. This means they have a <strong>length</strong> which is the number of elements that they contain. This count can be returned using the <span class = "ri">length()</span> function. Even a single value, which can be given without concatenation (because there is no concatation with one value), is a vector in R.</p>
+<p>Vectors have two features of note. Firstly they are one-dimensional. This means they have a <strong>length</strong> which is the number of elements that they contain. This count can be returned using the <span class = "ri">length()</span> function. Even a single value, which can be given without concatenation (because there is no concatenation with one value), is a vector in R.</p>
 
-<div class="chunk" id="unnamed-chunk-3"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl kwd">length</span><span class="hl std">(</span><span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;A&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;B&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;C&quot;</span><span class="hl std">))</span>
+<!--begin.rcode
+length(c("A", "B", "C"))
 
-<span class="hl num">12.6</span> <span class="hl com"># this is a vector containing the value 12.6</span>
-<span class="hl kwd">length</span><span class="hl std">(</span><span class="hl num">12.6</span><span class="hl std">)</span>
-</pre></div>
-<div class="output"><pre class="knitr r">[1] 3
-[1] 12.6
-[1] 1
-</pre></div>
-</div></div>
+12.6 # this is a vector containing the value 12.6
+length(12.6)
+end.rcode-->
 
 
 <p>The second feature to note is that they carry data of only one <strong>type</strong>. Data type ca be returned using the <span class = "ri">typeof()</span> function. While the type of a vector is determined by the elements it contains, type is a property of the vector itself, not the data; <span class = "ri">typeof()</span> therefore returns a single value. There are four main types of data that users will encounter; other types do exist but are rarely used except by advanced R programmers. They are:</p>
@@ -146,78 +82,147 @@
   <li>Character</li>
 </ul>
 
-<div class="h1">Logical type</div>            
+<div class="h1">Type: logical</div>            
 
-<p>Logical type data is the most basic of the four. It uses little memory but contains little information as it can be one of two values; <span class = "ri">TRUE</span> and <span class = "ri">FALSE</span>.</p>
+<p><strong>Logical</strong> type data is the most basic of the four. It uses little memory but contains little information as it can be one of two values; <span class = "ri">TRUE</span> and <span class = "ri">FALSE</span>.</p>
 
-<div class="chunk" id="unnamed-chunk-4"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">TRUE</span><span class="hl std">,</span> <span class="hl num">FALSE</span><span class="hl std">,</span> <span class="hl num">FALSE</span><span class="hl std">)</span>
-</pre></div>
-<div class="output"><pre class="knitr r">[1]  TRUE FALSE FALSE
-</pre></div>
-</div></div>
+<!--begin.rcode
+c(TRUE, FALSE, FALSE)
+end.rcode-->
 
 
 <p>The values <span class = "ri">TRUE</span> and <span class = "ri">FALSE</span> can also be written as <span class = "ri">T</span> and <span class = "ri">F</span> respectively. This is commonly done when setting arguments in functions but, as shown below, the shortening of <span class = "ri">TRUE</span> and <span class = "ri">FALSE</span> can become problematic because it is possible to overwrite the meaning of <span class = "ri">T</span> and <span class = "ri">F</span>.</p>
 
-<div class="chunk" id="unnamed-chunk-5"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># Get the mean and remove NAs (missing data) from the calculation:</span>
-<span class="hl kwd">mean</span><span class="hl std">(</span><span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">3</span><span class="hl std">,</span> <span class="hl num">6</span><span class="hl std">,</span> <span class="hl num">8</span><span class="hl std">,</span> <span class="hl num">NA</span><span class="hl std">,</span> <span class="hl num">5</span><span class="hl std">),</span> <span class="hl kwc">na.rm</span> <span class="hl std">= T)</span>
+<!--begin.rcode
+# Get the mean and remove NAs (missing data) from the calculation:
+mean(c(3, 6, 8, NA, 5), na.rm = T)
 
-<span class="hl com"># Make the value of T to be FALSE</span>
-<span class="hl std">T</span> <span class="hl kwb">&lt;-</span> <span class="hl num">FALSE</span>
-<span class="hl std">T</span>
-<span class="hl kwd">mean</span><span class="hl std">(</span><span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">3</span><span class="hl std">,</span> <span class="hl num">6</span><span class="hl std">,</span> <span class="hl num">8</span><span class="hl std">,</span> <span class="hl num">NA</span><span class="hl std">,</span> <span class="hl num">5</span><span class="hl std">),</span> <span class="hl kwc">na.rm</span> <span class="hl std">= T)</span>
+# Make the value of T to be FALSE
+T <- FALSE
+T
+mean(c(3, 6, 8, NA, 5), na.rm = T)
 
-<span class="hl com"># ... let's just fix that</span>
-<span class="hl std">T</span> <span class="hl kwb">&lt;-</span> <span class="hl num">TRUE</span>
-</pre></div>
-<div class="output"><pre class="knitr r">[1] 5.5
-[1] FALSE
-[1] NA
-</pre></div>
-</div></div>
+# ... let's just fix that
+T <- TRUE
+end.rcode-->
 
+<br/>
 
 <div class = "box">
 <div class = "h1">Box: Assignment</div>
 <p>Objects, assignment and the workspace were covered in other sections. Just in case you need a refresher, in the above script we see the assignment operator <span class = "ri">&lt;-</span>. This assigns an object (in this last case, a vector of one element; TRUE) on the right-hand side of the operator to a named variable (in this case, T). Variables assigned by the user are present in the workspace and can be recalled or used in functions by using the object name. 
 
-<div class="chunk" id="unnamed-chunk-6"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># e.g. First create a vector of numbers called v1:</span>
-<span class="hl std">v1</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">6</span><span class="hl std">,</span> <span class="hl num">2</span><span class="hl std">,</span> <span class="hl num">8</span><span class="hl std">,</span> <span class="hl num">2</span><span class="hl std">,</span> <span class="hl num">1</span><span class="hl std">,</span> <span class="hl num">9</span><span class="hl std">,</span> <span class="hl num">11</span><span class="hl std">)</span>
+<!--begin.rcode
+# e.g. First create a vector of numbers called v1:
+v1 <- c(6, 2, 8, 2, 1, 9, 11)
 
-<span class="hl com"># Then repeatedly use that vector</span>
-<span class="hl kwd">mean</span><span class="hl std">(v1)</span>
-<span class="hl kwd">median</span><span class="hl std">(v1)</span>
-<span class="hl kwd">min</span><span class="hl std">(v1)</span>
-<span class="hl kwd">sum</span><span class="hl std">(v1)</span>
-</pre></div>
-<div class="output"><pre class="knitr r">[1] 5.571429
-[1] 6
-[1] 1
-[1] 39
-</pre></div>
-</div></div>
+# Then repeatedly use that vector
+mean(v1)
+median(v1)
+min(v1)
+sum(v1)
+end.rcode-->
 
 The <span class="ri">=</span> is also commonly used as an assignment operator, but it is better to use <span class = "ri">&lt;-</span> as it's meaning is clearer and more consistent.
 
-<div class="chunk" id="unnamed-chunk-7"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">v1</span> <span class="hl kwb">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">6</span><span class="hl std">,</span> <span class="hl num">2</span><span class="hl std">,</span> <span class="hl num">8</span><span class="hl std">,</span> <span class="hl num">2</span><span class="hl std">,</span> <span class="hl num">1</span><span class="hl std">,</span> <span class="hl num">9</span><span class="hl std">,</span> <span class="hl num">11</span><span class="hl std">)</span> <span class="hl com"># Is equivalent to the above</span>
-<span class="hl std">v1</span>
-</pre></div>
-<div class="output"><pre class="knitr r">[1]  6  2  8  2  1  9 11
-</pre></div>
-</div></div>
+<!--begin.rcode
+v1 = c(6, 2, 8, 2, 1, 9, 11) # Is equivalent to the above
+v1
+end.rcode-->
 
 </div>
 
 <p>A useful property of logical vectors is that R will convert <span class = "ri">TRUE</span> and <span class = "ri">FALSE</span> to values of <span class = "ri">1</span> and <span class = "ri">0</span> when it expects numerical data; this can make it quick and elegant to find, for example, the number and proportion of cases where a value is <span class = "ri">TRUE</span>.
 
-<div class="chunk" id="unnamed-chunk-8"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">v_logical</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">TRUE</span><span class="hl std">,</span> <span class="hl num">TRUE</span><span class="hl std">,</span> <span class="hl num">FALSE</span><span class="hl std">,</span> <span class="hl num">FALSE</span><span class="hl std">,</span> <span class="hl num">TRUE</span><span class="hl std">)</span>
-<span class="hl kwd">sum</span><span class="hl std">(v_logical)</span>
-<span class="hl kwd">mean</span><span class="hl std">(v_logical)</span>
-</pre></div>
-<div class="output"><pre class="knitr r">[1] 3
-[1] 0.6
-</pre></div>
-</div></div>
+<!--begin.rcode
+v_logical <- c(TRUE, TRUE, FALSE, FALSE, TRUE)
+sum(v_logical)
+mean(v_logical)
+end.rcode-->
+
+<br/>
+
+<div class="h1">Type: integer</div>            
+
+<p><strong>Integer</strong> type data is the next most basic of the four types. Integer data is data of whole numbers, those used for counting, phone numbers etc. where fractions cannot occur. Values are numeric and suffixed by an <span class = "ri">L</span> which tells R that it is an integer.</p>
+
+<!--begin.rcode
+# Integers specified explicitly by a number followed by L
+v_integer <- c(1L, 2L, 3L, 4L, 5L, 6L)
+v_integer
+
+# Tip: numerical sequences can be automatically generated using :
+v_integer <- c(1L:6L) # is the same as above
+v_integer <- c(1:6) # ... and the L can be dropped as : creates a sequence of integers
+v_integer
+
+typeof(v_integer)
+end.rcode-->
+
+<p>Logical and integer vectors will come in very handy when indexing data structures later to subset and order data.</p>
+
+<div class="h1">Type: double</div>            
+
+<p>Another numerical data type is <strong>double</strong> type data. Double type data allows "real" numbers, those with decimals/fractions. However, while double type data <em>allows</em> decimals, the data does not necessarily have to have them.</p>
+
+
+<!--begin.rcode
+v_double <- c(1, 2, 3, 4, 5)
+v_double
+typeof(v_double)
+end.rcode-->
+
+<p>A sequence of double type values can also be easily created using the <span class = "ri">seq()</span> function which takes three arguments; <span class = "ri">from</span> which is the first value, <span class = "ri">to</span> which is the last value and <span class = "ri">by</span> which is the interval between numbers (which defaults to 1). <span class = "ri">length.out</span> can be used instead of <span class = "ri">by</span> if there is a specific length of sequence needed. The output of <span class = "ri">seq()</span> is then a double type vector of elements.</p>
+
+<!--begin.rcode
+seq(1, 5, 1) 
+seq(1, 2, 0.1) 
+seq(1, 2, length.out = 20) 
+
+# Use the output to create a vector object of double type values
+v_double <- seq(1, 5, 1) # ... beats typing out all the values
+v_double
+typeof(v_double)
+end.rcode-->
+
+<p>One often useful built-in value of double-type data is <span class="ri">pi</span> which is a vector of length one.</p>
+
+<!--begin.rcode
+pi # A useful value to have available!
+length(pi)
+typeof(pi)
+end.rcode-->
+
+<br/>
+
+
+<div class="h1">Type: character</div>
+
+<p>The last of the four main types is <strong>character</strong> type data which allows the greatest complexity - elements can be long strings containing letters, numbers and special characters - but also is the largest data type, consuming the most memory. Elements of character data are each wrapped in quotes, either single (<span class="ri">'</span>) or double (<span class="ri">"</span>) can be used as long as there is a matching pair. I tend to use double as this allows strings to contain single quotes if needed:</p>
+
+<!--begin.rcode
+v_character <- c("hope", "you're", "having", "fun!")
+typeof(v_character)
+length(v_character)
+end.rcode-->
+
+<p>When we use character data in a function that would intuitively be using numeric data, such as <span class="ri">mean()</span> or <span class="ri">sum()</span>, R will not know what to do and return a value of <span class="ri">NA</span> (missing data/unknown value, see below) and give a <strong>warning</strong> but not an <strong>error</strong> so a script will continue to execute.</p>
+
+<!--begin.rcode
+mean(v_character)
+end.rcode-->
+
+<p>There are some useful <strong>built-in character vectors</strong> too, such as data on US states, month abbreviations and the alphabet.</p>
+
+<!--begin.rcode
+letters
+LETTERS
+month.abb
+state.abb
+state.name
+end.rcode-->
+
+<br/>
 
 
 
