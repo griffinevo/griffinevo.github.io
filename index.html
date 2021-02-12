@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<head>
+<style type="text/css">
+.inline {
+  background-color: #f7f7f7;
+  border:solid 1px #B0B0B0;
+}
+.error {
+	font-weight: bold;
+	color: #FF0000;
+}
+.warning {
+	font-weight: bold;
+}
+.message {
+	font-style: italic;
+}
+.source, .output, .warning, .error, .message {
+	padding: 0 1em;
+  border:solid 1px #F7F7F7;
+}
+.source {
+  background-color: #f5f5f5;
+}
+.left {
+  text-align: left;
+}
+.right {
+  text-align: right;
+}
+.center {
+  text-align: center;
+}
+.hl.num {
+  color: #AF0F91;
+}
+.hl.str {
+  color: #317ECC;
+}
+.hl.com {
+  color: #AD95AF;
+  font-style: italic;
+}
+.hl.opt {
+  color: #000000;
+}
+.hl.std {
+  color: #585858;
+}
+.hl.kwa {
+  color: #295F94;
+  font-weight: bold;
+}
+.hl.kwb {
+  color: #B05A65;
+}
+.hl.kwc {
+  color: #55aa55;
+}
+.hl.kwd {
+  color: #BC5A65;
+  font-weight: bold;
+}
+</style>
+<meta charset='utf-8'/>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>GriffinEvo</title>
+<link rel='stylesheet' href='style.css'/>
+<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.8.1/css/all.css' integrity='sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf' crossorigin='anonymous'/>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;300;400;600&display=swap'/>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'/>
+</head>
+
+<body>
+
+<!-- Top Bar -------------------------------------------------------------->
+<div class = 'topBar'>
+<div class = 'topTitle'>GriffinEvo</div>
+<div class = "openNav" onclick="openNav()">&#9776;</div>
+<div id="sideNav" class="sidenav">
+<a href="javascript:void(0)" class="closeNav" onclick="closeNav()">&times;</a>
+<a href="index.html">Home</a>
+<a class="accordion">R Notes</a>
+<div class="panel">
+<div class="navPanel">
+<a href="r_intro.html">Intro to R</a>
+<a href="r_functions.html">Functions</a>
+<a href="r_data.html">Data</a>
+<a href="r_pt1_quiz.html">Review: R, functions and data</a>
+</div>
+</div>
+<div class = "navIconCon">
+<a href = "https://twitter.com/griffinevo" target = "_blank"><i class = "navIcon fa fa-twitter"></i></a>
+<a href = "https://www.linkedin.com/in/robgriffin247" target = "_blank"><i class = "navIcon fab fa-linkedin-square"></i></a>
+<a href = "mailto:robgriffin247@hotmail.com" target = "_blank"><i class = "navIcon fas fa-envelope"></i></a>
+</div>
+</div>
+</div>
+
+
+
+
+<!-- Main section -->
+<div class = 'mainBody'>
+
+
+<div class = 'contactCard'>
+<div class = 'leftCol'>
+<img src = 'IMAGES/rgriffin.jpg' class = 'contactImg'/>
+</div>
+<div class = 'rightCol'>
+<ul class = "nodot">
+<li class = 'h1'>Rob Griffin, PhD</li>
+<li>Statistical Programmer</li>
+<li>AstraZeneca, Gothenburg</li>
+<div class = 'iconCon'>
+<li>
+<a href = 'https://twitter.com/griffinevo' target = '_blank'>
+<i class = 'icon fa fa-twitter'></i>
+<span class = 'desktopOnly'>@GriffinEvo</span>
+</a>
+</li>
+<li>
+<a href = 'https://www.linkedin.com/in/robgriffin247' target = '_blank'>
+<i class = 'icon fab fa-linkedin-square'></i>
+<span class = 'desktopOnly'>/robgriffin247</span>
+</a>
+</li>
+<li>
+<a href = 'mailto:robgriffin247@hotmail.com' target = '_blank'>
+<i class = 'icon fas fa-envelope'></i>
+<span class = 'desktopOnly'>robgriffin247[at]hotmail.com</span>
+</a>
+</li>
+</div>
+</ul>
+</div>
+</div>
+
+
+<p><span class = "h1">Profile:</span> I am a programmer working on late-phase studies in respiratory and immunological diseases, father of two (soon three) and keen cyclist and runner. I became interested in evolutionary biology and research during my studies and decided to pursue an academic career. After ten years in academia, I made the switch to the private sector to allow programming and data to become the focus of my work, and seeking better work-life balance and job security.</p>
+
+<div class = "h1">Timeline:</div>
+<ul class = "nodot">
+<li>2020 - present: Statistical Programmer<span class = "desktopOnly">, AstraZeneca, Sweden</span></li>
+<li>2019 - 2020: Visiting Academic<span class = "desktopOnly">, University of Queensland, Australia</span></li>
+<li>2018 - 2020: Postdoctoral Research Fellow<span class = "desktopOnly">, Uppsala University, Sweden</span></li>
+<li>2016 - 2018: Postdoctoral Researcher<span class = "desktopOnly">, Turku University, Finland</span></li>
+<li>2011 - 2015: PhD Candidate<span class = "desktopOnly">, Uppsala University, Sweden</span></li>
+<li>2010 - 2011: Assistant Manager<span class = "desktopOnly">, Falmouth Townhouse Hotel and Bar, UK</span></li>
+<li>2010 - 2011: MSc in Evolutionary and Behavioural Ecology<span class = "desktopOnly">, University of Exeter, UK</span></li>
+<li>2007 - 2010: BSc in Conservation Biology and Ecology<span class = "desktopOnly">, University of Exeter, UK</span></li>
+<li>2008 - 2010: Supervisor<span class = "desktopOnly">, Falmouth Harbour View Restaurant, UK</span></li>
+</ul>
+</p>
+
+<p><span class = "h1">Research:</span> My research focused on using quantitative/statistical genetic approaches to understand the evolution of sex differences. Males and females share many of the same genes which should make sex differences slow to evolve, but sex differences are rife in nature. I am interested in generation and resolution of the genetic conflict generated by selection towards divergent sex-specific optima. Statistical approaches allow us to estimate the genetic variance within traits, covariance among traits and between the sexes, populate genetic variance-covariance matrices, and assess the resulting evolutionary potential in a multivariate context using matrix comparison tools. More can be found in my <a href = "https://uu.diva-portal.org/smash/get/diva2:842941/FULLTEXT01.pdf" target = "_blank">PhD thesis</a> and <a href = "https://scholar.google.com/citations?user=w0uVTwIAAAAJ&hl=en" target = "_blank">papers</a>.</p>
+</div>
+</body>
+
+
+<script>
+function openNav() {
+document.getElementById("sideNav").style.width = "450px";
+}
+
+function closeNav() {
+document.getElementById("sideNav").style.width = "0";
+}
+</script> 
+
+<script>
+var acc = document.getElementsByClassName('accordion');
+var i;
+
+for (i = 0; i < acc.length; i++) {
+acc[i].addEventListener('click', function() {
+this.classList.toggle('active');
+var panel = this.nextElementSibling;
+if (panel.style.maxHeight) {
+panel.style.maxHeight = null;
+} else {
+panel.style.maxHeight = panel.scrollHeight + 'px';
+}
+});
+}
+</script>

@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<head>
+<style type="text/css">
+.inline {
+  background-color: #f7f7f7;
+  border:solid 1px #B0B0B0;
+}
+.error {
+	font-weight: bold;
+	color: #FF0000;
+}
+.warning {
+	font-weight: bold;
+}
+.message {
+	font-style: italic;
+}
+.source, .output, .warning, .error, .message {
+	padding: 0 1em;
+  border:solid 1px #F7F7F7;
+}
+.source {
+  background-color: #f5f5f5;
+}
+.left {
+  text-align: left;
+}
+.right {
+  text-align: right;
+}
+.center {
+  text-align: center;
+}
+.hl.num {
+  color: #AF0F91;
+}
+.hl.str {
+  color: #317ECC;
+}
+.hl.com {
+  color: #AD95AF;
+  font-style: italic;
+}
+.hl.opt {
+  color: #000000;
+}
+.hl.std {
+  color: #585858;
+}
+.hl.kwa {
+  color: #295F94;
+  font-weight: bold;
+}
+.hl.kwb {
+  color: #B05A65;
+}
+.hl.kwc {
+  color: #55aa55;
+}
+.hl.kwd {
+  color: #BC5A65;
+  font-weight: bold;
+}
+</style>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Data</title>
+<link rel="stylesheet" href="style.css"/>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;300;400;600&display=swap"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+</head>
+
+<body>
+
+<!-- Top Bar -------------------------------------------------------------->
+<div class = "topBar">
+<div class = "topTitle">GriffinEvo: <span class = "topPage">Data</span></div>
+<div class = "openNav" onclick="openNav()">&#9776;</div>
+<div id="sideNav" class="sidenav">
+<a href="javascript:void(0)" class="closeNav" onclick="closeNav()">&times;</a>
+<a href="index.html">Home</a>
+<a class="accordion">R Notes</a>
+<div class="panel">
+<div class="navPanel">
+<a href="r_intro.html">Intro to R</a>
+<a href="r_functions.html">Functions</a>
+<a href="r_data.html">Data</a>
+<a href="r_pt1_quiz.html">Review: R, functions and data</a>
+</div>
+</div>
+<div class = "navIconCon">
+<a href = "https://twitter.com/griffinevo" target = "_blank"><i class = "navIcon fa fa-twitter"></i></a>
+<a href = "https://www.linkedin.com/in/robgriffin247" target = "_blank"><i class = "navIcon fab fa-linkedin-square"></i></a>
+<a href = "mailto:robgriffin247@hotmail.com" target = "_blank"><i class = "navIcon fas fa-envelope"></i></a>
+</div>
+</div>
+</div>
+
+
+
+
+<!-- Main section -->
+<div class = "mainBody">
+
+<p>R handles data in structures, there are four key structures:</p>
+
+<ul>
+  <li>Atomic vectors</li>
+  <li>Matrices</li>
+  <li>Lists</li>
+  <li>Data frames</li>
+</ul>
+
+<p>This section covers these four data structures as well as data type and logical operations. It is worth revisiting objects, assignment and the workspace as covered in the <a href="r_intro.html">introduction</a>. Briefly, as will be used below, the R session has a workspace which contains the user-created objects (functions and data), created using the <span class = "ri">&lt;-</span> assignment operator. This operator assigns an object to a named variable which can then be repeately used during the session.</p>
+
+
+<div class="chunk" id="unnamed-chunk-2"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># e.g. Assign a vector of numbers, the object, to a variable called v1:</span>
+<span class="hl std">v1</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">6</span><span class="hl std">,</span> <span class="hl num">2</span><span class="hl std">,</span> <span class="hl num">8</span><span class="hl std">,</span> <span class="hl num">2</span><span class="hl std">,</span> <span class="hl num">1</span><span class="hl std">,</span> <span class="hl num">9</span><span class="hl std">,</span> <span class="hl num">11</span><span class="hl std">)</span>
+
+<span class="hl com"># Then repeatedly use that vector</span>
+<span class="hl kwd">mean</span><span class="hl std">(v1)</span>
+<span class="hl kwd">median</span><span class="hl std">(v1)</span>
+<span class="hl kwd">min</span><span class="hl std">(v1)</span>
+<span class="hl kwd">sum</span><span class="hl std">(v1)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">[1] 5.571429
+[1] 6
+[1] 1
+[1] 39
+</pre></div>
+</div></div>
+
+<br/>
+
+
+<div class="h1 break">Structure: atomic vectors</div>            
+
+<p>Atomic vectors, or as every knows them, just "<strong>vectors</strong>" are the most important and fundamental data structure in R. Understanding them will take you a long way forward in getting to grips with R. Vectors are created by passing comma-separated data values, or <strong>elements</strong>, to the concatenate function, <span class="ri">c()</span>.</p>
+
+<div class="chunk" id="unnamed-chunk-3"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># This is a vector of three elements, A, B and C</span>
+<span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;A&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;B&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;C&quot;</span><span class="hl std">)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">[1] &quot;A&quot; &quot;B&quot; &quot;C&quot;
+</pre></div>
+</div></div>
+
+<p>Vectors have two features of note. Firstly they are one-dimensional. This means they have a <strong>length</strong> which is the number of elements that they contain. This count can be returned using the <span class = "ri">length()</span> function. Even a single value, which can be given without concatenation (because there is no concatenation with one value), is a vector in R.</p>
+
+<div class="chunk" id="unnamed-chunk-4"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl kwd">length</span><span class="hl std">(</span><span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;A&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;B&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;C&quot;</span><span class="hl std">))</span>
+
+<span class="hl num">12.6</span> <span class="hl com"># this is a vector containing the value 12.6</span>
+<span class="hl kwd">length</span><span class="hl std">(</span><span class="hl num">12.6</span><span class="hl std">)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">[1] 3
+[1] 12.6
+[1] 1
+</pre></div>
+</div></div>
+
+
+<p>The second feature to note is that they carry data of only one <strong>type</strong>. Data type ca be returned using the <span class = "ri">typeof()</span> function. While the type of a vector is determined by the elements it contains, type is a property of the vector itself, not the data; <span class = "ri">typeof()</span> therefore returns a single value.</p>
+
+<div class="box">
+<div class="h1">Data type</div>
+
+<p>There are four main types of data that users will encounter; other types do exist but are rarely used except by advanced R programmers. They are:</p>
+
+<ul>
+  <li>Logical</li>
+  <li>Integer</li>
+  <li>Double</li>
+  <li>Character</li>
+</ul>
+
+
+<div class="h1">Logical</div>            
+
+<p>Logical type data is the most basic of the four. It uses little memory but contains little information as it can be one of two values; <span class = "ri">TRUE</span> and <span class = "ri">FALSE</span>.</p>
+
+<div class="chunk" id="unnamed-chunk-5"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">TRUE</span><span class="hl std">,</span> <span class="hl num">FALSE</span><span class="hl std">,</span> <span class="hl num">FALSE</span><span class="hl std">)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">[1]  TRUE FALSE FALSE
+</pre></div>
+</div></div>
+
+
+<p>The values <span class = "ri">TRUE</span> and <span class = "ri">FALSE</span> can also be written as <span class = "ri">T</span> and <span class = "ri">F</span> respectively. This is commonly done when setting arguments in functions but, as shown below, the shortening of <span class = "ri">TRUE</span> and <span class = "ri">FALSE</span> can become problematic because it is possible to overwrite the meaning of <span class = "ri">T</span> and <span class = "ri">F</span>.</p>
+
+<div class="chunk" id="unnamed-chunk-6"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># Get the mean and ignore NAs (missing data) in the calculation:</span>
+<span class="hl kwd">mean</span><span class="hl std">(</span><span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">3</span><span class="hl std">,</span> <span class="hl num">6</span><span class="hl std">,</span> <span class="hl num">8</span><span class="hl std">,</span> <span class="hl num">NA</span><span class="hl std">,</span> <span class="hl num">5</span><span class="hl std">),</span> <span class="hl kwc">na.rm</span> <span class="hl std">= T)</span>
+
+<span class="hl com"># Make the value of T to be FALSE</span>
+<span class="hl std">T</span> <span class="hl kwb">&lt;-</span> <span class="hl num">FALSE</span>
+<span class="hl std">T</span>
+<span class="hl kwd">mean</span><span class="hl std">(</span><span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">3</span><span class="hl std">,</span> <span class="hl num">6</span><span class="hl std">,</span> <span class="hl num">8</span><span class="hl std">,</span> <span class="hl num">NA</span><span class="hl std">,</span> <span class="hl num">5</span><span class="hl std">),</span> <span class="hl kwc">na.rm</span> <span class="hl std">= T)</span>
+
+<span class="hl com"># ... let's just fix that</span>
+<span class="hl std">T</span> <span class="hl kwb">&lt;-</span> <span class="hl num">TRUE</span>
+</pre></div>
+<div class="output"><pre class="knitr r">[1] 5.5
+[1] FALSE
+[1] NA
+</pre></div>
+</div></div>
+
+<p>A useful property of logical vectors is that R will convert <span class = "ri">TRUE</span> and <span class = "ri">FALSE</span> to values of <span class = "ri">1</span> and <span class = "ri">0</span> when it expects numerical data; this can make it quick and elegant to find, for example, the number and proportion of cases where a value is <span class = "ri">TRUE</span>.
+
+<div class="chunk" id="unnamed-chunk-7"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">v_logical</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">TRUE</span><span class="hl std">,</span> <span class="hl num">TRUE</span><span class="hl std">,</span> <span class="hl num">FALSE</span><span class="hl std">,</span> <span class="hl num">FALSE</span><span class="hl std">,</span> <span class="hl num">TRUE</span><span class="hl std">)</span>
+<span class="hl kwd">sum</span><span class="hl std">(v_logical)</span>
+<span class="hl kwd">mean</span><span class="hl std">(v_logical)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">[1] 3
+[1] 0.6
+</pre></div>
+</div></div>
+
+<br/>
+
+<div class="h1">Integer</div>            
+
+<p>Integer type data is the next most basic of the four types. Integer data is data of whole numbers, those used for counting, phone numbers etc. where fractions cannot occur. Values are numeric and suffixed by an <span class = "ri">L</span> which tells R that it is an integer.</p>
+
+<div class="chunk" id="unnamed-chunk-8"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># Integers specified explicitly by a number followed by L</span>
+<span class="hl std">v_integer</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">1L</span><span class="hl std">,</span> <span class="hl num">2L</span><span class="hl std">,</span> <span class="hl num">3L</span><span class="hl std">,</span> <span class="hl num">4L</span><span class="hl std">,</span> <span class="hl num">5L</span><span class="hl std">,</span> <span class="hl num">6L</span><span class="hl std">)</span>
+<span class="hl std">v_integer</span>
+
+<span class="hl com"># Tip: numerical sequences can be automatically generated using :</span>
+<span class="hl std">v_integer</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">1L</span><span class="hl opt">:</span><span class="hl num">6L</span><span class="hl std">)</span> <span class="hl com"># is the same as above</span>
+<span class="hl std">v_integer</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">1</span><span class="hl opt">:</span><span class="hl num">6</span><span class="hl std">)</span> <span class="hl com"># ... and the L can be dropped as : creates a sequence of integers</span>
+<span class="hl std">v_integer</span>
+
+<span class="hl kwd">typeof</span><span class="hl std">(v_integer)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">[1] 1 2 3 4 5 6
+[1] 1 2 3 4 5 6
+[1] &quot;integer&quot;
+</pre></div>
+</div></div>
+
+<p>Logical and integer vectors will come in very handy when indexing data structures later to subset and order data.</p>
+
+<div class="h1">Double</div>            
+
+<p>Another numerical data type is double type data. Double type data allows "real" numbers, those with decimals/fractions. However, while double type data <em>allows</em> decimals, the data does not necessarily have to have them.</p>
+
+
+<div class="chunk" id="unnamed-chunk-9"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">v_double</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">1</span><span class="hl std">,</span> <span class="hl num">2</span><span class="hl std">,</span> <span class="hl num">3</span><span class="hl std">,</span> <span class="hl num">4</span><span class="hl std">,</span> <span class="hl num">5</span><span class="hl std">)</span>
+<span class="hl std">v_double</span>
+<span class="hl kwd">typeof</span><span class="hl std">(v_double)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">[1] 1 2 3 4 5
+[1] &quot;double&quot;
+</pre></div>
+</div></div>
+
+<p>A sequence of double type values can also be easily created using the <span class = "ri">seq()</span> function which takes three arguments; <span class = "ri">from</span> which is the first value, <span class = "ri">to</span> which is the last value and <span class = "ri">by</span> which is the interval between numbers (which defaults to 1). <span class = "ri">length.out</span> can be used instead of <span class = "ri">by</span> if there is a specific length of sequence needed. The output of <span class = "ri">seq()</span> is then a double type vector of elements.</p>
+
+<div class="chunk" id="unnamed-chunk-10"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl kwd">seq</span><span class="hl std">(</span><span class="hl num">1</span><span class="hl std">,</span> <span class="hl num">5</span><span class="hl std">,</span> <span class="hl num">1</span><span class="hl std">)</span>
+<span class="hl kwd">seq</span><span class="hl std">(</span><span class="hl num">1</span><span class="hl std">,</span> <span class="hl num">2</span><span class="hl std">,</span> <span class="hl num">0.1</span><span class="hl std">)</span>
+<span class="hl kwd">seq</span><span class="hl std">(</span><span class="hl num">1</span><span class="hl std">,</span> <span class="hl num">2</span><span class="hl std">,</span> <span class="hl kwc">length.out</span> <span class="hl std">=</span> <span class="hl num">20</span><span class="hl std">)</span>
+
+<span class="hl com"># Use the output to create a vector object of double type values</span>
+<span class="hl std">v_double</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">seq</span><span class="hl std">(</span><span class="hl num">1</span><span class="hl std">,</span> <span class="hl num">5</span><span class="hl std">,</span> <span class="hl num">1</span><span class="hl std">)</span> <span class="hl com"># ... beats typing out all the values</span>
+<span class="hl std">v_double</span>
+<span class="hl kwd">typeof</span><span class="hl std">(v_double)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">[1] 1 2 3 4 5
+ [1] 1.0 1.1 1.2 1.3 1.4 1.5 1.6 1.7 1.8 1.9 2.0
+ [1] 1.000000 1.052632 1.105263 1.157895 1.210526 1.263158 1.315789 1.368421
+ [9] 1.421053 1.473684 1.526316 1.578947 1.631579 1.684211 1.736842 1.789474
+[17] 1.842105 1.894737 1.947368 2.000000
+[1] 1 2 3 4 5
+[1] &quot;double&quot;
+</pre></div>
+</div></div>
+
+<p>One often useful built-in value of double-type data is <span class="ri">pi</span> which is a vector of length one.</p>
+
+<div class="chunk" id="unnamed-chunk-11"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">pi</span> <span class="hl com"># A useful value to have available!</span>
+<span class="hl kwd">length</span><span class="hl std">(pi)</span>
+<span class="hl kwd">typeof</span><span class="hl std">(pi)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">[1] 3.141593
+[1] 1
+[1] &quot;double&quot;
+</pre></div>
+</div></div>
+
+<br/>
+
+
+<div class="h1">Type: character</div>
+
+<p>The last of the four main types is character type data which allows the greatest complexity - elements can be long strings containing letters, numbers and special characters - but also is the largest data type, consuming the most memory. Elements of character data are each wrapped in quotes, either single (<span class="ri">'</span>) or double (<span class="ri">"</span>) can be used as long as there is a matching pair. I tend to use double as this allows strings to contain single quotes if needed:</p>
+
+<div class="chunk" id="unnamed-chunk-12"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">v_character</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;hope&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;you're&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;having&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;fun!&quot;</span><span class="hl std">)</span>
+<span class="hl kwd">typeof</span><span class="hl std">(v_character)</span>
+<span class="hl kwd">length</span><span class="hl std">(v_character)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">[1] &quot;character&quot;
+[1] 4
+</pre></div>
+</div></div>
+
+<p>When we use character data in a function that would intuitively be using numeric data, such as <span class="ri">mean()</span> or <span class="ri">sum()</span>, R will not know what to do and return a value of <span class="ri">NA</span> (missing data/unknown value, see below) and give a <strong>warning</strong> but not an <strong>error</strong> so a script will continue to execute.</p>
+
+<div class="chunk" id="unnamed-chunk-13"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl kwd">mean</span><span class="hl std">(v_character)</span>
+</pre></div>
+<div class="warning"><pre class="knitr r">Warning in mean.default(v_character): argument is not numeric or logical:
+returning NA
+</pre></div>
+<div class="output"><pre class="knitr r">[1] NA
+</pre></div>
+</div></div>
+
+<p>There are some useful <strong>built-in character vectors</strong> too, such as data on US states, month abbreviations and the alphabet.</p>
+
+<div class="chunk" id="unnamed-chunk-14"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">letters</span>
+<span class="hl std">LETTERS</span>
+<span class="hl std">month.abb</span>
+<span class="hl std">state.abb</span>
+<span class="hl std">state.name</span>
+</pre></div>
+<div class="output"><pre class="knitr r"> [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; &quot;e&quot; &quot;f&quot; &quot;g&quot; &quot;h&quot; &quot;i&quot; &quot;j&quot; &quot;k&quot; &quot;l&quot; &quot;m&quot; &quot;n&quot; &quot;o&quot; &quot;p&quot; &quot;q&quot; &quot;r&quot; &quot;s&quot;
+[20] &quot;t&quot; &quot;u&quot; &quot;v&quot; &quot;w&quot; &quot;x&quot; &quot;y&quot; &quot;z&quot;
+ [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot; &quot;G&quot; &quot;H&quot; &quot;I&quot; &quot;J&quot; &quot;K&quot; &quot;L&quot; &quot;M&quot; &quot;N&quot; &quot;O&quot; &quot;P&quot; &quot;Q&quot; &quot;R&quot; &quot;S&quot;
+[20] &quot;T&quot; &quot;U&quot; &quot;V&quot; &quot;W&quot; &quot;X&quot; &quot;Y&quot; &quot;Z&quot;
+ [1] &quot;Jan&quot; &quot;Feb&quot; &quot;Mar&quot; &quot;Apr&quot; &quot;May&quot; &quot;Jun&quot; &quot;Jul&quot; &quot;Aug&quot; &quot;Sep&quot; &quot;Oct&quot; &quot;Nov&quot; &quot;Dec&quot;
+ [1] &quot;AL&quot; &quot;AK&quot; &quot;AZ&quot; &quot;AR&quot; &quot;CA&quot; &quot;CO&quot; &quot;CT&quot; &quot;DE&quot; &quot;FL&quot; &quot;GA&quot; &quot;HI&quot; &quot;ID&quot; &quot;IL&quot; &quot;IN&quot; &quot;IA&quot;
+[16] &quot;KS&quot; &quot;KY&quot; &quot;LA&quot; &quot;ME&quot; &quot;MD&quot; &quot;MA&quot; &quot;MI&quot; &quot;MN&quot; &quot;MS&quot; &quot;MO&quot; &quot;MT&quot; &quot;NE&quot; &quot;NV&quot; &quot;NH&quot; &quot;NJ&quot;
+[31] &quot;NM&quot; &quot;NY&quot; &quot;NC&quot; &quot;ND&quot; &quot;OH&quot; &quot;OK&quot; &quot;OR&quot; &quot;PA&quot; &quot;RI&quot; &quot;SC&quot; &quot;SD&quot; &quot;TN&quot; &quot;TX&quot; &quot;UT&quot; &quot;VT&quot;
+[46] &quot;VA&quot; &quot;WA&quot; &quot;WV&quot; &quot;WI&quot; &quot;WY&quot;
+ [1] &quot;Alabama&quot;        &quot;Alaska&quot;         &quot;Arizona&quot;        &quot;Arkansas&quot;      
+ [5] &quot;California&quot;     &quot;Colorado&quot;       &quot;Connecticut&quot;    &quot;Delaware&quot;      
+ [9] &quot;Florida&quot;        &quot;Georgia&quot;        &quot;Hawaii&quot;         &quot;Idaho&quot;         
+[13] &quot;Illinois&quot;       &quot;Indiana&quot;        &quot;Iowa&quot;           &quot;Kansas&quot;        
+[17] &quot;Kentucky&quot;       &quot;Louisiana&quot;      &quot;Maine&quot;          &quot;Maryland&quot;      
+[21] &quot;Massachusetts&quot;  &quot;Michigan&quot;       &quot;Minnesota&quot;      &quot;Mississippi&quot;   
+[25] &quot;Missouri&quot;       &quot;Montana&quot;        &quot;Nebraska&quot;       &quot;Nevada&quot;        
+[29] &quot;New Hampshire&quot;  &quot;New Jersey&quot;     &quot;New Mexico&quot;     &quot;New York&quot;      
+[33] &quot;North Carolina&quot; &quot;North Dakota&quot;   &quot;Ohio&quot;           &quot;Oklahoma&quot;      
+[37] &quot;Oregon&quot;         &quot;Pennsylvania&quot;   &quot;Rhode Island&quot;   &quot;South Carolina&quot;
+[41] &quot;South Dakota&quot;   &quot;Tennessee&quot;      &quot;Texas&quot;          &quot;Utah&quot;          
+[45] &quot;Vermont&quot;        &quot;Virginia&quot;       &quot;Washington&quot;     &quot;West Virginia&quot; 
+[49] &quot;Wisconsin&quot;      &quot;Wyoming&quot;       
+</pre></div>
+</div></div>
+</div>
+
+
+
+
+</div>
+</body>
+
+
+<script>
+function openNav() {
+document.getElementById("sideNav").style.width = "450px";
+}
+
+function closeNav() {
+document.getElementById("sideNav").style.width = "0";
+}
+</script> 
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+acc[i].addEventListener("click", function() {
+this.classList.toggle("active");
+var panel = this.nextElementSibling;
+if (panel.style.maxHeight) {
+panel.style.maxHeight = null;
+} else {
+panel.style.maxHeight = panel.scrollHeight + "px";
+}
+});
+}
+</script>

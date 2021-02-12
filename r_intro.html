@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<head>
+<style type="text/css">
+.inline {
+  background-color: #f7f7f7;
+  border:solid 1px #B0B0B0;
+}
+.error {
+	font-weight: bold;
+	color: #FF0000;
+}
+.warning {
+	font-weight: bold;
+}
+.message {
+	font-style: italic;
+}
+.source, .output, .warning, .error, .message {
+	padding: 0 1em;
+  border:solid 1px #F7F7F7;
+}
+.source {
+  background-color: #f5f5f5;
+}
+.left {
+  text-align: left;
+}
+.right {
+  text-align: right;
+}
+.center {
+  text-align: center;
+}
+.hl.num {
+  color: #AF0F91;
+}
+.hl.str {
+  color: #317ECC;
+}
+.hl.com {
+  color: #AD95AF;
+  font-style: italic;
+}
+.hl.opt {
+  color: #000000;
+}
+.hl.std {
+  color: #585858;
+}
+.hl.kwa {
+  color: #295F94;
+  font-weight: bold;
+}
+.hl.kwb {
+  color: #B05A65;
+}
+.hl.kwc {
+  color: #55aa55;
+}
+.hl.kwd {
+  color: #BC5A65;
+  font-weight: bold;
+}
+</style>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Intro to R</title>
+<link rel="stylesheet" href="style.css"/>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;300;400;600&display=swap"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+</head>
+
+<body>
+
+<!-- Top Bar -------------------------------------------------------------->
+<div class = "topBar">
+<div class = "topTitle">GriffinEvo: <span class = "topPage">Intro to R</span></div>
+<div class = "openNav" onclick="openNav()">&#9776;</div>
+<div id="sideNav" class="sidenav">
+<a href="javascript:void(0)" class="closeNav" onclick="closeNav()">&times;</a>
+<a href="index.html">Home</a>
+<a class="accordion">R Notes</a>
+<div class="panel">
+<div class="navPanel">
+<a href="r_intro.html">Intro to R</a>
+<a href="r_functions.html">Functions</a>
+<a href="r_data.html">Data</a>
+<a href="r_pt1_quiz.html">Review: R, functions and data</a>
+</div>
+</div>
+<div class = "navIconCon">
+<a href = "https://twitter.com/griffinevo" target = "_blank"><i class = "navIcon fa fa-twitter"></i></a>
+<a href = "https://www.linkedin.com/in/robgriffin247" target = "_blank"><i class = "navIcon fab fa-linkedin-square"></i></a>
+<a href = "mailto:robgriffin247@hotmail.com" target = "_blank"><i class = "navIcon fas fa-envelope"></i></a>
+</div>
+</div>
+</div>
+
+
+
+
+<!-- Main section -->
+<div class = "mainBody">
+
+<p>R is a programming language widely used for statistical programming. It is free and open-source with a large and growing community. It is a powerful tool for accessing, manipulating, analysing and visualising data.</p>
+
+
+
+<div class="h1 break">Running R</div>
+
+<p>To run R programs or <strong>scripts</strong> users will need a program which can read and execute the code. The R program included in the <a href="https://www.r-project.org/" target="_blank">download of R</a> offers a simple <strong>console</strong>, where script is executed, and an <strong>editor</strong>, from which script can be written, saved, edited and executed in the console with a keyboard shortcut, while code can also be written executed directly into the console. Most users (myself included) don't bother with the basic R software and choose <a href="https://rstudio.com/products/rstudio/download/" target="_blank">RStudio</a> and other GUIs such as Jupyter and Notepad++ which offer greater functionality and syntax highlighting.</p>
+
+<p>Opening RStudio, there are four "panes". The two important ones are the editor and the console where scripts can be written and executed respectively. Multiple scripts can be prepared in separate tabs, with new scripts initiated by pressing <em>Ctrl</em> + <em>Shift</em> + <em>N</em>. The position, layout etc. of panes is easily modified, and appearance settings such as color scheme can be changed by going to <em>Tools</em> > <em>Global Options...</em>. There is also a host of useful keyboard shortcuts which can be shown by pressing <em>Alt</em> + <em>Shift</em> + <em>K</em>, and these can be edited to suit personal preferences. My most used RStudio keyboard shortcuts for running script:</p>
+
+<ul>
+<li><strong><em>Ctrl</em> + <em>Enter</em></strong> executes the line the cursor is on or the selected lines and moves the cursor to the next line; useful for executing code line-by-line</li>
+<li><strong><em>Alt</em> + <em>Enter</em></strong> executes the line the cursor is on or the selected lines but does not move the cursor to the next line; useful for executing a line of code you are trying to debug or develop</li>
+<li><strong><em>Ctrl</em> + <em>Alt</em> + <em>R</em></strong> executes the entire script</li> 
+<li><strong><em>Ctrl</em> + <em>Alt</em> + <em>B</em></strong> executes the script from the beginning up to and including the current line</li>
+<li><strong><em>Ctrl</em> + <em>Alt</em> + <em>E</em></strong> executes the script from and including the current line until the end of the script</li>
+</ul>
+
+
+<div class = "h1">Running R summary</div>
+<ul>
+<li>R is a language</li>
+<li>R can be run in the R program, but most use third/party GUIs such as RStudio</li>
+<li>RStudio is very popular, highly customisable and offers good syntax highlighting and keyboard shortcuts</li>
+</ul>   
+
+<div class="h1 break">R programs</div>
+
+<p>R programs have two key components. The classic <em>hello, world!</em> program demonstrates both of these components - data and functions. The <em>hello, world!</em> program takes a provided <strong>data</strong> value - the character string <span class="ri">hello, world!</span> - and passes it to the <strong>argument</strong> <span class="ri">x</span> of the <span class="ri">print()</span> <strong>function</strong>, returning that value to the console when the code is executed.  </p>
+
+<div class="chunk" id="unnamed-chunk-2"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl kwd">print</span><span class="hl std">(</span><span class="hl kwc">x</span> <span class="hl std">=</span> <span class="hl str">&quot;hello, world!&quot;</span><span class="hl std">)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">[1] &quot;hello, world!&quot;
+</pre></div>
+</div></div>
+
+<p>Another simple program simulates a coin-toss experiment. It uses the <span class="ri">c()</span> function to concatenate two data values into a vector (a data structure, covered later) and the <span class="ri">sample()</span> function with data provided to three arguments. Those arguments are <span class="ri">x</span>, specifying a vector of values to sample from, <span class="ri">size</span>, specifying the number of samples to draw (i.e. the number of coin-toss events), and <span class="ri">replace</span>, specifying whether the value should be returned to the vector after each sampling event (it should, because a coin-toss can result in heads or tails every single time, regardless of what happened in the previous sampling event). The program also includes comments; R will not execute anything to the right-hand side of a <span class="ri">#</span>.</p>
+
+<div class="chunk" id="unnamed-chunk-3"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># Coin-toss experiment, with eight sampling events</span>
+<span class="hl kwd">sample</span><span class="hl std">(</span><span class="hl kwc">x</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;Heads&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Tails&quot;</span><span class="hl std">),</span> <span class="hl kwc">size</span> <span class="hl std">=</span> <span class="hl num">8</span><span class="hl std">,</span> <span class="hl kwc">replace</span> <span class="hl std">=</span> <span class="hl num">TRUE</span><span class="hl std">)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">[1] &quot;Heads&quot; &quot;Heads&quot; &quot;Heads&quot; &quot;Tails&quot; &quot;Tails&quot; &quot;Heads&quot; &quot;Tails&quot; &quot;Heads&quot;
+</pre></div>
+</div></div>
+
+<div class = "h1">Programs summary</div>
+<ul>
+<li>Programs perform processes</li>
+<li>Programs are composed of functions and data</li>
+<li>Anything to the right-hand side of a <span class = "ri">#</span> is treated as a comment and is not executed by R</li>
+</ul>      
+
+
+<div class="h1 break">Objects, assignment and the workspace</div>            
+
+<p>The coin-toss program above is a very simple program. What it produces is data, being a vector of eight character values of either <span class="ri">Heads</span> or <span class="ri">Tails</span>. We might want to keep that data for later use, for example, to see what proportion of tosses resulted in heads. Fortunately, everything in R is an object, including functions and data. The R session includes many functions and some datasets on startup, but users can also create and store objects in the <strong>workspace</strong>. This storage is done by <strong>assigning</strong> code (for functions) or data to a named object using <strong>assignment operators</strong>. The two most commonly used are <span class="ri"><-</span> and <span class="ri">=</span> which both assign the value(s) on the right-hand side to a variable of the name given on the left-hand side. It is <a href="https://stackoverflow.com/questions/1741820/what-are-the-differences-between-and-assignment-operators-in-r" target="_blank">better practice to use <span class="ri"><-</span></a>. The following assigns the data produced by the coin-toss function to a vector called <span class="ri">coin_8</span>, allowing those values to be repeatedly used.</p>
+
+<div class="chunk" id="unnamed-chunk-4"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># Coin-toss experiment, with eight sampling events</span>
+<span class="hl std">coin_8</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">sample</span><span class="hl std">(</span><span class="hl kwc">x</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;Heads&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Tails&quot;</span><span class="hl std">),</span> <span class="hl kwc">size</span> <span class="hl std">=</span> <span class="hl num">8</span><span class="hl std">,</span> <span class="hl kwc">replace</span> <span class="hl std">=</span> <span class="hl num">TRUE</span><span class="hl std">)</span>
+
+<span class="hl com"># Return the values of coin_8</span>
+<span class="hl std">coin_8</span>
+
+<span class="hl com"># How many elements does coin_8 contain?</span>
+<span class="hl kwd">length</span><span class="hl std">(</span><span class="hl kwc">x</span> <span class="hl std">= coin_8)</span>
+
+<span class="hl com"># How many times did heads and tails each occur?</span>
+<span class="hl kwd">table</span><span class="hl std">(</span><span class="hl kwc">x</span> <span class="hl std">= coin_8)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">[1] &quot;Heads&quot; &quot;Heads&quot; &quot;Tails&quot; &quot;Heads&quot; &quot;Tails&quot; &quot;Tails&quot; &quot;Heads&quot; &quot;Tails&quot;
+[1] 8
+x
+Heads Tails 
+    4     4 
+</pre></div>
+</div></div>
+
+<p>Functions can be created by the user and are assigned in exactly the same way as data. Functions are covered in more detail below, but briefly, user-defied functions are created using the <span class="ri">function()</span> function to specify arguments (and their defaults) and the code that underlies the user-defined function, allowing that function to be repeatedly called. Here I create a <span class="ri">coin_toss()</span> function which performs the coin-toss experiment <span class="ri">n</span> times, with a default <span class="ri">n</span> of 10. As before, the output of that function can also be stored as a vector in the workspace.</p>
+
+<div class="chunk" id="unnamed-chunk-5"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># Coin-toss function; n = number of tosses</span>
+<span class="hl std">coin_toss</span> <span class="hl kwb">&lt;-</span> <span class="hl kwa">function</span><span class="hl std">(</span><span class="hl kwc">n</span> <span class="hl std">=</span> <span class="hl num">10</span><span class="hl std">){</span>
+<span class="hl kwd">sample</span><span class="hl std">(</span><span class="hl kwc">x</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;Heads&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Tails&quot;</span><span class="hl std">),</span> <span class="hl kwc">size</span> <span class="hl std">= n,</span> <span class="hl kwc">replace</span> <span class="hl std">=</span> <span class="hl num">TRUE</span><span class="hl std">)</span>
+<span class="hl std">}</span>
+
+<span class="hl com"># Return the values of coin_toss with default n</span>
+<span class="hl kwd">coin_toss</span><span class="hl std">()</span>
+
+<span class="hl com"># Return the values of coin_toss with n = 20</span>
+<span class="hl kwd">coin_toss</span><span class="hl std">(</span><span class="hl kwc">n</span> <span class="hl std">=</span> <span class="hl num">20</span><span class="hl std">)</span>
+
+<span class="hl com"># Store and count the values of coin_toss with n = 1000</span>
+<span class="hl std">coin_1000</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">coin_toss</span><span class="hl std">(</span><span class="hl kwc">n</span> <span class="hl std">=</span> <span class="hl num">1000</span><span class="hl std">)</span>
+<span class="hl kwd">table</span><span class="hl std">(</span><span class="hl kwc">x</span> <span class="hl std">= coin_1000)</span>
+</pre></div>
+<div class="output"><pre class="knitr r"> [1] &quot;Tails&quot; &quot;Heads&quot; &quot;Heads&quot; &quot;Heads&quot; &quot;Tails&quot; &quot;Heads&quot; &quot;Tails&quot; &quot;Heads&quot; &quot;Heads&quot;
+[10] &quot;Heads&quot;
+ [1] &quot;Heads&quot; &quot;Tails&quot; &quot;Heads&quot; &quot;Tails&quot; &quot;Heads&quot; &quot;Heads&quot; &quot;Heads&quot; &quot;Tails&quot; &quot;Tails&quot;
+[10] &quot;Tails&quot; &quot;Tails&quot; &quot;Heads&quot; &quot;Tails&quot; &quot;Tails&quot; &quot;Heads&quot; &quot;Heads&quot; &quot;Tails&quot; &quot;Tails&quot;
+[19] &quot;Heads&quot; &quot;Heads&quot;
+x
+Heads Tails 
+  498   502 
+</pre></div>
+</div></div>
+
+<p>The contents of the workspace defined by the user - those assigned during the session - are returned to the console by the <span class="ri">ls()</span> function. Specific objects can be deleted from the workspace using the <span class="ri">rm()</span> function, e.g. <span class="ri">rm(coin_8)</span>, while the workspace can be cleared using <span class="ri">rm(list = ls())</span>. Note that the workspace only holds the user-defined objects, functions and data in loaded packages (see below) will not be affected by these actions.</p>
+
+<div class = "h1">Objects summary</div>
+<ul>
+<li>The workspace contains functions and data created by the user during the session</li>
+<li>Objects are stored in the workspace using assignment operators (<span class="ri"><em>&lt;name&gt;</em> <- <em>&lt;object&gt;</em></span>)
+<li>Objects have a name and a value, either the data or function code underlying them</li>
+<li>Storing objects in the workspace allows them to be retained and used easily</li>
+<li>Objects are removed from the workspace using the <span class="ri">rm()</span> function</li>
+</ul>
+
+<div class = "box">
+<div class = "h1">Exercises</div>
+<ol>
+<li>Use the <span class="ri">print()</span> function to write code which will print <span class="ri">hello, &lt;<em>your name</em>&gt;!</span>, replacing your name, and execute this to the console.</li>
+<li>Create a function similar to <span class="ri">coin_toss()</span> but simulating a dice roll <span class="ri">n</span> times, sampling the integers 1 to 6 (<span class="ri">c(1L:6L)</span>).</li>
+<li>Store the output of your dice roll function for 1,000 rolls in a vector called <span class="ri">rolls_1k</span> then use the <span class="ri">mean()</span> and <span class="ri">sum()</span> functions to get the mean and sum of that vector.</li>
+<li>Execute the name of the <span class="ri">mean()</span> function and your dice roll function, without braces, and consider what is returned in the console. Is this what you expected?</li>
+</ol>
+
+<p class="accordion h1">Solutions</p>
+<div class="boxPanel">
+
+<div class="chunk" id="unnamed-chunk-6"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># 1. Print my name</span>
+<span class="hl kwd">print</span><span class="hl std">(</span><span class="hl kwc">x</span> <span class="hl std">=</span> <span class="hl str">&quot;Hello, Rob!&quot;</span><span class="hl std">)</span>
+
+<span class="hl com"># 2. Create a dice roll function</span>
+<span class="hl std">dice_roll</span> <span class="hl kwb">&lt;-</span> <span class="hl kwa">function</span><span class="hl std">(</span><span class="hl kwc">n</span><span class="hl std">){</span>
+<span class="hl kwd">sample</span><span class="hl std">(</span><span class="hl kwc">x</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">1L</span><span class="hl opt">:</span><span class="hl num">6L</span><span class="hl std">),</span> <span class="hl kwc">size</span> <span class="hl std">= n,</span> <span class="hl kwc">replace</span> <span class="hl std">=</span> <span class="hl num">TRUE</span><span class="hl std">)</span>
+<span class="hl std">}</span>
+
+<span class="hl com"># 3. Execute and use dice_roll()</span>
+<span class="hl std">roll_1k</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">dice_roll</span><span class="hl std">(</span><span class="hl kwc">n</span> <span class="hl std">=</span> <span class="hl num">1000</span><span class="hl std">)</span>
+<span class="hl kwd">mean</span><span class="hl std">(</span><span class="hl kwc">x</span> <span class="hl std">= roll_1k)</span>
+<span class="hl kwd">sum</span><span class="hl std">(</span><span class="hl kwc">x</span> <span class="hl std">= roll_1k)</span>
+
+<span class="hl com"># 4. Execute the names of functions mean and dice_roll</span>
+<span class="hl std">mean</span>
+<span class="hl std">dice_roll</span>
+<span class="hl com"># - it shows the underlying code and the expected input arguments</span>
+<span class="hl com"># - this is useful when using a function and you need a reminder of the input arguments</span>
+</pre></div>
+<div class="output"><pre class="knitr r">[1] &quot;Hello, Rob!&quot;
+[1] 3.466
+[1] 3466
+function (x, ...) 
+UseMethod(&quot;mean&quot;)
+&lt;bytecode: 0x00000000151c5be8&gt;
+&lt;environment: namespace:base&gt;
+function(n){
+sample(x = c(1L:6L), size = n, replace = TRUE)
+}
+</pre></div>
+</div></div>
+
+</div>
+</div>
+
+
+</div>
+</div>
+
+
+
+</div>
+</body>
+
+
+<script>
+function openNav() {
+document.getElementById("sideNav").style.width = "450px";
+}
+
+function closeNav() {
+document.getElementById("sideNav").style.width = "0";
+}
+</script> 
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+acc[i].addEventListener("click", function() {
+this.classList.toggle("active");
+var panel = this.nextElementSibling;
+if (panel.style.maxHeight) {
+panel.style.maxHeight = null;
+} else {
+panel.style.maxHeight = panel.scrollHeight + "px";
+}
+});
+}
+</script>
