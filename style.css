@@ -110,6 +110,9 @@ a:hover {
   transition: 0.2s;
 }
 
+.navPanel {
+  padding: 12pt 0;
+}
 
 /* ACCORDION ---------------------------------------------------------------- */
 .panel {
