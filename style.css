@@ -143,7 +143,7 @@ a:hover {
   color: #4087ad;
 }
 
-.source, .output {
+.source, .output, .warning {
   white-space: pre-wrap;
   overflow: auto;
   
@@ -161,6 +161,11 @@ a:hover {
 .source {
   border-radius: 5pt 5pt 0 0;
   border: 1px solid #c2db00;
+}
+
+.warning {
+  border: 1px solid #eba834;
+  background-color: white;
 }
 
 .output {
@@ -187,7 +192,7 @@ a:hover {
   padding: 16pt;
   background-color: #c2db00;
   color: black;
-  margin-bottom: 10pt;
+  margin-bottom: 20pt;
 }
 
 
@@ -293,4 +298,3 @@ ul.nodot {
   }
   
 }
- 
