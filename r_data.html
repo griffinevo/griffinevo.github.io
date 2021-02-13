@@ -134,7 +134,7 @@
 <br/>
 
 
-<div class="h1 break">Structure: atomic vectors</div>            
+<div class="h1 break">Atomic vectors</div>            
 
 <p>Atomic vectors, or as every knows them, just "<strong>vectors</strong>" are the most important and fundamental data structure in R. Understanding them will take you a long way forward in getting to grips with R. Vectors are created by passing comma-separated data values, or <strong>elements</strong>, to the concatenate function, <span class="ri">c()</span>.</p>
 
@@ -290,7 +290,7 @@
 <br/>
 
 
-<div class="h1">Type: character</div>
+<div class="h1">Character</div>
 
 <p>The last of the four main types is character type data which allows the greatest complexity - elements can be long strings containing letters, numbers and special characters - but also is the largest data type, consuming the most memory. Elements of character data are each wrapped in quotes, either single (<span class="ri">'</span>) or double (<span class="ri">"</span>) can be used as long as there is a matching pair. I tend to use double as this allows strings to contain single quotes if needed:</p>
 
@@ -346,10 +346,244 @@ returning NA
 [49] &quot;Wisconsin&quot;      &quot;Wyoming&quot;       
 </pre></div>
 </div></div>
+
+<br/>
+
+<div class="h1">Data type summary</div>
+<ul>
+  <li>There are four key data types in R</li>
+  <li>Logical data are values of <span class="ri">TRUE</span> and <span class="ri">FALSE</span>; do not use <span class="ri">T</span> and <span class="ri">F</span> as synonyms</li>
+  <li>Integer data are whole numbers specified using numbers followed by <span class="ri">L</span> or from sequences generated with <span class="ri">:</span></li>
+  <li>Double data are numbers that may include fractions</li>
+  <li>Character data are elements of letters, numbers and special characters, wrapped in (matching pairs of) single or double quotes</li>
+</ul>
+
 </div>
 
+<p>All elements of a vector will be treated by R as the same type. If R is provided with data that is a mix of data types it will <strong>coerce</strong> all elements to the same type. For example, when providing a mix of logical, integer, double and character values in the <span class="ri">c()</span> function, R will create a vector that is of character type. The reason that R coerces this vector to character type is because it will use the data type that is the least complex, where complexity of ogical < integer < double < character, while not losing information; converting <span class="ri">"Hello"</span> to a missing/unknown value (<span class="ri">NA</span>) would allow the vector to be compatible with double type, but the information in that element would be lost.</p>
+
+<div class="chunk" id="unnamed-chunk-15"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">v_mix</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">TRUE</span><span class="hl std">,</span> <span class="hl num">5L</span><span class="hl std">,</span> <span class="hl num">1.2</span><span class="hl std">,</span> <span class="hl str">&quot;Hello&quot;</span><span class="hl std">)</span>
+<span class="hl kwd">typeof</span><span class="hl std">(v_mix)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">[1] &quot;character&quot;
+</pre></div>
+</div></div>
+
+<p>Repeating the above code but removing the <span class="ri">"Hello"</span> string, R will coerce the logical and integer style elements to double type elements because converting a double to integer or logical is not easily achieved. Note that logical values coerce to values of <span class="ri">1</span> and <span class="ri">0</span> when they are put in to integer (and double) type structures. Note too that R will coerce to double even if the only double style value is a whole number; the presence of a double style element indicates that doubles may be intentional, perhaps different data handled in the same program will contain fractions and performance of the program needs to remain consistent.</p>
+
+<div class="chunk" id="unnamed-chunk-16"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">v_mix</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">TRUE</span><span class="hl std">,</span> <span class="hl num">5L</span><span class="hl std">,</span> <span class="hl num">1.2</span><span class="hl std">)</span>
+<span class="hl kwd">typeof</span><span class="hl std">(v_mix)</span>
+
+<span class="hl std">v_mix</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">TRUE</span><span class="hl std">,</span> <span class="hl num">5L</span><span class="hl std">,</span> <span class="hl num">1</span><span class="hl std">)</span> <span class="hl com"># Also coerces to double!</span>
+<span class="hl kwd">typeof</span><span class="hl std">(v_mix)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">[1] &quot;double&quot;
+[1] &quot;double&quot;
+</pre></div>
+</div></div>
+
+<p>Removing the double value causes R to coerce the logical style values to integers just as with double type coercion.</p>
+
+<div class="chunk" id="unnamed-chunk-17"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">v_mix</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">TRUE</span><span class="hl std">,</span> <span class="hl num">5L</span><span class="hl std">)</span>
+<span class="hl kwd">typeof</span><span class="hl std">(v_mix)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">[1] &quot;integer&quot;
+</pre></div>
+</div></div>
+
+<p>It is possible to over-ride R's automatic coercion. This is done using the <span class="ri">as.*()</span> fmaily of functions. The examples below show how these functions work, often resulting in the occurence of missing data, while character values of <span class="ri">"TRUE"</span> and <span class="ri">"FALSE"</span> can be coerced to logical, integers of <span class="ri">1L</span> and <span class="ri">0L</span> are not, and doubles (and numbers as characters) are coerced to integers by taking the <strong>floor</strong> of the value (rounding down to the next whole number; even 1.999 becomes 1). It can get very messy, use manual coercion carefully - personally I use it <em>very</em> rarely.</p>
+
+<div class="chunk" id="unnamed-chunk-18"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl kwd">as.logical</span><span class="hl std">(</span>  <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;A&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;10.3&quot;</span><span class="hl std">,</span> <span class="hl num">12.7</span><span class="hl std">,</span> <span class="hl num">5L</span><span class="hl std">,</span> <span class="hl num">0L</span><span class="hl std">,</span> <span class="hl str">&quot;TRUE&quot;</span><span class="hl std">,</span> <span class="hl num">TRUE</span><span class="hl std">))</span>
+<span class="hl kwd">as.integer</span><span class="hl std">(</span>  <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;A&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;10.3&quot;</span><span class="hl std">,</span> <span class="hl num">12.7</span><span class="hl std">,</span> <span class="hl num">5L</span><span class="hl std">,</span> <span class="hl num">0L</span><span class="hl std">,</span> <span class="hl str">&quot;TRUE&quot;</span><span class="hl std">,</span> <span class="hl num">TRUE</span><span class="hl std">))</span>
+<span class="hl kwd">as.double</span><span class="hl std">(</span>   <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;A&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;10.3&quot;</span><span class="hl std">,</span> <span class="hl num">12.7</span><span class="hl std">,</span> <span class="hl num">5L</span><span class="hl std">,</span> <span class="hl num">0L</span><span class="hl std">,</span> <span class="hl str">&quot;TRUE&quot;</span><span class="hl std">,</span> <span class="hl num">TRUE</span><span class="hl std">))</span>
+<span class="hl kwd">as.character</span><span class="hl std">(</span><span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;A&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;10.3&quot;</span><span class="hl std">,</span> <span class="hl num">12.7</span><span class="hl std">,</span> <span class="hl num">5L</span><span class="hl std">,</span> <span class="hl num">0L</span><span class="hl std">,</span> <span class="hl str">&quot;TRUE&quot;</span><span class="hl std">,</span> <span class="hl num">TRUE</span><span class="hl std">))</span>
+</pre></div>
+<div class="output"><pre class="knitr r">[1]   NA   NA   NA   NA   NA TRUE TRUE
+[1] NA 10 12  5  0 NA NA
+[1]   NA 10.3 12.7  5.0  0.0   NA   NA
+[1] &quot;A&quot;    &quot;10.3&quot; &quot;12.7&quot; &quot;5&quot;    &quot;0&quot;    &quot;TRUE&quot; &quot;TRUE&quot;
+</pre></div>
+</div></div>
+
+<!--
 
 
+
+# Vectors: Indexing vectors ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Vectors contain elements of data, but often we need a subset of data. 
+# Subsetting with vectors, returning specific elements, is done using square-
+#   braces and by providing a vector. This indexing is typically either logical or 
+#   integer. Note that double vectors can be used, R just rounds down to the 
+#   "floor" of the number, i.e. ignores everything after the decimal such that
+#    1.9 becomes 1, 2.1 becomes 2, 5.58 becomes 5 etc. Character vectors can
+#    also be used, but I'll cover that later.
+
+# Positional indexing ----------------------------------------------------------
+# Integer based, or *positional indexing*, is the simpler so let's start there.
+#   For this we simply pass a vector of integers that specify which elements and 
+#   in what order. E.g. v1[c(i, j, k)] will return the ith element of v1, then 
+#   the jth and then the kth and so on. This can be used to subset data to take:
+
+# - the first element of v1
+v1[c(1L)]
+
+# - the first three elements of letters
+letters[c(1L:3L)]
+
+# - the  18th, 15th and second elements of LETTERS
+LETTERS[c(18L, 15L, 2L)]
+
+# ... note that these would more often be written as below in practice, I've used 
+#   the c() and L to help make clear what is going on.
+v1[1]
+letters[1:3]
+LETTERS[c(18, 15, 2)]
+
+
+# Positional indexing can be used to exclude elements too using a - before the vector
+letters[-c(4)] # Drop the fourth letter
+letters[-c(1, 5, 9, 15, 21)] # Drop the vowels by position
+
+
+# Positional indexing is most useful for ordered data (we might want the top 10
+#   values in an ordered vector) and for *ordering* data
+# - Create a demonstration vector
+v_fruit <- c("Banana", "Pineapple", "Pear", "Kiwi", "Grape", "Orange", "Apple")
+
+# The order() function returns integers showing the order of elements;
+# - Character is A-Z
+# - Numeric (integer or double) is -Inf to +Inf
+# - Logical is FALSE-TRUE
+order(v_fruit) # The seventh element is first alphabetically
+
+# This output vector can be used to give order to the original vector
+v_fruit[order(v_fruit)] # Outputting the 7th, then 1st, then 5th ... elements
+
+# Order can be reversed using the argument "decreasing"
+v_fruit[order(v_fruit, decreasing = TRUE)]
+
+# Order for numerical data can also be reversed by giving the negative of the value 
+#   in the order function
+v_numbers <- c(1L:10L)
+v_numbers[order(v_numbers, decreasing = TRUE)]
+v_numbers[order(-v_numbers)] # Equivalent to the above, much shorter syntax
+
+
+# Logical indexing -------------------------------------------------------------
+# As well as positional indexing, we can use *logical indexing*, passing a logical
+#   vector rather than an integer vector to the square-braces. R will subset the
+#   vector to those where the logical value was TRUE.
+v_fruit[c(TRUE, TRUE, FALSE, FALSE, FALSE, TRUE, TRUE)]
+
+# SIDENOTE: LOGICAL OPERATORS ##################################################
+# R has logical operators, assessing whether something is true or false, and
+#   returning logical vectors with the answer, e.g.
+4 > 5 # Is four greater than five?
+
+# Many logical operators are self explanatory:
+# >  "greater than"
+# <  "less than"
+# >= "greater than or equal to2
+# <= "less than or equal to"
+
+# Others need some explanation:
+# == "is"
+4 == 5
+4 == 4
+"ABC" == "abc"
+"ABC" == "ABC"
+
+# != "is not"
+4 != 5
+4 != 4
+"ABC" != "abc"
+"ABC" != "ABC"
+
+# %in% "is in the vector"
+"D" %in% c("A", "B", "C")
+"A" %in% LETTERS
+c("A", "B") %in% c("B", "C") # This evaluates for each in the left-hand term
+
+# Conjuctions:
+# & "and" - are multiple conditions satisfied?
+4 == 4 & 5 == 5
+# | "or" - are any conditions satisfied?
+4 == 5 | 5 == 5
+
+# These conditional operators can be used to create logical vectors
+v_numbers == 5
+v_numbers != 5
+v_numbers >= 5
+v_numbers >= 5 & v_numbers < 9
+v_numbers <  5 | v_numbers >= 9
+
+# Finally, meaning can be flipped using !, so 
+4 > 5 # is equivalent to...
+!(4 <= 5)
+# This is useful to make a "not in" operation, and a not missing operation as
+#   I will show later (missing data section)
+################################################################################
+
+
+# Logical operators can be used to automate a vector of logical values
+v_numbers >= 5 # Take the logical operation conducted above
+
+# Use that to return the values of v_numbers greater than or equal to five
+v_numbers[v_numbers >= 5]
+
+# Logical indexing is heavily used for subsetting vectors. Much of the indexing 
+#   principles, both positional and logical, are carried forward to structures 
+#   other than vectors.
+
+# Finally there is *named indexing*, though this is less commonly used in vectors -
+#   vectors rarely have a names *attribute* - and more commonly in lists and 
+#   data.frames so I will cover that later.
+
+
+
+# Vectors summary ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# In this section on vectors you have learned:
+# - what a vector is
+# - how to create a vector and some built-in vectors
+# - about data types and R's coercion
+# - how to find the length and type of a vector
+# - about assignment and logical operators, using these to create objects
+#   and logical vectors
+# - how to order and subset vectors
+
+# Vectors are the most important data structure in R - they are central to how
+#   R behaves. Understanding them is a big step towards being comfortable and 
+#   confident in R.
+
+
+
+
+
+# 2. Matrices ==================================================================
+# Properties - vector with dimensions, one type and length still total number of elements
+# Making
+# Identity matrices
+# Indexing
+# Useful functions t(), *.tri()
+
+a <- matrix(1L:9L, 3)
+a[5]
+a[2,2]
+length(a)
+typeof(a)
+str(a)
+
+
+# 3. Lists =====================================================================
+# 4. Dataframes ================================================================
+
+# Factors ======================================================================
+# Dates ========================================================================
+# Missing data =================================================================
+# NA
+# is.na()
+# na.rm
+-->
 
 </div>
 </body>
