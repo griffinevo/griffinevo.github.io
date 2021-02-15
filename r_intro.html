@@ -122,12 +122,13 @@
 </ul>
 
 
-<div class = "h1">Running R summary</div>
+<div class = "h2">Running R summary</div>
 <ul>
 <li>R is a language</li>
 <li>R can be run in the R program, but most use third/party GUIs such as RStudio</li>
 <li>RStudio is very popular, highly customisable and offers good syntax highlighting and keyboard shortcuts</li>
 </ul>   
+
 
 <div class="h1 break">R programs</div>
 
@@ -148,7 +149,7 @@
 </pre></div>
 </div></div>
 
-<div class = "h1">Programs summary</div>
+<div class = "h2">Programs summary</div>
 <ul>
 <li>Programs perform processes</li>
 <li>Programs are composed of functions and data</li>
@@ -184,7 +185,7 @@ Heads Tails
 
 <div class="chunk" id="unnamed-chunk-5"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># Coin-toss function; n = number of tosses</span>
 <span class="hl std">coin_toss</span> <span class="hl kwb">&lt;-</span> <span class="hl kwa">function</span><span class="hl std">(</span><span class="hl kwc">n</span> <span class="hl std">=</span> <span class="hl num">10</span><span class="hl std">){</span>
-<span class="hl kwd">sample</span><span class="hl std">(</span><span class="hl kwc">x</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;Heads&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Tails&quot;</span><span class="hl std">),</span> <span class="hl kwc">size</span> <span class="hl std">= n,</span> <span class="hl kwc">replace</span> <span class="hl std">=</span> <span class="hl num">TRUE</span><span class="hl std">)</span>
+  <span class="hl kwd">sample</span><span class="hl std">(</span><span class="hl kwc">x</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;Heads&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Tails&quot;</span><span class="hl std">),</span> <span class="hl kwc">size</span> <span class="hl std">= n,</span> <span class="hl kwc">replace</span> <span class="hl std">=</span> <span class="hl num">TRUE</span><span class="hl std">)</span>
 <span class="hl std">}</span>
 
 <span class="hl com"># Return the values of coin_toss with default n</span>
@@ -210,7 +211,7 @@ Heads Tails
 
 <p>The contents of the workspace defined by the user - those assigned during the session - are returned to the console by the <span class="ri">ls()</span> function. Specific objects can be deleted from the workspace using the <span class="ri">rm()</span> function, e.g. <span class="ri">rm(coin_8)</span>, while the workspace can be cleared using <span class="ri">rm(list = ls())</span>. Note that the workspace only holds the user-defined objects, functions and data in loaded packages (see below) will not be affected by these actions.</p>
 
-<div class = "h1">Objects summary</div>
+<div class = "h2">Objects summary</div>
 <ul>
 <li>The workspace contains functions and data created by the user during the session</li>
 <li>Objects are stored in the workspace using assignment operators (<span class="ri"><em>&lt;name&gt;</em> <- <em>&lt;object&gt;</em></span>)
@@ -218,6 +219,15 @@ Heads Tails
 <li>Storing objects in the workspace allows them to be retained and used easily</li>
 <li>Objects are removed from the workspace using the <span class="ri">rm()</span> function</li>
 </ul>
+
+
+
+
+<!--
+TODO:
+- Getting help; stackoverflow
+-->
+
 
 <div class = "box">
 <div class = "h1">Exercises</div>
@@ -228,7 +238,7 @@ Heads Tails
 <li>Execute the name of the <span class="ri">mean()</span> function and your dice roll function, without braces, and consider what is returned in the console. Is this what you expected?</li>
 </ol>
 
-<p class="accordion h1">Solutions</p>
+<p class="accordion h2">Solutions</p>
 <div class="boxPanel">
 
 <div class="chunk" id="unnamed-chunk-6"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># 1. Print my name</span>
@@ -236,7 +246,7 @@ Heads Tails
 
 <span class="hl com"># 2. Create a dice roll function</span>
 <span class="hl std">dice_roll</span> <span class="hl kwb">&lt;-</span> <span class="hl kwa">function</span><span class="hl std">(</span><span class="hl kwc">n</span><span class="hl std">){</span>
-<span class="hl kwd">sample</span><span class="hl std">(</span><span class="hl kwc">x</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">1L</span><span class="hl opt">:</span><span class="hl num">6L</span><span class="hl std">),</span> <span class="hl kwc">size</span> <span class="hl std">= n,</span> <span class="hl kwc">replace</span> <span class="hl std">=</span> <span class="hl num">TRUE</span><span class="hl std">)</span>
+  <span class="hl kwd">sample</span><span class="hl std">(</span><span class="hl kwc">x</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">1L</span><span class="hl opt">:</span><span class="hl num">6L</span><span class="hl std">),</span> <span class="hl kwc">size</span> <span class="hl std">= n,</span> <span class="hl kwc">replace</span> <span class="hl std">=</span> <span class="hl num">TRUE</span><span class="hl std">)</span>
 <span class="hl std">}</span>
 
 <span class="hl com"># 3. Execute and use dice_roll()</span>
@@ -255,17 +265,16 @@ Heads Tails
 [1] 3466
 function (x, ...) 
 UseMethod(&quot;mean&quot;)
-&lt;bytecode: 0x00000000151c5be8&gt;
+&lt;bytecode: 0x00000000152b5be8&gt;
 &lt;environment: namespace:base&gt;
 function(n){
-sample(x = c(1L:6L), size = n, replace = TRUE)
+  sample(x = c(1L:6L), size = n, replace = TRUE)
 }
 </pre></div>
 </div></div>
 
 </div>
 </div>
-
 
 </div>
 </div>
