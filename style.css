@@ -185,6 +185,27 @@ a:hover {
   color: #2c4a3f;
 }
 
+.h2 {
+  font-weight: 400;
+  color: #4e8077;
+}
+
+.h2::before {
+  content: "> ";
+  font-family: Monospace;
+}
+
+
+.h3 {
+  font-weight: 300;
+  color: #4e8077;
+}
+
+.h3::before {
+  content: "> ";
+  font-family: Monospace;
+}
+
 .break {
   padding: 24pt 0 0 0;
   border-top: 1px solid #d1d1d1;
