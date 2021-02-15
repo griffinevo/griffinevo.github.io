@@ -174,7 +174,7 @@
 </ul>
 
 
-<div class="h1">Logical</div>            
+<div class="h3">Logical</div>            
 
 <p>Logical type data is the most basic of the four. It uses little memory but contains little information as it can be one of two values; <span class = "ri">TRUE</span> and <span class = "ri">FALSE</span>.</p>
 
@@ -217,7 +217,7 @@
 
 <br/>
 
-<div class="h1">Integer</div>            
+<div class="h3">Integer</div>            
 
 <p>Integer type data is the next most basic of the four types. Integer data is data of whole numbers, those used for counting, phone numbers etc. where fractions cannot occur. Values are numeric and suffixed by an <span class = "ri">L</span> which tells R that it is an integer.</p>
 
@@ -240,7 +240,7 @@
 
 <p>Logical and integer vectors will come in very handy when indexing data structures later to subset and order data.</p>
 
-<div class="h1">Double</div>            
+<div class="h3">Double</div>            
 
 <p>Another numerical data type is double type data. Double type data allows "real" numbers, those with decimals/fractions. However, while double type data <em>allows</em> decimals, the data does not necessarily have to have them.</p>
 
@@ -290,7 +290,7 @@
 <br/>
 
 
-<div class="h1">Character</div>
+<div class="h3">Character</div>
 
 <p>The last of the four main types is character type data which allows the greatest complexity - elements can be long strings containing letters, numbers and special characters - but also is the largest data type, consuming the most memory. Elements of character data are each wrapped in quotes, either single (<span class="ri">'</span>) or double (<span class="ri">"</span>) can be used as long as there is a matching pair. I tend to use double as this allows strings to contain single quotes if needed:</p>
 
@@ -349,7 +349,7 @@ returning NA
 
 <br/>
 
-<div class="h1">Data type summary</div>
+<div class="h2">Data type summary</div>
 <ul>
   <li>There are four key data types in R</li>
   <li>Logical data are values of <span class="ri">TRUE</span> and <span class="ri">FALSE</span>; do not use <span class="ri">T</span> and <span class="ri">F</span> as synonyms</li>
@@ -359,6 +359,9 @@ returning NA
 </ul>
 
 </div>
+
+
+<div class="h2">Coercion</div>
 
 <p>All elements of a vector will be treated by R as the same type. If R is provided with data that is a mix of data types it will <strong>coerce</strong> all elements to the same type. For example, when providing a mix of logical, integer, double and character values in the <span class="ri">c()</span> function, R will create a vector that is of character type. The reason that R coerces this vector to character type is because it will use the data type that is the least complex, where complexity of ogical < integer < double < character, while not losing information; converting <span class="ri">"Hello"</span> to a missing/unknown value (<span class="ri">NA</span>) would allow the vector to be compatible with double type, but the information in that element would be lost.</p>
 
@@ -405,18 +408,28 @@ returning NA
 </pre></div>
 </div></div>
 
+<br/>
+
+<div class="h2">Indexing vectors</div>
+
+<p>So far I have shown that vectors are a one dimensional structure containing elements of data all of which will be treated as the same data type. Often data projects will involve a <strong>subset</strong> of data, for example restricting data to the first <em>n</em> elements or reducing to those that meet certain conditions. Subsetting in R, for all the data structures covered here, is performed with the object name followed by square braces (<span class="ri"><em>&lt;object&gt;</em>[...]</span>). The square braces then contain information used to <strong>index</strong> the object. In the case of vectors, a single vector (typically integer or logical type vectors; double type vectors are coerced to integers, taking the floor of the values as above) is provided in the square braces. Integer and logical type vectors are used for specific types of indexing; <strong>positional</strong> and <strong>logical</strong> respectively.</p>
+
+<div class="h3">Positional indexing</div>
+
+
 <!--
 
 
 
-# Vectors: Indexing vectors ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# Vectors contain elements of data, but often we need a subset of data. 
-# Subsetting with vectors, returning specific elements, is done using square-
-#   braces and by providing a vector. This indexing is typically either logical or 
-#   integer. Note that double vectors can be used, R just rounds down to the 
-#   "floor" of the number, i.e. ignores everything after the decimal such that
-#    1.9 becomes 1, 2.1 becomes 2, 5.58 becomes 5 etc. Character vectors can
-#    also be used, but I'll cover that later.
+
+  # Vectors: Indexing vectors ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  # Vectors contain elements of data, but often we need a subset of data. 
+  # Subsetting with vectors, returning specific elements, is done using square-
+  #   braces and by providing a vector. This indexing is typically either logical or 
+  #   integer. Note that double vectors can be used, R just rounds down to the 
+  #   "floor" of the number, i.e. ignores everything after the decimal such that
+  #    1.9 becomes 1, 2.1 becomes 2, 5.58 becomes 5 etc. Character vectors can
+  #    also be used, but I'll cover that later.
 
 # Positional indexing ----------------------------------------------------------
 # Integer based, or *positional indexing*, is the simpler so let's start there.
