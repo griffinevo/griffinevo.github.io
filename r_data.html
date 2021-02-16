@@ -505,36 +505,28 @@ returning NA
 <div class="box">
 <div class="h1">Logical operators</div>
 
-<p>Logical operators test conditions, returning a value of <span class="ri">TRUE</span> or <span class="ri">FALSE</span> for each element tested. Very simply, one could used a logical operator to test if one is greater than zero, or pass a vector of values to test that condition for all values. There are many logical operators available in R.</p>
+<p>Logical operators test conditions, returning a value of <span class="ri">TRUE</span> or <span class="ri">FALSE</span> for each element tested. Very simply, one could used a logical operator to test if one is greater than zero. There are many logical operators available in R. The examples here use numeric data, but they can be applied to data of any type.</p>
 
-<div class="chunk" id="unnamed-chunk-24"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># &gt;  &quot;greater than&quot;</span>
+<div class="chunk" id="unnamed-chunk-24"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># &gt;  &quot;is 1 *greater than* 0?&quot;</span>
 <span class="hl num">1</span> <span class="hl opt">&gt;</span> <span class="hl num">0</span>
 
-<span class="hl com"># &lt;  &quot;less than&quot;</span>
+<span class="hl com"># &lt;  &quot;is 1 *less than* 0?&quot;</span>
 <span class="hl num">1</span> <span class="hl opt">&lt;</span> <span class="hl num">0</span>
 
-<span class="hl com"># &gt;= &quot;greater than or equal to&quot;</span>
+<span class="hl com"># &gt;= &quot;is 1 *greater than or equal* to 0&quot;</span>
 <span class="hl num">1</span> <span class="hl opt">&gt;=</span> <span class="hl num">0</span>
 
-<span class="hl com"># &lt;= &quot;less than or equal to&quot;</span>
+<span class="hl com"># &lt;= &quot;is 1 *less than or equal to* 0?&quot;</span>
 <span class="hl num">1</span> <span class="hl opt">&lt;=</span> <span class="hl num">0</span>
 
-<span class="hl com"># == &quot;is&quot;</span>
-<span class="hl num">4</span> <span class="hl opt">==</span> <span class="hl num">5</span>
-<span class="hl num">4</span> <span class="hl opt">==</span> <span class="hl num">4</span>
-<span class="hl str">&quot;ABC&quot;</span> <span class="hl opt">==</span> <span class="hl str">&quot;abc&quot;</span>
-<span class="hl str">&quot;ABC&quot;</span> <span class="hl opt">==</span> <span class="hl str">&quot;ABC&quot;</span>
+<span class="hl com"># == &quot;is 1 *equal to* 0?&quot;</span>
+<span class="hl num">1</span> <span class="hl opt">==</span> <span class="hl num">0</span>
 
-<span class="hl com"># != &quot;is not&quot;</span>
-<span class="hl num">4</span> <span class="hl opt">!=</span> <span class="hl num">5</span>
-<span class="hl num">4</span> <span class="hl opt">!=</span> <span class="hl num">4</span>
-<span class="hl str">&quot;ABC&quot;</span> <span class="hl opt">!=</span> <span class="hl str">&quot;abc&quot;</span>
-<span class="hl str">&quot;ABC&quot;</span> <span class="hl opt">!=</span> <span class="hl str">&quot;ABC&quot;</span>
+<span class="hl com"># != &quot;is 1 *not equal* to 0?&quot;</span>
+<span class="hl num">1</span> <span class="hl opt">!=</span> <span class="hl num">0</span>
 
-<span class="hl com"># %in% &quot;is in the vector&quot;</span>
-<span class="hl str">&quot;D&quot;</span> <span class="hl opt">%in%</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;A&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;B&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;C&quot;</span><span class="hl std">)</span>
-<span class="hl str">&quot;A&quot;</span> <span class="hl opt">%in%</span> <span class="hl std">LETTERS</span>
-<span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;A&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;B&quot;</span><span class="hl std">)</span> <span class="hl opt">%in%</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;B&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;C&quot;</span><span class="hl std">)</span> <span class="hl com"># This evaluates for each in the left-hand term</span>
+<span class="hl com"># %in% &quot;is 1 equal to any of 0, 1, 2?&quot;</span>
+<span class="hl num">1</span> <span class="hl opt">%in%</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">0</span><span class="hl std">,</span> <span class="hl num">1</span><span class="hl std">,</span> <span class="hl num">2</span><span class="hl std">)</span>
 </pre></div>
 <div class="output"><pre class="knitr r">[1] TRUE
 [1] FALSE
@@ -542,22 +534,15 @@ returning NA
 [1] FALSE
 [1] FALSE
 [1] TRUE
-[1] FALSE
 [1] TRUE
-[1] TRUE
-[1] FALSE
-[1] TRUE
-[1] FALSE
-[1] FALSE
-[1] TRUE
-[1] FALSE  TRUE
 </pre></div>
 </div></div>
 
-<p>Note that a vector containing multiple values can be used and on either side of the logical operation.</p>
+<p>Logical operations are not just limited to single elements; a vector containing multiple values can be used and on either side of the logical operation. This is where logical operations become useful for conditional subsetting of data as multiple elements are tested on the same conditions.</p>
 
-<div class="chunk" id="unnamed-chunk-25"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># Are these values less than 0?</span>
+<div class="chunk" id="unnamed-chunk-25"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># &quot;Are these values less than 0?&quot;</span>
 <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl opt">-</span><span class="hl num">5</span><span class="hl std">,</span> <span class="hl num">3</span><span class="hl std">,</span> <span class="hl opt">-</span><span class="hl num">2</span><span class="hl std">)</span> <span class="hl opt">&lt;</span> <span class="hl num">0</span>
+
 <span class="hl com"># Is -1 greater than these values?</span>
 <span class="hl num">1</span> <span class="hl opt">&gt;=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl opt">-</span><span class="hl num">1</span><span class="hl std">,</span> <span class="hl num">0</span><span class="hl std">,</span> <span class="hl num">1</span><span class="hl std">,</span> <span class="hl num">2</span><span class="hl std">)</span>
 </pre></div>
@@ -566,12 +551,12 @@ returning NA
 </pre></div>
 </div></div>
 
-<p>Logical operations can also be combined using conjunctions to test multiple conditions simultaneously, offering what is effectively "and" and "or". Furthermore, these two conjunctions can be combined in to very complex logical operations.</p>
+<p>Logical operations can also be combined using conjunctions to test multiple conditions simultaneously, offering what is effectively "and" and "or". Furthermore, these two conjunctions can be combined into very complex logical operations.</p>
 
 <div class="chunk" id="unnamed-chunk-26"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">v_numbers</span> <span class="hl com"># View the data first</span>
-<span class="hl std">v_numbers</span> <span class="hl opt">&gt;=</span> <span class="hl num">5</span> <span class="hl opt">&amp;</span> <span class="hl std">v_numbers</span> <span class="hl opt">&lt;</span> <span class="hl num">9</span>
-<span class="hl std">v_numbers</span> <span class="hl opt">&lt;</span>  <span class="hl num">5</span> <span class="hl opt">|</span> <span class="hl std">v_numbers</span> <span class="hl opt">&gt;=</span> <span class="hl num">9</span>
-<span class="hl kwd">c</span><span class="hl std">(v_numbers</span> <span class="hl opt">&gt;</span> <span class="hl num">2</span> <span class="hl opt">&amp;</span> <span class="hl std">v_numbers</span> <span class="hl opt">&lt;</span> <span class="hl num">5</span><span class="hl std">)</span> <span class="hl opt">|</span> <span class="hl kwd">c</span><span class="hl std">(v_numbers</span> <span class="hl opt">&gt;</span> <span class="hl num">8</span> <span class="hl opt">&amp;</span> <span class="hl std">v_numbers</span> <span class="hl opt">&lt;</span> <span class="hl num">10</span><span class="hl std">)</span>
+<span class="hl std">v_numbers</span> <span class="hl opt">&gt;=</span> <span class="hl num">5</span> <span class="hl opt">&amp;</span> <span class="hl std">v_numbers</span> <span class="hl opt">&lt;</span> <span class="hl num">9</span>  <span class="hl com"># TRUE for 5, 6, 7 and 8</span>
+<span class="hl std">v_numbers</span> <span class="hl opt">&lt;</span>  <span class="hl num">5</span> <span class="hl opt">|</span> <span class="hl std">v_numbers</span> <span class="hl opt">&gt;=</span> <span class="hl num">9</span> <span class="hl com"># TRUE for 1, 2, 3, 4, 9 and 10</span>
+<span class="hl kwd">c</span><span class="hl std">(v_numbers</span> <span class="hl opt">&gt;</span> <span class="hl num">2</span> <span class="hl opt">&amp;</span> <span class="hl std">v_numbers</span> <span class="hl opt">&lt;</span> <span class="hl num">5</span><span class="hl std">)</span> <span class="hl opt">|</span> <span class="hl kwd">c</span><span class="hl std">(v_numbers</span> <span class="hl opt">&gt;</span> <span class="hl num">8</span> <span class="hl opt">&amp;</span> <span class="hl std">v_numbers</span> <span class="hl opt">&lt;</span> <span class="hl num">10</span><span class="hl std">)</span> <span class="hl com"># TRUE for 3, 4 and 9</span>
 </pre></div>
 <div class="output"><pre class="knitr r"> [1]  1  2  3  4  5  6  7  8  9 10
  [1] FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE FALSE FALSE
@@ -580,11 +565,14 @@ returning NA
 </pre></div>
 </div></div>
 
-<p>Finally, meaning can also be flipped using the <span class="ri">!</span>, which in plain words would be "not".</p>
+<p>Finally, meaning can also be flipped using the <span class="ri">!</span>, which in plain words would be "not". Note that the parentheses around the main logical operation are not needed as the main logical operation is evluated first, but do make it clearer to the reader what is going on - remember that good code is readable.</p>
 
 <div class="chunk" id="unnamed-chunk-27"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># Using not (!)</span>
-<span class="hl opt">!</span><span class="hl std">(</span><span class="hl num">0</span> <span class="hl opt">&gt;</span> <span class="hl num">1</span><span class="hl std">)</span>
-<span class="hl opt">!</span><span class="hl std">(</span><span class="hl num">3</span> <span class="hl opt">%in%</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">1L</span><span class="hl opt">:</span><span class="hl num">5L</span><span class="hl std">))</span>
+<span class="hl com"># Is 1 *not less than* zero (i.e. is 1 &gt;= 0?)</span>
+<span class="hl opt">!</span><span class="hl std">(</span><span class="hl num">1</span> <span class="hl opt">&lt;</span> <span class="hl num">0</span><span class="hl std">)</span>
+
+<span class="hl com"># Is 1 *not in* 1 through 5?</span>
+<span class="hl opt">!</span><span class="hl std">(</span><span class="hl num">1</span> <span class="hl opt">%in%</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">1L</span><span class="hl opt">:</span><span class="hl num">5L</span><span class="hl std">))</span>
 </pre></div>
 <div class="output"><pre class="knitr r">[1] TRUE
 [1] FALSE
@@ -592,12 +580,11 @@ returning NA
 </div></div>
 
 </div>
-</div>
 
 <p>Logical operations return a vector of logical values with the result of the test. Because R will return the values in the data vector where the indexing value is <span class="ri">TRUE</span>, logical operations performed within the square braces can be used to perform conditional indexing.</p>
 
 
-<div class="h2">Vectors summary</span>
+<div class="h2">Vectors summary</div>
 
 <ul>
 <li>Vectors are one dimensional; they have a length determined by the number of elements they contain</li>
