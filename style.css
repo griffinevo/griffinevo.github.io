@@ -122,7 +122,7 @@ a:hover {
   transition-duration: 0.3s;
 }
 
-.boxPanel {
+.boxPanel, .whitePanel {
   background-color: #c2db00;
   max-height: 0;
   margin: -10pt 0 0 0;
@@ -131,12 +131,20 @@ a:hover {
   transition-duration: 0.3s;
 }
 
+.whitePanel {
+  background-color: white;
+}
+
 .panel a {
   color: #c2db00;
 }
 
 .panel a:hover {
   color: white;
+}
+
+.accList {
+  margin-bottom: 20pt;
 }
  
 
