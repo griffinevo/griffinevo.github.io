@@ -1,0 +1,275 @@
+<html>
+  <head>
+    <title></title>
+    <link rel="stylesheet" href />
+
+    <style>
+    
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600&display=swap');
+    
+    @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+    
+body {
+  background-color: #f9f8f7;
+  width: 94%;
+  max-width: 750px;
+  margin: 0 auto;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12pt;
+  line-height: 22pt;
+  font-weight: 400;
+  color: #1f2d36;
+}  
+
+strong {
+  font-weight: 400;
+  color: red;
+}
+
+img {
+  max-width: 100%;
+}
+      
+.top_bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 5;
+    height: 32pt;
+    width: 92%;
+    max-width: 750px;
+    position: fixed;
+    padding: 0 0;
+    color: #f5d000;
+  }
+
+.top_bar::before{
+  content: "";
+  height: 32pt;
+  width: 100%;
+  left: 0;
+  top: 0;
+  position: fixed;
+  z-index: -1;
+  background-color: #37486e;
+  box-shadow: 0 0 10px 1px rgb(0, 0, 0, 0.05);
+}
+
+.chapter {
+  color: #ffffff;
+}
+
+
+a {
+  color: red;
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Merriweather', serif;
+  font-weight: 400;
+}
+
+h6, h5 {
+  font-size: 12pt;
+  margin-block-start: 20pt;
+  margin-block-end: 8pt;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+h4, h3 {
+  font-size: 15pt;
+  margin-block-start: 25pt;
+  margin-block-end: 10pt;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+h2, h1 {
+  font-size: 18pt;
+  margin-block-start: 30pt;
+  margin-block-end: 12pt;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+h1, h3, h5 {
+  color: #3a4f6b;
+}
+
+h2, h4, h6 {
+  color: #92a6b3;
+}
+
+
+.nav_menu {
+  height: 100%;
+  width: 0;
+  max-width: 80%;
+  position: fixed;
+  z-index: 3;
+  top: 0;
+  right: 0;
+  background-color: #496b87;
+  overflow-x: hidden;
+  transition: 0.4s;
+  text-align: left;
+  box-shadow: none;
+}
+
+.menu_btn {
+  color: white;
+}
+
+
+.nav_list{
+  list-style: none;
+  padding: 0 0 0 12pt;
+  margin: 48pt 0 0 12pt;
+  border-left: 1px solid #ffffff40;
+  font-family: Monospace;
+}
+
+.nav_list a {
+  color: white;
+  transition-duration: 0.3s;
+}
+
+.nav_list a:hover {
+  color: #f5d000;
+}
+
+.do {
+  color: green;
+}
+
+.desktop_only {
+  display: none;
+}
+.mobile_only {
+  display: inline;
+}
+
+
+
+
+@media only screen and (min-width: 600px) {
+
+  body {
+    text-align: justify;
+  }
+
+  .desktop_only {
+    display: inline;
+  }
+  .mobile_only {
+    display: none;
+  }
+}
+    </style>
+  </head>
+  
+  <body>
+    <div class="top_bar">
+      <div><span class="desktop_only">Introduction to R: </span><span class="mobile_only">R: </span><span class="chapter">getting started</span></div>
+      <div id="menu_open_btn" class="menu_btn" onclick="openNav()">☰</div>
+      <div id="menu_close_btn" class="menu_btn" onclick="closeNav()" style="display:none;">☰</div>
+    </div>
+    
+    <div style="height:20pt;"></div>
+    
+    
+    
+    <div id="nav_menu" class="nav_menu">
+      <ul class="nav_list">
+        <li><a href="r_01.html">01. Getting started</a></li>
+        <li><a href="r_02.html">02. Objects</a></li>
+        <li><a href="r_03.html">03. Data</a></li>
+      </ul>
+    </div>
+
+    <div id="overlay" style="left:0; width:100%; transition-duration:0.3s; height:100%;z-index:2;position:fixed;"></div>
+    <div id="the-r-programming-language" class="section level2">
+    <h2>The R programming language</h2>
+    <p><strong>R is a programming language</strong> widely used for data-oriented tasks. It was designed specifically with statistical programming in mind and is popular among statisticians, data scientists and researchers. It is well suited to tasks such as sorting, filtering and joining datasets, modifying, deriving and processing variables, producing summary statistics, figures, tables and datasets, and performing complex statistical analyses. Thanks to add-ons such as <em>RMarkdown</em> and <em>Shiny</em>, it can also be used to produce reports in html, pdf and word formats, presentations, tutorials and quizzes, websites and web-based apps all with R code intertwined into their development.</p>
+    <p>With the R programming language, we can communicate with the computer and have it perform those tasks for us. We provide those instructions in the form of <strong>source code</strong>; a series of one or more instructions written in the R language. As an example, you may wish to use your computer to simulate a coin toss experiment, where a coin is tossed 10 times and the number of times “heads” and “tails” occur is counted. The source code to perform this simulation and count the number of each possible outcome, using the R language, could be:</p>
+    <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">table</span>(<span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;H&quot;</span>, <span class="st">&quot;T&quot;</span>), <span class="dt">size =</span> <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>))</span></code></pre></div>
+    <p>You may look at that code and think it’s just meaningless junk to you. That is fine, you are here to learn the R language, not because you know R already. You will soon have the skills needed to read, understand and write much more complex code. Put simply, it told the machine to sample two values - <code>&quot;H&quot;</code> and <code>&quot;T&quot;</code> - ten times with replacement, then return counts of each of the unique outcomes that occurred.</p>
+    </div>
+    <div id="the-r-interpreter" class="section level2">
+    <h2>The R interpreter</h2>
+    <p>Computers understand <strong>machine-code</strong> which, generally speaking, is a stream of binary information in bits, where bits can have a state of on (1) or off (0). The machine reads instructions provided in machine code and performs the processes as instructed. Machine code is a nightmare to program with; it’s hard to read, write and edit, and using it requires a deep understanding of how the computer handles code and instructions. For these reasons, most programmers are using “high-level” languages - those far from machine code - such as Java, Python, and R which handle integration with computer architecture much more automatically. High-level languages are also much easier to use because they are designed to be more human-readable, often even adopting words from human languages. For example, the words <code>length</code>, <code>sum</code> and <code>median</code> in R have meanings which are intuitive to the programmer (assuming the programmer speaks english, of course).</p>
+    <p>While R and other high-level languages are easier for programmers to use, computers do not understand them. For source code to be executable it must first be translated into machine-readable code. This is generally done in one of two ways. The first uses a <strong>compiler</strong> program, as used for Java and C++, to convert source code into an executable file of machine code. That executable file can then be run on other machines without the source code and without installing a compiler on that machine; the translation occurs in isolation of execution. The other approach to translation is to use an <strong>interpreter</strong>, as is the case with R. The interpreter translates code piece-by-piece into machine code as it encountered during execution. Programming with interpreted languages requires that both the source code and an interpreter are present on the machine.</p>
+    <p>To use the R language on a machine, it must have an <strong>R interpreter</strong> installed. The interpreter can be <a href="#">downloaded from CRAN</a> (the Comprehensive R Archive Network) and installed. This will download the interpreter and a command-line terminal that allows you to interact with the interpreter called the <strong>console</strong>. <span class="do">If you do not have the interpreter and console on your computer now is a good time to install it</span>. If you cannot get this installed locally, you can use services like <a href="#">rdrr.io/snippets</a> which gives a console-like input in your browser and runs the code on a server, returning output to the browser; this will do for now as we will quickly move away from using the standard R console.</p>
+    <!-- add screenshot of console -->
+    <p>The console is a command-line terminal where we can type R code and submit it to be executed. Code is typed in the last line of the window, in the line that starts with a <code>&gt;</code>, and is submitted by pressing enter. The computer will perform the requested tasks and return output and messages to the console. Once the code is run, the <code>&gt;</code> will be shown again indicating that the interpreter is ready to receive more input. Copy the code for the coin toss simulator from above and run it in the console; it should return a table showing counts of each outcome.</p>
+    </div>
+    <div id="mathematical-operators" class="section level2">
+    <h2>Mathematical operators</h2>
+    <p>Mathematical operations - the sort of thing you would normally do on a calculator - are among the most basic of processes you can do with R code. You will now use R to write source code that makes your computer perform some mathematical operations for you. Doing this will help you learn how to interact with the R console, see how the execution of R code is ordered and learn some of the <strong>mathematical operators</strong> available in R. Mathematical operators are just symbols that you will find on your keyboard that do standard things like addition and subtraction:</p>
+    <ul>
+    <li><code>+</code> adds; <code>x+y</code> is <em>x</em> plus <em>y</em></li>
+    <li><code>-</code> subtracts; <code>x-y</code> is <em>x</em> minus <em>y</em></li>
+    <li><code>*</code> multiplies; <code>x*y</code> is <em>x</em> times <em>y</em></li>
+    <li><code>/</code> divides; <code>x/y</code> is <em>x</em> divided by <em>y</em></li>
+    <li><code>^</code> exponentiates; <code>x^y</code> is <em>x</em> to the power of <em>y</em></li>
+    </ul>
+    <p>R will perform mathematical operations in the standard order of operations used in mathematics; operations within parentheses, then exponentiation, then multiplication and division (from left to right), and finally addition and subtraction (also from left to right). Parentheses, <code>(</code> and <code>)</code>, are always treated in this way in R; it will perform any processes within parentheses first. Use numbers, mathematical operators and parentheses to write source code calculating the following:</p>
+    <ul>
+    <li>Five plus three</li>
+    <li>Seven minus four</li>
+    <li>Eight times nine</li>
+    <li>Six divided by two</li>
+    <li>Four squared</li>
+    <li>Three times five, plus two</li>
+    <li>Two plus five, times three</li>
+    </ul>
+    <p>Those should expressions should return values of <code>8</code>, <code>3</code>, <code>72</code>, <code>3</code>, <code>16</code>, <code>17</code> and <code>21</code>. If that’s not what you got, then check your code resembles the following. Note that you can navigate to previously run code by pressing the up and down keyboard arrows when your cursor is in the console.</p>
+    <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="dv">5</span><span class="op">+</span><span class="dv">3</span></span>
+    <span id="cb2-2"><a href="#cb2-2"></a><span class="dv">7-4</span></span>
+    <span id="cb2-3"><a href="#cb2-3"></a><span class="dv">8</span><span class="op">*</span><span class="dv">9</span></span>
+    <span id="cb2-4"><a href="#cb2-4"></a><span class="dv">6</span><span class="op">/</span><span class="dv">2</span></span>
+    <span id="cb2-5"><a href="#cb2-5"></a><span class="dv">4</span><span class="op">^</span><span class="dv">2</span></span>
+    <span id="cb2-6"><a href="#cb2-6"></a><span class="dv">3</span><span class="op">*</span><span class="dv">5</span><span class="op">+</span><span class="dv">2</span></span>
+    <span id="cb2-7"><a href="#cb2-7"></a>(<span class="dv">2</span><span class="op">+</span><span class="dv">5</span>)<span class="op">*</span><span class="dv">3</span></span></code></pre></div>
+    </div>
+    <div id="source-files-and-editors" class="section level2">
+    <h2>Source files and editors</h2>
+    <p>The R console is a sometimes a very useful tool, but realistically it is not used for more than simple interactive programming. Imagine trying to work by typing your source code directly into the console when you need to perform a complex task such as combining multiple datasets, deriving some variables in the new dataset, and then producing figures and summary statistics. Even if you manage to do that just typing source code directly into the console, all that code is then lost when you end the session (close the console) so, if you needed to perform that task again or modify the outputs, you would have to start from scratch.</p>
+    <p>Normally programming is done by writing source code into an <strong>editor</strong>. An editor is simply a plain text document; you could use any text editing software for this such as Notepad, Atom or even Word. However, text editors specifically designed for R code do exist. In the R application that came bundled with the interpreter - the one you opened to access the console- go to <em>file</em> &gt; <strong>TODO</strong> or press <em>ctrl</em> + <em>n</em>. You should now have both a console and an editor open. Source code can then be written, edited and saved in that file as a .R file. The major benefit here over any other random text editor is that code can be submitted to the console, or <strong>run</strong>, by pressing <em>ctrl</em> + <em>r</em>; this will run the line the cursor is on or the selected/highlighted code (submiting part of a line, one libne or multiple lines). Write source code to solve the following calculations, putting each statement on a new line. You may need to google for some equations here:</p>
+    <ul>
+    <li>55 times six to the power of two</li>
+    <li>16 plus five, times 11</li>
+    <li>Convert 15 miles into kilometers</li>
+    <li>Convert 97 degrees Farenheit to Celsius</li>
+    </ul>
+    <p>You should get answers of <code>21</code>, <code>1980</code>, <code>231</code>, approximately <code>25.1</code> and approximately <code>36.1</code>. The source code should look a little something like this:</p>
+    <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="dv">55</span><span class="op">*</span><span class="dv">6</span><span class="op">^</span><span class="dv">2</span></span>
+    <span id="cb3-2"><a href="#cb3-2"></a>(<span class="dv">16</span><span class="op">+</span><span class="dv">5</span>)<span class="op">*</span><span class="dv">11</span></span>
+    <span id="cb3-3"><a href="#cb3-3"></a><span class="fl">1.6093</span><span class="op">*</span><span class="dv">15</span></span>
+    <span id="cb3-4"><a href="#cb3-4"></a>(<span class="dv">97-32</span>)<span class="op">*</span>(<span class="dv">5</span><span class="op">/</span><span class="dv">9</span>)</span></code></pre></div>
+    <p>Note that white-space is generally unimportant in R code, use it to make code more readable. <code>(97-32)*(5/9)</code> is the same as <code>(97     -   32)   * (5    /9)</code> and <code>(97-32) * (5/9)</code> but the latter is very reader friendly.</p>
+    </div>
+    
+    <div style="height:120pt;"></div>
+
+  </body>
+  
+  <script>
+    function openNav() {
+      document.getElementById("nav_menu").style.width = "450px";
+      document.getElementById("overlay").style.backgroundColor = "#00000070";
+      document.getElementById("menu_close_btn").style.display = "inline";
+      document.getElementById("menu_open_btn").style.display = "none";
+    }
+  
+    function closeNav() {
+      document.getElementById("nav_menu").style.width = "0";
+      document.getElementById("overlay").style.backgroundColor = "#00000000";
+      document.getElementById("menu_open_btn").style.display = "inline";
+      document.getElementById("menu_close_btn").style.display = "none";
+    }
+  </script> 
+  
+</html>
