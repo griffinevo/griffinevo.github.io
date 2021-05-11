@@ -16,6 +16,28 @@
         font-weight: 300;
       }
       
+      .page_top {
+        z-index: 5;
+        position: fixed;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 94vw;
+        height: 6em;
+        font-size: 3em;
+      }
+      
+      .page_top::before{
+        content: "";
+        height: 3em;
+        width: 100vw;
+        left: 0;
+        top: 0;
+        position: fixed;
+        z-index: -1;
+        background-color: #ffb8a8;
+      }
+      
       p {
         font-family: 'Montserrat', Arial;
         font-size: 1em;
@@ -89,27 +111,7 @@
         border: 1px solid #38556e;
       }
       
-      .page_top {
-        z-index: 5;
-        position: fixed;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 94vw;
-        height: 6em;
-        font-size: 3em;
-      }
       
-      .page_top::before{
-        content: "";
-        height: 3em;
-        width: 100vw;
-        left: 0;
-        top: 0;
-        position: fixed;
-        z-index: -1;
-        background-color: #ffb8a8;
-      }
       
       .do {
         color: #f06643;
