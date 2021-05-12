@@ -1,3 +1,4 @@
+
 <html>
   <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -45,7 +46,7 @@
         font-family: 'Montserrat', Arial;
         font-weight: 300;
         margin-block-start: 20pt;
-        margin-block-end:   28pt;
+        margin-block-end:   20pt;
       }
       
       h1, h2, h3, h4, h5, h6 {
@@ -87,8 +88,8 @@
 
       pre {
         border: 1px solid #e3e3e3;
-        border-radius: 6pt 0 0 0;
-        margin: 12pt 0;
+        margin-block-start: 20pt;
+        margin-block-end:   20pt;
         padding: 16pt 16pt 16pt 0;
         font-size: 10pt;
         line-height: 16pt;
@@ -120,6 +121,7 @@
       .sourceCode pre {
         background-color: #f5f5f5;
         border: 1px solid #38556e;
+        border-radius: 6pt 0 0 0;
       }
       
       
@@ -264,12 +266,12 @@
     <div id="source-files-and-editors" class="section level3">
     <h3>Source files and editors</h3>
     <p>The R console is a sometimes a very useful tool, but realistically it is not used for more than simple interactive programming. Imagine trying to work by typing your source code directly into the console when you need to perform a complex task such as combining multiple datasets, deriving some variables in the new dataset, and then producing figures and summary statistics. Even if you manage to do that just typing source code directly into the console, all that code is then lost when you end the session (close the console) so, if you needed to perform that task again or modify the outputs, you would have to start from scratch.</p>
-    <p>Normally programming is done by writing source code into an <strong>editor</strong>. An editor is simply a plain text document; you could use any text editing software for this such as Notepad, Atom or even Word. However, text editors specifically designed for R code do exist. In the R application that came bundled with the interpreter - the one you opened to access the console- go to <em>file</em> &gt; <strong>TODO</strong> or press <em>ctrl</em> + <em>n</em>. You should now have both a console and an editor open. Source code can then be written, edited and saved in that file as a .R file. The major benefit here over any other random text editor is that code can be submitted to the console, or <strong>run</strong>, by pressing <em>ctrl</em> + <em>r</em>; this will run the line the cursor is on or the selected/highlighted code (submiting part of a line, one libne or multiple lines). Write source code to solve the following calculations, putting each statement on a new line. You may need to google for some equations here:</p>
+    <p>Normally programming is done by writing source code into an <strong>editor</strong>. An editor is simply a plain text document; you could use any text editing software for this such as Notepad, Atom or even Word. However, text editors specifically designed for R code do exist. In the R application that came bundled with the interpreter - the one you opened to access the console- go to <em>file</em> &gt; <strong>TODO</strong> or press <em>ctrl</em> + <em>n</em>. You should now have both a console and an editor open. Source code can then be written, edited and saved in that file as a .R file. The major benefit here over any other random text editor is that code can be submitted to the console, or <strong>run</strong>, by pressing <em>ctrl</em> + <em>r</em>; this will run the line the cursor is on or the selected/highlighted code (submitting part of a line, one line or multiple lines). Write source code to solve the following calculations, putting each statement on a new line. You may need to google for some equations here:</p>
     <ul>
     <li>55 times six to the power of two</li>
     <li>16 plus five, times 11</li>
-    <li>Convert 15 miles into kilometers</li>
-    <li>Convert 97 degrees Farenheit to Celsius</li>
+    <li>Convert 15 miles into kilometres</li>
+    <li>Convert 97 degrees Fahrenheit to Celsius</li>
     </ul>
     <p>You should get answers of <code>21</code>, <code>1980</code>, <code>231</code>, approximately <code>25.1</code> and approximately <code>36.1</code>. The source code should look a little something like this:</p>
     <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="dv">55</span><span class="op">*</span><span class="dv">6</span><span class="op">^</span><span class="dv">2</span></span>
