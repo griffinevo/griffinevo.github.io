@@ -1,0 +1,441 @@
+<html>
+  <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>GriffinEvo: Intro to R</title>
+    <link rel="stylesheet" href />
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+    
+      body {
+        width:92vw;
+        max-width: 100vw;
+        margin: 0 auto;
+        font-family: 'Montserrat', Arial;
+        font-size: 14pt;
+        line-height: 26pt;
+        font-weight: 300;
+      }
+      
+      .page_top {
+        z-index: 5;
+        position: fixed;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 92vw;
+        margin: 0 auto;
+        height: 40pt;
+        font-size: 14pt;
+      }
+      
+      .page_top::before{
+        content: "";
+        height: 40pt;
+        width: 100vw;
+        left: 0;
+        top: 0;
+        position: fixed;
+        z-index: -1;
+        background-color: #ffb8a8;
+      }
+      
+      p {
+        font-family: 'Montserrat', Arial;
+        font-weight: 300;
+        margin-block-start: 20pt;
+        margin-block-end:   28pt;
+      }
+      
+      h1, h2, h3, h4, h5, h6 {
+        font-weight: 400;
+        margin-inline-start: 0pt;
+        margin-inline-end:   0pt;
+      }
+      
+      h1, h2 {
+        font-size: 18pt;
+        margin-block-start: 24pt;
+        margin-block-end:   12pt;
+        color: #ffb8a8; 
+      }
+      
+      h1 {
+        margin-block-start: 12pt;
+      }
+
+      h3, h4, h5, h6 {
+        font-size: 14pt;
+        margin-block-start: 15pt;
+        margin-block-end:    9pt;
+      }
+      
+      h5, h6 {
+        color: #38556e;
+      }
+
+      code {
+        margin: 0;
+        padding: 0;
+        color: #00001050;
+      }
+      
+      code::before{
+        content: "    ";
+      }
+
+      pre {
+        border: 1px solid #e3e3e3;
+        border-radius: 6pt 0 0 0;
+        margin: 12pt 0;
+        padding: 16pt 16pt 16pt 0;
+        font-size: 10pt;
+        line-height: 16pt;
+        font-family: Monospace;
+        overflow: auto;
+        max-height: 200px;
+        -moz-box-shadow:    inset 0 0 5px #00000030;
+        -webkit-box-shadow: inset 0 0 5px #00000030;
+        box-shadow:         inset 0 0 5px #00000030;
+      }
+       
+      pre code {
+        color: #707075;
+      }
+           
+      a {
+        color: #5278a3;
+        text-decoration: none;
+      }
+      
+      a:hover {
+        color: black !important;
+      }
+      
+      ul {
+        list-style: circle;
+      }
+      
+      .sourceCode pre {
+        background-color: #f5f5f5;
+        border: 1px solid #38556e;
+      }
+      
+      
+      
+      .do {
+        color: #f06643;
+      }
+      
+      .menu_btn {
+        color: #00000050;
+      }
+      
+      .nav_menu {
+        height: 100%;
+        width: 0;
+        max-width: 80%;
+        position: fixed;
+        z-index: 3;
+        top: 0;
+        right: 0;
+        background-color: #38556e;
+        overflow-x: hidden;
+        transition: 0.25s;
+        text-align: left;
+        font-size: 14pt;
+        margin: 40pt 0 0 0;
+        padding: 12pt 0 0 0;
+      }
+      
+      .nav_list  {
+        list-style: none;
+        margin: 0 0 0 12pt;
+        padding: 0 0 0 12pt;
+        border-left: 1px solid #ffffff40;
+      }
+      
+      .nav_list li {
+        padding: 3pt 0;
+      }
+      
+      .nav_list a {
+        color: white;
+        text-decoration: none;
+        transition-duration: 0.3s;
+      } 
+      
+      .nav_list a:hover {
+        color: #f06643 !important;
+      }
+      
+      .mono {
+        font-family: Monospace;
+        color: #ffffff20;
+      }
+      
+      @media only screen and (min-width: 600px) {
+        body {
+          max-width: 800px;
+          font-size: 12pt;
+          line-height: 22pt;
+          text-align: justify;
+        }
+
+        .page_top {
+          max-width: 800px;
+        }
+        
+        .nav_menu {
+          font-size: 12pt;
+        }
+      }
+      
+    </style>
+
+  </head>
+  
+  <body>
+    
+    <div class="page_top">
+      <div>GriffinEvo: Intro to R</div>
+      <div id="menu_open_btn" class="menu_btn" onclick="openNav()">Menu</div>
+      <div id="menu_close_btn" class="menu_btn" onclick="closeNav()" style="display: none;">Close</div>    
+    </div>
+    
+    <div id="nav_menu" class="nav_menu">
+      <ul class="nav_list">
+        <li><a href="r_01.html"><span class="mono">01.</span> Chapter 1</a></li>
+        <li><a href="r_02.html"><span class="mono">02.</span> Chapter 2</a></li>
+        <li><a href="r_03.html"><span class="mono">03.</span> Chapter 3</a></li>
+      </ul>
+    </div>
+
+        
+    <div id="overlay" style="left:0; width:100%; transition-duration:0s; height:100%;z-index:-2;position:fixed;"></div>
+    
+    <div style="height:40pt;"></div>
+
+    <p>2021-05-12 15:23:36</p>
+    <p>This is a block of text to test the page layout. This is a block of text to test the page layout. This is a block of text to test the page layout. This is a block of text to test the page layout. This is a block of text to test the page layout.</p>
+    <div id="heading-1" class="section level1">
+    <h1>Heading 1</h1>
+    <p>This is a block of text to test the page layout. This is a block of text to test the page layout. This is a block of text to test the page layout. <span class="do">This is highlighted text</span>. This is a block of text to test the page layout.</p>
+    <div id="heading-2" class="section level2">
+    <h2>Heading 2</h2>
+    <p>This is a block of text to test the page layout. This is a block of text to test the page layout. This is a block of text to test the page layout. <em>This is emphasised text.</em> This is a block of text to test the page layout.</p>
+    <div id="heading-3" class="section level3">
+    <h3>Heading 3</h3>
+    <p>This is a block of text to test the page layout. This is a block of text to test the page layout. This is a block of text to test the page layout. <strong>This is strong text.</strong> This is a block of text to test the page layout.</p>
+    <div id="heading-4" class="section level4">
+    <h4>Heading 4</h4>
+    <p>This is a block of text to test the page layout. This is a block of text to test the page layout. This is a block of text to test the page layout. This is a block of text to test the page layout. This is a block of text to test the page layout. <a href="https://www.google.com">This is a link</a> . And more text.</p>
+    <div id="heading-5" class="section level5">
+    <h5>Heading 5</h5>
+    <p>This is a block of text to test the page layout. <code>This is a snippet of inline code</code>. This is a block of text to test the page layout. This is a block of text to test the page layout. This is a block of text to test the page layout. This is a block of text to test the page layout.</p>
+    <ol style="list-style-type: decimal">
+    <li>An</li>
+    <li>Ordered</li>
+    <li>List</li>
+    </ol>
+    <p>This is a block of text to test the page layout. This is a block of text to test the page layout. This is a block of text to test the page layout. This is a block of text to test the page layout. This is a block of text to test the page layout.</p>
+    <div id="heading-6" class="section level6">
+    <h6>Heading 6</h6>
+    <p>This is a block of text to test the page layout. This is a block of text to test the page layout. This is a block of text to test the page layout. This is a block of text to test the page layout. This is a block of text to test the page layout.</p>
+    <ul>
+    <li>An</li>
+    <li>Unordered</li>
+    <li>List</li>
+    </ul>
+    <p>This is a block of text to test the page layout. This is a block of text to test the page layout. This is a block of text to test the page layout. This is a block of text to test the page layout. This is a block of text to test the page layout.</p>
+    <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># This is some source code</span></span>
+    <span id="cb1-2"><a href="#cb1-2"></a>a &lt;-<span class="st"> </span><span class="kw">c</span>(5L<span class="op">:</span>9L)</span>
+    <span id="cb1-3"><a href="#cb1-3"></a></span>
+    <span id="cb1-4"><a href="#cb1-4"></a><span class="co"># This should all be on one line without line-breaks/wrapping ============================================================== I need to scroll to see this</span></span>
+    <span id="cb1-5"><a href="#cb1-5"></a></span>
+    <span id="cb1-6"><a href="#cb1-6"></a><span class="co"># Get the mean of a</span></span>
+    <span id="cb1-7"><a href="#cb1-7"></a><span class="kw">mean</span>(a)</span>
+    <span id="cb1-8"><a href="#cb1-8"></a></span>
+    <span id="cb1-9"><a href="#cb1-9"></a><span class="co"># Oh look, here&#39;s a data.frame</span></span>
+    <span id="cb1-10"><a href="#cb1-10"></a>iris</span></code></pre></div>
+    <pre><code>## [1] 7
+    ##     Sepal.Length Sepal.Width Petal.Length Petal.Width    Species
+    ## 1            5.1         3.5          1.4         0.2     setosa
+    ## 2            4.9         3.0          1.4         0.2     setosa
+    ## 3            4.7         3.2          1.3         0.2     setosa
+    ## 4            4.6         3.1          1.5         0.2     setosa
+    ## 5            5.0         3.6          1.4         0.2     setosa
+    ## 6            5.4         3.9          1.7         0.4     setosa
+    ## 7            4.6         3.4          1.4         0.3     setosa
+    ## 8            5.0         3.4          1.5         0.2     setosa
+    ## 9            4.4         2.9          1.4         0.2     setosa
+    ## 10           4.9         3.1          1.5         0.1     setosa
+    ## 11           5.4         3.7          1.5         0.2     setosa
+    ## 12           4.8         3.4          1.6         0.2     setosa
+    ## 13           4.8         3.0          1.4         0.1     setosa
+    ## 14           4.3         3.0          1.1         0.1     setosa
+    ## 15           5.8         4.0          1.2         0.2     setosa
+    ## 16           5.7         4.4          1.5         0.4     setosa
+    ## 17           5.4         3.9          1.3         0.4     setosa
+    ## 18           5.1         3.5          1.4         0.3     setosa
+    ## 19           5.7         3.8          1.7         0.3     setosa
+    ## 20           5.1         3.8          1.5         0.3     setosa
+    ## 21           5.4         3.4          1.7         0.2     setosa
+    ## 22           5.1         3.7          1.5         0.4     setosa
+    ## 23           4.6         3.6          1.0         0.2     setosa
+    ## 24           5.1         3.3          1.7         0.5     setosa
+    ## 25           4.8         3.4          1.9         0.2     setosa
+    ## 26           5.0         3.0          1.6         0.2     setosa
+    ## 27           5.0         3.4          1.6         0.4     setosa
+    ## 28           5.2         3.5          1.5         0.2     setosa
+    ## 29           5.2         3.4          1.4         0.2     setosa
+    ## 30           4.7         3.2          1.6         0.2     setosa
+    ## 31           4.8         3.1          1.6         0.2     setosa
+    ## 32           5.4         3.4          1.5         0.4     setosa
+    ## 33           5.2         4.1          1.5         0.1     setosa
+    ## 34           5.5         4.2          1.4         0.2     setosa
+    ## 35           4.9         3.1          1.5         0.2     setosa
+    ## 36           5.0         3.2          1.2         0.2     setosa
+    ## 37           5.5         3.5          1.3         0.2     setosa
+    ## 38           4.9         3.6          1.4         0.1     setosa
+    ## 39           4.4         3.0          1.3         0.2     setosa
+    ## 40           5.1         3.4          1.5         0.2     setosa
+    ## 41           5.0         3.5          1.3         0.3     setosa
+    ## 42           4.5         2.3          1.3         0.3     setosa
+    ## 43           4.4         3.2          1.3         0.2     setosa
+    ## 44           5.0         3.5          1.6         0.6     setosa
+    ## 45           5.1         3.8          1.9         0.4     setosa
+    ## 46           4.8         3.0          1.4         0.3     setosa
+    ## 47           5.1         3.8          1.6         0.2     setosa
+    ## 48           4.6         3.2          1.4         0.2     setosa
+    ## 49           5.3         3.7          1.5         0.2     setosa
+    ## 50           5.0         3.3          1.4         0.2     setosa
+    ## 51           7.0         3.2          4.7         1.4 versicolor
+    ## 52           6.4         3.2          4.5         1.5 versicolor
+    ## 53           6.9         3.1          4.9         1.5 versicolor
+    ## 54           5.5         2.3          4.0         1.3 versicolor
+    ## 55           6.5         2.8          4.6         1.5 versicolor
+    ## 56           5.7         2.8          4.5         1.3 versicolor
+    ## 57           6.3         3.3          4.7         1.6 versicolor
+    ## 58           4.9         2.4          3.3         1.0 versicolor
+    ## 59           6.6         2.9          4.6         1.3 versicolor
+    ## 60           5.2         2.7          3.9         1.4 versicolor
+    ## 61           5.0         2.0          3.5         1.0 versicolor
+    ## 62           5.9         3.0          4.2         1.5 versicolor
+    ## 63           6.0         2.2          4.0         1.0 versicolor
+    ## 64           6.1         2.9          4.7         1.4 versicolor
+    ## 65           5.6         2.9          3.6         1.3 versicolor
+    ## 66           6.7         3.1          4.4         1.4 versicolor
+    ## 67           5.6         3.0          4.5         1.5 versicolor
+    ## 68           5.8         2.7          4.1         1.0 versicolor
+    ## 69           6.2         2.2          4.5         1.5 versicolor
+    ## 70           5.6         2.5          3.9         1.1 versicolor
+    ## 71           5.9         3.2          4.8         1.8 versicolor
+    ## 72           6.1         2.8          4.0         1.3 versicolor
+    ## 73           6.3         2.5          4.9         1.5 versicolor
+    ## 74           6.1         2.8          4.7         1.2 versicolor
+    ## 75           6.4         2.9          4.3         1.3 versicolor
+    ## 76           6.6         3.0          4.4         1.4 versicolor
+    ## 77           6.8         2.8          4.8         1.4 versicolor
+    ## 78           6.7         3.0          5.0         1.7 versicolor
+    ## 79           6.0         2.9          4.5         1.5 versicolor
+    ## 80           5.7         2.6          3.5         1.0 versicolor
+    ## 81           5.5         2.4          3.8         1.1 versicolor
+    ## 82           5.5         2.4          3.7         1.0 versicolor
+    ## 83           5.8         2.7          3.9         1.2 versicolor
+    ## 84           6.0         2.7          5.1         1.6 versicolor
+    ## 85           5.4         3.0          4.5         1.5 versicolor
+    ## 86           6.0         3.4          4.5         1.6 versicolor
+    ## 87           6.7         3.1          4.7         1.5 versicolor
+    ## 88           6.3         2.3          4.4         1.3 versicolor
+    ## 89           5.6         3.0          4.1         1.3 versicolor
+    ## 90           5.5         2.5          4.0         1.3 versicolor
+    ## 91           5.5         2.6          4.4         1.2 versicolor
+    ## 92           6.1         3.0          4.6         1.4 versicolor
+    ## 93           5.8         2.6          4.0         1.2 versicolor
+    ## 94           5.0         2.3          3.3         1.0 versicolor
+    ## 95           5.6         2.7          4.2         1.3 versicolor
+    ## 96           5.7         3.0          4.2         1.2 versicolor
+    ## 97           5.7         2.9          4.2         1.3 versicolor
+    ## 98           6.2         2.9          4.3         1.3 versicolor
+    ## 99           5.1         2.5          3.0         1.1 versicolor
+    ## 100          5.7         2.8          4.1         1.3 versicolor
+    ## 101          6.3         3.3          6.0         2.5  virginica
+    ## 102          5.8         2.7          5.1         1.9  virginica
+    ## 103          7.1         3.0          5.9         2.1  virginica
+    ## 104          6.3         2.9          5.6         1.8  virginica
+    ## 105          6.5         3.0          5.8         2.2  virginica
+    ## 106          7.6         3.0          6.6         2.1  virginica
+    ## 107          4.9         2.5          4.5         1.7  virginica
+    ## 108          7.3         2.9          6.3         1.8  virginica
+    ## 109          6.7         2.5          5.8         1.8  virginica
+    ## 110          7.2         3.6          6.1         2.5  virginica
+    ## 111          6.5         3.2          5.1         2.0  virginica
+    ## 112          6.4         2.7          5.3         1.9  virginica
+    ## 113          6.8         3.0          5.5         2.1  virginica
+    ## 114          5.7         2.5          5.0         2.0  virginica
+    ## 115          5.8         2.8          5.1         2.4  virginica
+    ## 116          6.4         3.2          5.3         2.3  virginica
+    ## 117          6.5         3.0          5.5         1.8  virginica
+    ## 118          7.7         3.8          6.7         2.2  virginica
+    ## 119          7.7         2.6          6.9         2.3  virginica
+    ## 120          6.0         2.2          5.0         1.5  virginica
+    ## 121          6.9         3.2          5.7         2.3  virginica
+    ## 122          5.6         2.8          4.9         2.0  virginica
+    ## 123          7.7         2.8          6.7         2.0  virginica
+    ## 124          6.3         2.7          4.9         1.8  virginica
+    ## 125          6.7         3.3          5.7         2.1  virginica
+    ## 126          7.2         3.2          6.0         1.8  virginica
+    ## 127          6.2         2.8          4.8         1.8  virginica
+    ## 128          6.1         3.0          4.9         1.8  virginica
+    ## 129          6.4         2.8          5.6         2.1  virginica
+    ## 130          7.2         3.0          5.8         1.6  virginica
+    ## 131          7.4         2.8          6.1         1.9  virginica
+    ## 132          7.9         3.8          6.4         2.0  virginica
+    ## 133          6.4         2.8          5.6         2.2  virginica
+    ## 134          6.3         2.8          5.1         1.5  virginica
+    ## 135          6.1         2.6          5.6         1.4  virginica
+    ## 136          7.7         3.0          6.1         2.3  virginica
+    ## 137          6.3         3.4          5.6         2.4  virginica
+    ## 138          6.4         3.1          5.5         1.8  virginica
+    ## 139          6.0         3.0          4.8         1.8  virginica
+    ## 140          6.9         3.1          5.4         2.1  virginica
+    ## 141          6.7         3.1          5.6         2.4  virginica
+    ## 142          6.9         3.1          5.1         2.3  virginica
+    ## 143          5.8         2.7          5.1         1.9  virginica
+    ## 144          6.8         3.2          5.9         2.3  virginica
+    ## 145          6.7         3.3          5.7         2.5  virginica
+    ## 146          6.7         3.0          5.2         2.3  virginica
+    ## 147          6.3         2.5          5.0         1.9  virginica
+    ## 148          6.5         3.0          5.2         2.0  virginica
+    ## 149          6.2         3.4          5.4         2.3  virginica
+    ## 150          5.9         3.0          5.1         1.8  virginica</code></pre>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div style="height:200pt;"></div>
+    <div style="color:#00000030">Last Updated 2021/05/12 (1.0)</div>
+  </body>
+  
+  <script>
+  function openNav() {
+    document.getElementById("nav_menu").style.width = "450px";
+    document.getElementById("menu_close_btn").style.display = "inline";
+    document.getElementById("menu_open_btn").style.display = "none";
+    document.getElementById("overlay").style.backgroundColor = "#00000090";
+    document.getElementById("overlay").style.zIndex = "2";
+  }
+
+  function closeNav() {
+    document.getElementById("nav_menu").style.width = "0";
+    document.getElementById("menu_open_btn").style.display = "inline";
+    document.getElementById("menu_close_btn").style.display = "none";
+    document.getElementById("overlay").style.backgroundColor = "#00000000";    
+    document.getElementById("overlay").style.zIndex = "-2";
+  }
+</script> 
+</html>
