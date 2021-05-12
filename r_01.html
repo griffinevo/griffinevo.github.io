@@ -245,6 +245,7 @@
     <li><code>^</code> exponentiates; <code>x^y</code> is <em>x</em> to the power of <em>y</em></li>
     </ul>
     <p>R will perform mathematical operations in the standard order of operations used in mathematics; operations within parentheses, then exponentiation, then multiplication and division (from left to right), and finally addition and subtraction (also from left to right). Parentheses, <code>(</code> and <code>)</code>, are always treated in this way in R; it will perform any processes within parentheses first. <span class="do">Use numbers, mathematical operators and parentheses to write source code calculating the following:</span></p>
+    <div class="do">
     <ul>
     <li>Five plus three</li>
     <li>Seven minus four</li>
@@ -254,6 +255,7 @@
     <li>Three times five, plus two</li>
     <li>Two plus five, times three</li>
     </ul>
+    </div>
     <p>Those should expressions should return values of <code>8</code>, <code>3</code>, <code>72</code>, <code>3</code>, <code>16</code>, <code>17</code> and <code>21</code>. If that’s not what you got, then check your code resembles the following. Note that you can navigate to previously run code by pressing the up and down keyboard arrows when your cursor is in the console.</p>
     <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="dv">5</span><span class="op">+</span><span class="dv">3</span></span>
     <span id="cb2-2"><a href="#cb2-2"></a><span class="dv">7-4</span></span>
@@ -266,13 +268,15 @@
     <div id="source-files-and-editors" class="section level3">
     <h3>Source files and editors</h3>
     <p>The R console is a sometimes a very useful tool, but realistically it is not used for more than simple interactive programming. Imagine trying to work by typing your source code directly into the console when you need to perform a complex task such as combining multiple datasets, deriving some variables in the new dataset, and then producing figures and summary statistics. Even if you manage to do that just typing source code directly into the console, all that code is then lost when you end the session (close the console) so, if you needed to perform that task again or modify the outputs, you would have to start from scratch.</p>
-    <p>Normally programming is done by writing source code into an <strong>editor</strong>. An editor is simply a plain text document; you could use any text editing software for this such as Notepad, Atom or even Word. However, text editors specifically designed for R code do exist. In the R application that came bundled with the interpreter - the one you opened to access the console- go to <em>file</em> &gt; <strong>TODO</strong> or press <em>ctrl</em> + <em>n</em>. You should now have both a console and an editor open. Source code can then be written, edited and saved in that file as a .R file. The major benefit here over any other random text editor is that code can be submitted to the console, or <strong>run</strong>, by pressing <em>ctrl</em> + <em>r</em>; this will run the line the cursor is on or the selected/highlighted code (submitting part of a line, one line or multiple lines). <span class="do">Write source code to solve the following calculations, putting each statement on a new line.</span> You may need to google for some equations here:</p>
+    <p>Normally programming is done by writing source code into an <strong>editor</strong>. An editor is simply a plain text document; you could use any text editing software for this such as Notepad, Atom or even Word. However, text editors specifically designed for R code do exist. In the R application that came bundled with the interpreter - the one you opened to access the console- go to <em>file</em> &gt; <strong>TODO</strong> or press <em>ctrl</em> + <em>n</em>. You should now have both a console and an editor open. Source code can then be written, edited and saved in that file as a .R file. The major benefit here over any other random text editor is that code can be submitted to the console, or <strong>run</strong>, by pressing <em>ctrl</em> + <em>r</em>; this will run the line the cursor is on or the selected/highlighted code (submitting part of a line, one line or multiple lines). <span class="do">Write source code to solve the following calculations, putting each statement on a new line. You may need to google for some equations here:</span></p>
+    <div class="do">
     <ul>
     <li>55 times six to the power of two</li>
     <li>16 plus five, times 11</li>
     <li>Convert 15 miles into kilometres</li>
     <li>Convert 97 degrees Fahrenheit to Celsius</li>
     </ul>
+    </div>
     <p>You should get answers of <code>21</code>, <code>1980</code>, <code>231</code>, approximately <code>25.1</code> and approximately <code>36.1</code>. The source code should look a little something like this:</p>
     <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="dv">55</span><span class="op">*</span><span class="dv">6</span><span class="op">^</span><span class="dv">2</span></span>
     <span id="cb3-2"><a href="#cb3-2"></a>(<span class="dv">16</span><span class="op">+</span><span class="dv">5</span>)<span class="op">*</span><span class="dv">11</span></span>
