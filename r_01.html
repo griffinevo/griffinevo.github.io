@@ -1,3 +1,4 @@
+
 <html>
   <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -53,7 +54,7 @@
         font-family: 'Montserrat', Arial;
         font-weight: 300;
         margin-block-start: 12pt;
-        margin-block-end: 12pt;
+        margin-block-end: 16pt;
       }
       
       h1, h2, h3, h4, h5, h6 {
@@ -184,6 +185,7 @@
         font-family: Monospace;
         color: #ffffff20;
       }
+    
       
       @media only screen and (min-width: 600px) {
         body {
@@ -223,7 +225,7 @@
     </div>
 
         
-    <div id="overlay" style="left:0; width:100%; transition-duration:0s; height:100%;z-index:-2;position:fixed;"></div>
+    <div id="overlay" style="left:0; width:100%; transition-duration:0.4s; height:100%;z-index:-1;position:fixed;"></div>
     
     <div style="height:40pt;"></div>
 
@@ -236,7 +238,7 @@
     <div id="the-r-interpreter" class="section level2">
     <h2>The R interpreter</h2>
     <p>The R code for a coin toss simulation is a fairly simple piece of code to read. You can probably figure out what some parts of that code are doing even without knowing R. For example, you can probably guess that <code>sample()</code> is telling the computer to do some sampling, <code>size</code> is telling the computer what the sample size should be and <code>replace</code> is telling it to sample with replacement. The reason it is easy to read that code is because R is a “high-level” programming language. This means it is designed to be very human-readable. Unfortunately, while being human-readable is a good thing for programmers, that means computers do not understand it all; computers understand <strong>machine code</strong> (typically binary). To make source code usable, we have to translate it into machine code.</p>
-    <p>There are three main approaches to translating source code. Compiled and assembled languages both use software, a <strong>compiler</strong> or *assembler<strong> respectively, to create an executable file of machine code. Executable files can then be run on computers without the source code and compiler/assembler present. Interpreted languages on the other hand use software called an </strong>interpreter<strong>. With interpreted languages, </strong>such as R**, an interpreter receives source code and translates it on execution. This is useful for interactive programming, where source code is developed or tasks performed on the fly, but requires both source code and an interpreter to be present if R is to be used.</p>
+    <p>There are three main approaches to translating source code. Compiled and assembled languages both use software, a <strong>compiler</strong> or <strong>assembler</strong> respectively, to create an executable file of machine code. Executable files can then be run on computers without the source code and compiler/assembler present. Interpreted languages on the other hand use software called an <strong>interpreter</strong>. With interpreted languages, <strong>such as R</strong>, an interpreter receives source code and translates it on execution. This is useful for interactive programming, where source code is developed or tasks performed on the fly, but requires both source code and an interpreter to be present if R is to be used.</p>
     <p>Before you can start using R and learning the language, you first need to set up with the <strong>R interpreter</strong>. The R interpreter can be downloaded from the CRAN (Comprehensive R Archive Network) homepage and installed on your computer. This will install the interpret and an application called the <strong>console</strong>. The console is a command-line style terminal used to interact with the interpreter; we type and submit R code here, which the interpreter communicates to the computer, and the results are returned. <span class="do">Install the R interpreter, open the console, type <code>print(&quot;hello, world!&quot;)</code> in the bottom line (next to the <code>&gt;</code>) and press enter.</span> Here you used <code>print()</code> to make the computer print the value <code>hello, world!</code> to the console.</p>
     </div>
     <div id="mathematical-operations" class="section level2">
@@ -250,7 +252,14 @@
     <li><code>^</code> exponentiates; <code>x^y</code> is <em>x</em> to the power of <em>y</em></li>
     </ul>
     <p>R will perform mathematical operations in the standard order of operations used in mathematics; operations within parentheses, then exponentiation, then multiplication and division (from left to right), and finally addition and subtraction (also from left to right). Parentheses, <code>(</code> and <code>)</code>, are always treated in this way in R; it will perform any processes within parentheses first. <span class="do">To practice using the console and learn the mathematical operators, write and submit source code to calculate:</span></p>
-    <p>:::{.do} - Four times six - 18 divided by two - Five plus six, times 12 - Five times three, plus four-squared :::</p>
+    <div class="do">
+    <ul>
+    <li>Four times six</li>
+    <li>18 divided by two</li>
+    <li>Five plus six, times 12</li>
+    <li>Five times three, plus four-squared</li>
+    </ul>
+    </div>
     <div class="hint">
     <p>Each expression should be written then submitted, pressing <em>enter</em>, before writing the next. Results should have been returned to the console on the line immediately below the executed code. You should have written and submitted four lines of code that look something like this:</p>
     <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="dv">4</span><span class="op">*</span><span class="dv">6</span></span>
@@ -272,12 +281,12 @@
     </div>
     <div class="hint">
     <p>As with the console, each new expression should be on a new line. Pressing <em>enter</em> now adds a line but does not execute the code, instead the code is kept in the editor and can be repeatedly run, read and edited. Pressing <em>ctrl</em> + <em>R</em> with the cursor on a lone that contains code, or when code is highlighted, causes that code to execute. Your script should look like the following:</p>
-    <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>(<span class="dv">17-5</span>)<span class="op">/</span><span class="dv">2</span></span></code></pre></div>
-    <pre><code>## [1] 6</code></pre>
-    <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>(<span class="dv">42</span><span class="op">+</span><span class="dv">16</span>)<span class="op">*</span>(<span class="dv">5</span><span class="op">/</span><span class="dv">6</span>)</span></code></pre></div>
-    <pre><code>## [1] 48.33333</code></pre>
-    <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="dv">2</span><span class="op">^</span><span class="dv">3</span><span class="op">^</span><span class="dv">4</span></span></code></pre></div>
-    <pre><code>## [1] 2.417852e+24</code></pre>
+    <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>(<span class="dv">17-5</span>)<span class="op">/</span><span class="dv">2</span></span>
+    <span id="cb3-2"><a href="#cb3-2"></a>(<span class="dv">42</span><span class="op">+</span><span class="dv">16</span>)<span class="op">*</span>(<span class="dv">5</span><span class="op">/</span><span class="dv">6</span>)</span>
+    <span id="cb3-3"><a href="#cb3-3"></a><span class="dv">2</span><span class="op">^</span><span class="dv">3</span><span class="op">^</span><span class="dv">4</span></span></code></pre></div>
+    <pre><code>## [1] 6
+    ## [1] 48.33333
+    ## [1] 2.417852e+24</code></pre>
     <p>Note that white space (<em>between</em> data values, operators, names etc.) is not important in R. You could very much write these as, for example, <code>(42 + 16) * (5 / 6)</code> if you want, but <code>(4 2 + 1 6) * (5 / 6)</code> would not work as there are spaces <em>within</em> values. White space should be used to make code more readable and neatly arranged.</p>
     </div>
     <p>The R editor is more useful than the console for serious development, but even this isn’t the tool that most programmers are using. Most are using third party applications as development environments. Perhaps the most popular of these among R programmers is <strong>RStudio</strong>. (RStuido can be downloaded)[#] and installed to run locally. You can also run RStudio through a browser on the <a href="#">RStudio Cloud</a>. Both of these are great options and which you prefer is up to you - local installation takes away the reliance on internet connects allowing you to work on the move, while RStudio Cloud means your programs can be accessed (because they are saved on the RStudio Cloud) and run by logging into any computer. Cloud storage of programs can also be managed by using Dropbox, Drive, iCloud etc. meaning you can get the best of both. Sometimes you may not have the rights to install applications on your computer so RStudio Cloud may be your only option. <span class="do">If you can, download and install RStudio now or create an account and login to RStudio Cloud, then open RStudio.</span></p>
