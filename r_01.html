@@ -3,7 +3,7 @@
   <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>GriffinEvo: Intro to R</title>
+    <title>GriffinEvo: Getting started</title>
     <link rel="stylesheet" href />
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600&display=swap');
@@ -185,6 +185,14 @@
         color: #ffffff20;
       }
     
+      #overlay {
+        transition-duration: 0.3s;
+        width:  100%;
+        height: 100%; 
+        z-index: -1; 
+        position: fixed;
+        left: 0;
+      }
       
       @media only screen and (min-width: 600px) {
         body {
@@ -210,7 +218,7 @@
   <body>
     
     <div class="page_top">
-      <div>GriffinEvo: Intro to R</div>
+      <div>GriffinEvo: Getting started</div>
       <div id="menu_open_btn" class="menu_btn" onclick="openNav()">Menu</div>
       <div id="menu_close_btn" class="menu_btn" onclick="closeNav()" style="display: none;">Close</div>    
     </div>
@@ -224,15 +232,15 @@
     </div>
 
         
-    <div id="overlay" style="left:0; width:100%; transition-duration:0.4s; height:100%;z-index:-1;position:fixed;"></div>
+    <div id="overlay"></div>
     
     <div style="height:40pt;"></div>
 
-    <div id="r" class="section level1">
-    <h1>R</h1>
+    <div id="getting-started" class="section level1">
+    <h1>Getting started</h1>
     <p><strong>R is a programming language</strong> widely used for data-oriented tasks. It was designed specifically with statistical programming in mind and is popular among statisticians, data scientists and researchers. It is well suited to tasks such as sorting, filtering and joining datasets, modifying, deriving and processing variables, producing summary statistics, figures, tables and datasets, and performing complex statistical analyses. Thanks to add-ons such as <em>RMarkdown</em> and <em>Shiny</em>, it can also be used to produce reports in html, pdf and word formats, presentations, tutorials and quizzes, websites and web-based apps all with R code intertwined into their development.</p>
     <p>R is used to write <strong>source code</strong>; code written in a human-readable or “high-level” programming language, providing instructions to the computer. Computers will then read this source code and perform the tasks it specifies. As an example, we may wish to simulate a simple coin-toss experiment. The code should simulate 20 flips of a coin and return the number of times heads occurs. Source code to perform this simulation could be written in R as:</p>
-    <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">sum</span>(<span class="kw">sample</span>(<span class="dt">x=</span><span class="kw">c</span>(<span class="st">&quot;H&quot;</span>, <span class="st">&quot;T&quot;</span>), <span class="dt">size =</span> <span class="dv">20</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)<span class="op">==</span><span class="st">&quot;H&quot;</span>)</span></code></pre></div>
+    <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">sum</span>(<span class="kw">sample</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="st">&quot;H&quot;</span>, <span class="st">&quot;T&quot;</span>), <span class="dt">size =</span> <span class="dv">20</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>) <span class="op">==</span><span class="st"> &quot;H&quot;</span>)</span></code></pre></div>
     <p>That code would make the computer perform three processes. First it would generate 20 outcomes by randomly sampling from the values <code>H</code> and <code>T</code>. The computer would compare each of those 20 values to the value <code>H</code> returning a value of true or false for each case. Finally it would return the number of trials where the outcome was heads (because <code>sum()</code> will interpret logical values and 1 or 0 for true or false).</p>
     <div id="the-r-interpreter" class="section level2">
     <h2>The R interpreter</h2>
@@ -300,7 +308,7 @@
     document.getElementById("nav_menu").style.width = "450px";
     document.getElementById("menu_close_btn").style.display = "inline";
     document.getElementById("menu_open_btn").style.display = "none";
-    document.getElementById("overlay").style.backgroundColor = "#00000090";
+    document.getElementById("overlay").style.backgroundColor = "#00000070";
     document.getElementById("overlay").style.zIndex = "2";
   }
 
