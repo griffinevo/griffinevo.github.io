@@ -27,6 +27,7 @@
         font-weight: 300;
       }
       
+
       .page_top {
         z-index: 5;
         position: fixed;
@@ -117,10 +118,7 @@
       a {
         color: #5278a3;
         text-decoration: none;
-      }
-      
-      a:hover {
-        color: black !important;
+        transition-duration: 0.4s;
       }
       
       ul {
@@ -143,7 +141,8 @@
       
       .menu_btn {
         color: #00000050;
-      }
+        transition-duration: 0.4s;
+      }      
       
       .nav_menu {
         height: 100%;
@@ -155,7 +154,7 @@
         right: 0;
         background-color: #38556e;
         overflow-x: hidden;
-        transition: 0.25s;
+        transition: 0.5s;
         text-align: left;
         margin: 40pt 0 0 0;
         padding: 12pt 0 0 0;
@@ -177,10 +176,9 @@
         text-decoration: none;
         transition-duration: 0.4s;
       } 
-      
+           
       .mono {
         font-family: Monospace;
-        color: #ffffff50;
         transition-duration: 0.4s;
       }  
       
@@ -196,12 +194,15 @@
       
       .fab, .fas {
         margin-top: 0;
-        color: #ffffff50;
         transition-duration: 0.4s;
       }  
       
-      .nav_list a:hover, .fab:hover, .fas:hover, .nav_list a:hover .mono {
-        color: #f06643 !important;
+      .subtle, .nav_list .subtle {
+         color: #ffffff50;
+      }
+      
+      a:hover, .nav_list a:hover, .fab:hover, .fas:hover, .nav_list a:hover .mono, .menu_btn:hover {
+        color: #f06643;
       }
       
       .profile_pic {
@@ -250,16 +251,16 @@
     
     <div id="nav_menu" class="nav_menu">
       <ul class="nav_list">
-        <li><a href="index.html" style="color: #ffffff50;">Preface</a></li>
-        <li><a href="r_01.html"><span class="mono">01.</span> Getting started</a></li>
-        <li><a href="r_02.html"><span class="mono">02.</span> Data</a></li>
-        <li><a href="about.html" style="color: #ffffff50;">About</a></li>
+        <!-- li><a href="index.html" class="subtle">Preface</a></li>
+        <!-- li><a href="r_01.html"><span class="mono subtle">01.</span> Getting started</a></li-->
+        <!-- li><a href="r_02.html"><span class="mono subtle">02.</span> Data</a></li-->
+        <li><a href="about.html" class="subtle">About</a></li>
         <li>
           <div class="icon_holder">
-          <a class="icon" target="_blank" title="Twitter" href="https://twitter.com/griffinevo"><i class="fab fa-twitter"></i></a>
-          <a class="icon" target="_blank" title="Github" href="https://github.com/griffinevo"><i class="fab fa-github"></i></a>
-          <a class="icon" target="_blank" title="LinkedIn" href="https://www.linkedin.com/in/robgriffin247/"><i class="fab fa-linkedin-in"></i></a>          
-          <a class="icon" target="_blank" title="e-mail" href="mailto:robgriffin247@hotmail.com"><i class="fas fa-envelope"></i></a>
+          <a class="icon subtle" target="_blank" title="Twitter" href="https://twitter.com/griffinevo"><i class="fab fa-twitter"></i></a>
+          <a class="icon subtle" target="_blank" title="Github" href="https://github.com/griffinevo"><i class="fab fa-github"></i></a>
+          <a class="icon subtle" target="_blank" title="LinkedIn" href="https://www.linkedin.com/in/robgriffin247/"><i class="fab fa-linkedin-in"></i></a>          
+          <a class="icon subtle" target="_blank" title="e-mail" href="mailto:robgriffin247@hotmail.com"><i class="fas fa-envelope"></i></a>
           </div>
         </li>
       </ul>
@@ -348,9 +349,9 @@
     </div>
     </div>
     </div>
-    <div style="height:200pt;"></div>
-    <div style="color:#00000030">Last Updated 2021-05-18 10:05:34</div>
-  </body>
+
+    <div style="padding: 160pt 0 20pt 0; color:#00000030; bottom: 0;">Last Updated 2021-05-18 13:43:30</div>
+  </body> 
   
   <script>
   function openNav() {
