@@ -220,7 +220,34 @@
         position: fixed;
         left: 0;
       }
-      
+      .deck {
+  display: flex; 
+  justify-content: space-between; 
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 45%; 
+  min-width: 300px;
+  padding: 0;
+  margin: 0 12pt 0 0;
+}
+
+.role {
+  text-align: left;
+  margin: 0;
+  padding: 12pt 0;
+  border-top: 1px solid #00000010;
+}
+
+.role p {
+  margin: 0;
+  line-height: 20pt;
+}
+
+      .desk_only {
+          display: none;
+      }
       @media only screen and (min-width: 600px) {
         body {
           max-width: 800px;
@@ -233,6 +260,10 @@
         
         .nav_menu {
           font-size: 12pt;
+        }
+        
+        .desk_only {
+          display: inline;
         }
       }
       
@@ -273,7 +304,7 @@
     
     <p>This site is a collection of notes on the R programming language. These notes are targeted at novice users, aiming to equip them with the skills needed to begin programming in R and to understand how R works. A strong understanding of the fundamentals of the R language will help programmers advance quickly and become able to solve issues independently. R is useful to a wide variety of tasks in data science and learning how to find a solution is key to becoming a proficient and effective programmer.</p>
 
-    <div style="padding: 160pt 0 20pt 0; color:#00000030; bottom: 0;">Last Updated 2021-05-18 17:41:39</div>
+    <div style="padding: 160pt 0 20pt 0; color:#00000030; bottom: 0;">Last Updated 2021-05-19 09:01:08</div>
   </body> 
   
   <script>
