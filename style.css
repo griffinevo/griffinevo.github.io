@@ -12,6 +12,9 @@ body {
   color: #3a3c3d;
   text-align: center;
   line-height: 1.6em;
+  width: 95%;
+  max-width: 420px;
+  margin: 0 auto;
 }
 
 p, img.profile, ul.navList {
