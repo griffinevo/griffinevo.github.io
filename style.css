@@ -1,29 +1,31 @@
-/* #0a382e - Dark blueish-green */
-/* #ffbe0a - Burnt orange */
-/* #d60b3a - Cherry red */
-/* #fafaf7 - Off-white */
-/* #3a3c3d - Dark slate */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
-body {
-  font-size: 20px;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 400;
-  color: #3a3c3d;
-  text-align: center;
-  line-height: 1.6em;
-  width: 95%;
-  max-width: 420px;
-  margin: 0 auto;
+/* Set Colour Scheme **********************************************************/
+:root {
+  --col1: #145753;
+  --col2: #336a8a;
+  --col3: #ff4a08;
+  --col4: #ff8959;
+  --col5: #ffc1a8;
 }
 
-p, img.profile, ul.navList {
-  margin: 0 0 1em 0;
+/* Generic Elements ***********************************************************/
+body {
+  font-size: 18px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  color: black;
+  text-align: center;
+  line-height: 1.9em;
+  width: 90vw;
+  max-width: 90vw;
+  margin: 0 auto 12em auto;
+  overflow-y: scroll;
 }
 
 strong {
   font-weight: 600;
-  color: #0a382e;
+  color: black;
 }
 
 ul {
@@ -31,49 +33,108 @@ ul {
   padding: 0;
 }
 
-li {
-  margin: 0 0 0 0;
+ul > li::after, ul > li::before {
+  content: '\2022';
+  margin: 0 0.5em;
+  color: var(--col5);
 }
 
 h1 {
   display: block;
   font-size: 1.3em;
-  margin: 0;
   font-weight: 600;
+  color: var(--col1);
+}
+
+h1::after, h1::before {
+  content: "~";
+  margin: 0 0.5em;
+  color: var(--col4);
 }
 
 
-.navLink {
-  color: #d60b3a;
-  text-decoration: none;
-  transition: 0.6s;
+/* Special Cases **************************************************************/
+ul.navList > li::after, ul.navList > li::before {
+  content: "";
+  margin: 0;
 }
 
-.navLink:hover {
-  color: #ffbe0a;
-  transition: 0.3s;
+h1:nth-child(1)::after, h1:nth-child(1)::before {
+  content: "";
+  margin: 0;
 }
 
-.iconContainer {
-  display: inline-block;
-}
-
-.fa {
-  font-size: 24px;
-  margin: 0 0.25em;
-}
 
 
 img.profile {
-  width: 60%;
+  width: 60vw;
   max-width: 250px;
   border-radius: 50%;
 }
 
 
+/* Page Head  *****************************************************************/
+.pageHead {
+  z-index: 5;
+  position: fixed;
+  display: flex;
+  left: 0.5;
+  align-items: center;
+  justify-content: space-between;
+  width: 90vw;
+  max-width: 90vw;
+  margin: 0 auto;
+  height: 3em;
+  font-weight: 200;
+}
 
-@media only screen and (min-width: 420px) {
+.pageHead::before {
+  content: "";
+  height: 3em;
+  width: 100vw;
+  left: 0;
+  top: 0;
+  position: fixed;
+  z-index: -1;
+  background-color: var(--col5);
+}
+
+.pagePad {
+  content: "";
+  height: 4.5em;
+}
+
+/* Navigation Menu ************************************************************/
+.navLink {
+  color: blue;
+  text-decoration: none;
+  transition: 0.6s;
+}
+
+.navLink:hover {
+  color: green;
+  transition: 0.3s;
+}
+
+.iconContainer {
+  display: inline-block;
+  margin-top: 0.5em;
+}
+
+.fa {
+  margin: 0 0.25em;
+  font-size: 22px !important;
+}
+
+
+/* Desktop tweaks  ************************************************************/
+@media only screen and (min-width: 520px) {
   body {
-    background-color: red;
+    background-color: rgb(220, 220, 220);
+    max-width: 800px;
+  }
+
+  .pageHead {
+    max-width: 800px;
   }
 }
