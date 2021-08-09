@@ -128,13 +128,28 @@ img.profile {
 
 
 /* Desktop tweaks  ************************************************************/
+.deskOnly {
+  display: none;
+}
+
+.mobOnly {
+  display: inline;
+}
+
 @media only screen and (min-width: 520px) {
   body {
-    background-color: rgb(220, 220, 220);
     max-width: 800px;
   }
 
   .pageHead {
     max-width: 800px;
+  }
+
+  .deskOnly {
+    display: inline;
+  }
+
+  .mobOnly {
+    display: none;
   }
 }
