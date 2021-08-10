@@ -3,7 +3,7 @@
 /* Set Colour Scheme **********************************************************/
 :root {
   --col1: #145753;
-  --col2: #336a8a;
+  --col2: #77a39a;
   --col3: #ff4a08;
   --col4: #ff8959;
   --col5: #ffc1a8;
@@ -11,7 +11,7 @@
 
 /* Generic Elements ***********************************************************/
 body {
-  font-size: 14pt;
+  font-size: 12pt;
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   color: black;
@@ -41,17 +41,19 @@ ul > li::after, ul > li::before {
 
 h1 {
   display: block;
-  font-size: 1.3em;
+  font-size: 1.2em;
   font-weight: 600;
   color: var(--col1);
+  border-top: 1px solid var(--col5);
+  padding: 1.5em 0 0 0 ;
+  margin: 1em 0 0 0;
+
 }
 
-h1::after, h1::before {
-  content: "~";
-  margin: 0 0.5em;
-  color: var(--col4);
+p, ul {
+  margin: 0.5em 0 2em 0;
+  padding: 0;
 }
-
 
 /* Special Cases **************************************************************/
 ul.navList > li::after, ul.navList > li::before {
@@ -59,16 +61,21 @@ ul.navList > li::after, ul.navList > li::before {
   margin: 0;
 }
 
-.pageHead > h1::after, .pageHead > h1::before {
-  content: "";
+.pageHead > h1 {
+  padding: 0;
   margin: 0;
+  border-top: none;
 }
 
-
+.flexDeskComponent > h1 {
+  margin-top: 0;
+  padding-top: 0.5em;
+  border-top: none;
+}
 
 img.profile {
   width: 60vw;
-  max-width: 250px;
+  max-width: 200px;
   border-radius: 50%;
 }
 
@@ -144,12 +151,12 @@ img.profile {
 .navList {
   margin: 1em 0 0 1em;
   padding: 0 0 0 1em;
-  border-left: 1px solid var(--col5);
+  border-left: 1px solid var(--col2);
 }
 
 
 .navLink {
-  color: var(--col5);
+  color: white;
   text-decoration: none;
   transition: 0.6s;
 }
@@ -167,6 +174,7 @@ img.profile {
 .fa {
   margin: 0 0.5em 0 0;
   font-size: 22px !important;
+  color: var(--col2);
 }
 
 /* Desktop tweaks  ************************************************************/
@@ -195,34 +203,21 @@ img.profile {
     justify-content: flex-start;
     align-items: flex-start;
     flex-wrap: wrap;
-    border-bottom: 1px solid var(--col5);
-    margin-bottom: 1.5em;
-  }
-
-  .flexDeskComponent {
-    margin-bottom: 0;
+    padding-top: 0.5em
   }
 
   .flexDeskComponent > h1 {
-    margin-top: 0;
+    padding-top: 0;
   }
 
   img.profile {
-    width: 40vw;
-    max-width: 180px;
+    width: 130px;
     border-radius: 50%;
-    margin-bottom: 1.5em;
     margin-right: 1.5em;
   }
 
   strong, h1 {
     font-weight: 400;
-  }
-
-
-  h1::before {
-    content: "";
-    margin: 0;
   }
 
   ul > li::before {
