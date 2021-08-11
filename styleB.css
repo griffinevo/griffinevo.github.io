@@ -1,0 +1,277 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+/* Set Colour Scheme **********************************************************/
+:root {
+  --col1: #145753;
+  --col2: #77a39a;
+  --col3: #ff4a08;
+  --col4: #ff8959;
+  --col5: #ffc1a8;
+}
+
+/* Generic Elements ***********************************************************/
+body {
+  font-size: 12pt;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  color: black;
+  text-align: center;
+  line-height: 1.9em;
+  width: 85vw;
+  max-width: 800px;
+  margin: 0 auto 12em auto;
+  overflow-y: scroll;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul > li::after, ul > li::before {
+  content: "\2022";
+  margin: 0 0.5em;
+  color: var(--col5);
+}
+
+strong {
+  font-weight: 500;
+}
+
+/* Headings *******************************************************************/
+h1, h2, h3 {
+  display: block;
+  font-size: 1.2em;
+  font-weight: 500;
+  color: var(--col1);
+  margin: 0;
+  padding: 0;
+}
+
+/* h1::after, h2::after, h3::after, h1::before, h2::before, h3::before {
+  content: "\2022";
+  margin: 0 0.25em;
+  color: var(--col1);
+}
+*/
+h2, h2::after, h2::before {
+  color: var(--col2);
+}
+
+h3, h3::after, h3::before {
+  color: var(--col5);
+}
+
+.pageHead > h1 {
+  margin: 0;
+}
+
+.pageHead > h1::after, .pageHead > h1::before{
+  content: "";
+  margin: 0;
+}
+
+/* Top Bar ********************************************************************/
+.pageHead {
+  z-index: 5;
+  position: fixed;
+  display: flex;
+  top: 0;
+  left: 0.5;
+  align-items: center;
+  justify-content: space-between;
+  width: 85vw;
+  max-width: 800px;
+  margin: 0.5em auto;
+  font-weight: 200;
+}
+
+.pageHead::before {
+  content: "";
+  height: 3em;
+  width: 100vw;
+  left: 0;
+  top: 0;
+  position: fixed;
+  z-index: -1;
+  background-color: var(--col5);
+  border-bottom: 1px solid var(--col4);
+}
+
+body:nth-child(2) {
+  margin-top: 4em;
+}
+
+#navPane {
+  height: 100%;
+  width: 0;
+  max-width: 80%;
+  position: fixed;
+  z-index: 6;
+  top: 0;
+  right: 0;
+  background-color: var(--col1);
+  overflow-x: hidden;
+  transition: 0.3s;
+  text-align: left;
+  margin: 3em 0 0 0;
+  border-top: 1px solid var(--col4);
+}
+
+#menuClose {
+  display: none;
+}
+
+#menuOpen, #menuClose {
+  transition: 0.2s;
+}
+
+#menuClose:hover, #menuOpen:hover {
+  color: var(--col3);
+}
+
+#overlay {
+  transition-duration: 0.5s;
+  width:  100%;
+  height: 100%;
+  z-index: -1;
+  position: fixed;
+  left: 0;
+  top:0;
+}
+
+.navList {
+  margin: 1em 0 0 1em;
+  padding: 0 0 0 1em;
+  border-left: 1px solid var(--col2);
+}
+
+ul.navList > li::after, ul.navList > li::before {
+  content: "";
+  margin: 0;
+}
+
+.navLink {
+  color: white;
+  text-decoration: none;
+  transition: 0.6s;
+}
+
+.navLink:hover {
+  color: var(--col3);
+  transition: 0.3s;
+}
+
+.iconContainer {
+  display: inline-block;
+  margin-top: 0.5em;
+}
+
+.fa {
+  margin: 0 0.5em 0 0;
+  font-size: 22px !important;
+  color: var(--col2);
+}
+
+/* Custom components **********************************************************/
+img.profile {
+  width: 180px;
+  border-radius: 50%;
+  margin: 1em 0 0 0;
+}
+
+.box {
+  padding: 1.5em 2em 1.5em 2em;
+  margin: 0em 0 2em 0;
+  background-color: var(--col2);
+  border-radius: 0 1em 0 1em;
+  border: 1px solid var(--col1);
+}
+
+.box > p {
+  color: white;
+}
+
+.box > h1, .box > h1::after, .box > h1::before {
+  color: var(--col5);
+}
+
+​
+p {
+  margin: 0.5em 0;
+}
+
+.flexBox {
+  margin: 0 0 1.5em 0;
+  padding-top: 1em;
+}
+
+.noPad {
+  padding: 0
+}
+
+.flexCard {
+  overflow-x: scroll;
+  white-space: nowrap;
+  margin-bottom: 0.5em;
+}
+
+.flexCard::-webkit-scrollbar {
+    height: 8px;
+}
+
+.flexCard::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: rgb(250, 250, 250);
+    border: 1px solid rgb(200, 200, 200);
+    width: 5px;
+}
+
+body::-webkit-scrollbar {
+    width: 0;
+}
+
+/* Desktop tweaks  ************************************************************/
+.deskOnly {
+  display: none;
+}
+
+.mobOnly {
+  display: inline;
+}
+
+@media only screen and (min-width: 620px) {
+  .deskOnly {
+    display: inline;
+  }
+
+  .mobOnly {
+    display: none;
+  }
+
+  body {
+    text-align: justify;
+  }
+
+  img.profile {
+    width: 170px;
+    border-radius: 50%;
+    margin: 1em 1em 1em 0;
+  }
+
+  .flexBox {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 0;
+  }
+
+  .flexCard {
+    width: 210px;
+    border-top: 1px solid var(--col1);
+    border-bottom: 1px solid var(--col1);
+    margin: 1.5em 1.5em 0 0;
+    padding: 1em;
+  }
+}
