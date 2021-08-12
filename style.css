@@ -103,7 +103,6 @@ h3, h3::after, h3::before {
   position: fixed;
   z-index: -1;
   background-color: var(--col5);
-  border-bottom: 1px solid var(--col4);
 }
 
 body:nth-child(2) {
@@ -194,7 +193,6 @@ img.profile {
   margin: 0em 0 2em 0;
   background-color: var(--col2);
   border-radius: 0 1em 0 1em;
-  border: 1px solid var(--col1);
 }
 
 .box > p {
