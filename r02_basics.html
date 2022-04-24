@@ -180,6 +180,8 @@ if (window.hljs) {
     <ul class="panel nav-panel">
       <li><a class="nav-link" href="r01_gettingstarted.html">
 Getting Started</a></li>
+      <li><a class="nav-link" href="r02_basics.html">
+Basics</a></li>
     </ul>
     <li><a class="nav-link" href="site_build.html">Building GriffinEvo</a></li>
     <li class="icon-container">
@@ -203,11 +205,25 @@ Getting Started</a></li>
 
 
 
-<p>In this section, our aim is to meet and run some basic R programs, learn how to apply functions to data, and learn how to store data locally as you work.</p>
+<p>In this section, the aim is to meet and run some basic R programs, learn how to apply functions to data, and learn how to store data locally as you work.</p>
 <div id="hello-world" class="section level2">
 <h2>Hello, world!</h2>
+<p>The first program to run is the infamous <em>Hello, world!</em> program — a classic example in programming. This one-line program uses the <code>print()</code> function to take a piece of data — a text string of the words <code>Hello, world!</code> — and have the computer return (or “print”) that string to the console. Simple — one <strong>function</strong> and one piece of <strong>data</strong>.</p>
+<p>Open a new script, type the code below and execute the statement.</p>
 <pre class="r"><code>print(&quot;Hello, world!&quot;)</code></pre>
-<pre><code>## [1] &quot;Hello, world!&quot;</code></pre>
+<p>If you have successfully executed the code, change the string to say <code>Hello, &lt;your name&gt;!</code> (replace <code>&lt;your name&gt;</code> with your actual name), and rerun the code.</p>
+<pre class="r"><code>print(&quot;Hello, Anna!&quot;)</code></pre>
+<p>If that also worked, then let’s add more functions and make it more dynamic. We are going to change it so that the program asks the user their name, then returns a custom message. Delete the data from the function call — that’s the <code>&quot;Hello, &lt;your name&gt;&quot;</code> part, including the quotations. In its place, type <code>paste(&quot;Hello&quot;, readline(&quot;Hello, what is your name? &quot;))</code>. This is adding two functions to the program — <code>paste()</code>, which joins multiple text strings into a single text string piece of data, and <code>readline()</code>, which prints a prompt to the console and collects data input at the console by the user. The text string inside the <code>readline()</code> function is the prompt. Now execute the complete statement containing your three functions.</p>
+<pre class="r"><code>print(paste(&quot;Hello,&quot;, readline(&quot;Hello, what is your name? &quot;)))</code></pre>
+<p>Execute <code>?readline</code> in the console — executing <code>?&lt;function&gt;</code> in the console will bring up the documentation for that function, for <code>readline()</code> we see that there is a single <strong>argument</strong> (piece of data required expected by the function). By passing a value or <strong>parameter</strong> to that function, it will interpret that parameter as the value for that argument on execution. Try changing the prompt and data in <code>paste()</code> to give another message and interaction — perhaps, ask the user their age or favourite colour.</p>
+<p>Once you have had a play with this program, save it as <em>hello_world.R</em> and close the script. If you were stuck, you will find some examples at the bottom of this page.</p>
+</div>
+<div id="todo" class="section level2">
+<h2>TODO</h2>
+<ul>
+<li>find a function to demo positional and named arguments</li>
+<li>examples for hello world inputs</li>
+</ul>
 </div>
 <div id="summary" class="section level2">
 <h2>Summary</h2>
