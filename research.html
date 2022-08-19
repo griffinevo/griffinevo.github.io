@@ -12,7 +12,7 @@
 
 
 
-<title>Building GriffinEvo</title>
+<title>Research</title>
 
 <script src="data:application/javascript;base64,Ly8gUGFuZG9jIDIuOSBhZGRzIGF0dHJpYnV0ZXMgb24gYm90aCBoZWFkZXIgYW5kIGRpdi4gV2UgcmVtb3ZlIHRoZSBmb3JtZXIgKHRvCi8vIGJlIGNvbXBhdGlibGUgd2l0aCB0aGUgYmVoYXZpb3Igb2YgUGFuZG9jIDwgMi44KS4KZG9jdW1lbnQuYWRkRXZlbnRMaXN0ZW5lcignRE9NQ29udGVudExvYWRlZCcsIGZ1bmN0aW9uKGUpIHsKICB2YXIgaHMgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKCJkaXYuc2VjdGlvbltjbGFzcyo9J2xldmVsJ10gPiA6Zmlyc3QtY2hpbGQiKTsKICB2YXIgaSwgaCwgYTsKICBmb3IgKGkgPSAwOyBpIDwgaHMubGVuZ3RoOyBpKyspIHsKICAgIGggPSBoc1tpXTsKICAgIGlmICghL15oWzEtNl0kL2kudGVzdChoLnRhZ05hbWUpKSBjb250aW51ZTsgIC8vIGl0IHNob3VsZCBiZSBhIGhlYWRlciBoMS1oNgogICAgYSA9IGguYXR0cmlidXRlczsKICAgIHdoaWxlIChhLmxlbmd0aCA+IDApIGgucmVtb3ZlQXR0cmlidXRlKGFbMF0ubmFtZSk7CiAgfQp9KTsK"></script>
 <link href="data:text/css,%2Ehljs%2Dliteral%20%7B%0Acolor%3A%20%23990073%3B%0A%7D%0A%2Ehljs%2Dnumber%20%7B%0Acolor%3A%20%23099%3B%0A%7D%0A%2Ehljs%2Dcomment%20%7B%0Acolor%3A%20%23998%3B%0Afont%2Dstyle%3A%20italic%3B%0A%7D%0A%2Ehljs%2Dkeyword%20%7B%0Acolor%3A%20%23900%3B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0A%2Ehljs%2Dstring%20%7B%0Acolor%3A%20%23d14%3B%0A%7D%0A" rel="stylesheet" />
@@ -95,76 +95,22 @@ if (window.hljs) {
 
 
 
-<h1 class="title toc-ignore">Building GriffinEvo</h1>
+<h1 class="title toc-ignore">Research</h1>
 
 
 
-<p>I took the opportunity of building this page to practice using R, RMarkdown, HTML, CSS and JavaScript. Each page on this site is created by an RMarkdown document (.Rmd). Each of those .Rmd documents contains a connection to three HTML documents — in_header.html, before_body.html and after_body.html. These are connected to by the YAML header of each .Rmd document which looks like</p>
-<pre><code>---
-title: Page Title
-output: 
-  html_document:
-    theme: null
-    includes:
-      in_header:   in_header.html
-      before_body: before_body.html
-      after_body:  after_body.html
----</code></pre>
-<p>These <code>include</code> options are used when the document is rendered by the rmarkdown package. When rendered, R will add these documents to each .Rmd file in the way you would expect from their names:</p>
+<p>Evolutionary fitness is maximized in different ways in males and females. For example, in many birds, males sing and have vibrant or ornamental feathers to attract females and get the opportunity to reproduce, but those traits come at a cost — increased risk of being eaten because they are more conspicuous or less mobile. Females, because they are not having to attract mates with displays, can live much more inconspicuously — that’s why female birds are often relatively dull compared to their male counterparts.</p>
+<p>But selection cannot drive males and females to look and behave differently with impunity — selection affects which variants of genes are more likely to pass to the next generation, but the vast majority of genes present and expressed in both sexes. This means that variants, such as those producing longer more colorful tail feathers in males, will also have a similar effect in females. This creates an evolutionary conflict between the sexes over how the genome is optimized — an evolutionary tug of war.</p>
+<p>My work used quantitative genetic approaches — those using intricate experimental designs, large datasets and advanced statistical methods to describe the genetic architecture of traits — to understand</p>
 <ul>
-<li>before_body.html contains HTML elements that create the top bar and the navigation menu — elements that will occur prior to the main content of each page, e.g.</li>
+<li>how pervasive intersexual genetic conflict is</li>
+<li>how readily a genetic disconnect between the sexes can be generated</li>
+<li>how genetic connections between the sexes are affected by genetic mutation and environmental change</li>
+<li>whether sex chromosomes can play a special role in the evolution of sex differences.</li>
 </ul>
-<pre><code>&lt;div id=&quot;nav-menu-container&quot;&gt;
-  &lt;div id=&quot;close-nav&quot;  onclick=&quot;closeNav()&quot;&gt;Close&lt;/div&gt;
-  &lt;ul class=&quot;nav-list&quot;&gt;
-    &lt;li&gt;&lt;a class=&quot;nav-link&quot; href=&quot;index.html&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
-    &lt;li class=&quot;icon-container&quot;&gt;
-      &lt;a href=&quot;https://twitter.com/griffinevo&quot; target=&quot;_blank&quot; class=&quot;fa fa-twitter-square navLink&quot;&gt;&lt;/a&gt;
-      &lt;a href=&quot;https://www.linkedin.com/in/robgriffin247/&quot; target=&quot;_blank&quot; class=&quot;fa-linkedin-square navLink fa&quot;&gt;&lt;/a&gt;
-      &lt;a href=&quot;https://github.com/griffinevo&quot; target=&quot;_blank&quot; class=&quot;fa fa-github-square navLink&quot;&gt;&lt;/a&gt;
-      &lt;a href=&quot;mailto:robgriffin247@hotmail.com&quot; class=&quot;fa fa-envelope-square navLink&quot;&gt;&lt;/a&gt;
-    &lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/div&gt;
-
-&lt;div class=&quot;top-bar&quot;&gt;
-  &lt;div class=&quot;site-title&quot;&gt;GriffinEvo&lt;/div&gt;
-  &lt;div id=&quot;open-nav&quot; onclick=&quot;openNav()&quot;&gt;Menu&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div id=&quot;overlay&quot;&gt;&lt;/div&gt;</code></pre>
-<ul>
-<li>after_body.html contains elements to occur after the main content of each page (and is currently empty)</li>
-<li>in_header.html contains information for the HTML head, such as encoding, JavaScript for functions making the page interactive (e.g. the navigation menu) and a link to a stylesheet, e.g.</li>
-</ul>
-<pre><code>&lt;meta charset=&quot;UTF-8&quot;&gt;
-&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;</code></pre>
-<p>The stylesheet is the fourth and final central document. It is a CSS document specifying how HTML elements will be styled on the page (beyond default behaviours), e.g.</p>
-<pre><code>@import url(&#39;https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,300;1,400;1,500;1,600&amp;display=swap&#39;);
-
-:root {
-  --pridark:  #104e47;
-  --primid:   #417a72;
-  --prilight: #6fa9a0;
-  --secdark:  #c42b00;
-  --secmid:   #ff6004;
-  --seclight: #ff9240;
-}
-
-body {
-  width: 92%;
-  max-width: 800px;
-  margin: 0 auto;
-  font-size: 12pt;
-  padding: 3em 0 10em 0;
-  font-family: &#39;Nunito&#39;, sans-serif;
-  line-height: 1.8em;
-  font-weight: 300;
-  overflow-y: scroll;
-}</code></pre>
-<p>Finally, I have a short R script that picks up each .Rmd document in the directory and sends it to the <code>render()</code> function in R and renders the entire site, allowing any changes to style or generic elements (such as the menu when adding new pages) to be applied to all pages.</p>
-<pre><code>lapply(list.files()[grepl(&quot;.Rmd&quot;, list.files())], render)</code></pre>
-<p>With this structure in place, all I need to do to add a new page to the website is to write the content in a RMarkdown document and the document to the site menu (in before.html). Feel free to contact me if you want help implementing this structure to your own website.</p>
+<p>Using gene expression data, covering many thousands of genes assayed in both sexes from 40 inbred-lines of fruit flies, I have shown that there is considerable potential for pervasive genetic constraint on the evolution of sex differences. By modifying the “hemiclone” method, I have shown that there are considerable differences between the X-chromosome and autosomes in the degree of genetic coupling between males and females for lifespan and ageing in fruit flies. Using church records, I have also shown that sex differences in male and female life expectancy in humans — where women increasingly tend to outlive men — may be explained by environmental change.</p>
+<p>I consider myself fortunate to have had the chance to pursue a career in academia for the years that I chose to do so. It took me all over the world, gave me the opportunity to present and discuss work at major conferences and collaborate with some of the best researchers in my field. Above all, it gave me the freedom to let experiments and data lead the way, with results both answering and generating questions. Ultimately I left academia due to the costs it imposed on my family life and well-being.</p>
+<p>My articles can be find through <a href="https://scholar.google.com/citations?user=w0uVTwIAAAAJ&amp;hl=en">Google scholar</a>, while my PhD thesis can be found <a href="http://www.diva-portal.org/smash/record.jsf?pid=diva2%3A842941&amp;dswid=3328">here</a>. While my career is no longer in academia, I am still actively collaborating and open to further collaborations, where I can contribute with the conception, planning, analysis and publication of research experiments.</p>
 
 <script>
   var acc = document.getElementsByClassName("accordion");
